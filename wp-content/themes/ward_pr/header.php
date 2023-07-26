@@ -24,6 +24,8 @@
         <i class="fa fa-bars" aria-hidden="true"></i>
     </div>
     <!-- New header start  -->
+  
+    <header class="header d-lg-block d-none position-relative w-100">
     <div class="header_section">
         <div class="container">
             <div class="row d-flex align-items-center">
@@ -67,7 +69,6 @@
             </div>
         </div>
     </div>
-    <header class="header d-lg-block d-none position-relative w-100">
         <div class="auto-container">
             <nav class="cssmenu d-flex">
 
