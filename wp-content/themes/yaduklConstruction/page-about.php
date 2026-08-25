@@ -84,7 +84,7 @@
       </div>
     </section>
 
-    <!-- ============ INTRODUCTION ============ -->
+    <?php /* ============ INTRODUCTION ============ */ ?>
     <section class="section" aria-labelledby="introHeading">
       <div class="container position-relative">
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/brand-illustration.jpeg" class="about-illustration d-none d-lg-block" alt="" aria-hidden="true" loading="lazy">
@@ -92,75 +92,52 @@
 
           <div class="col-lg-6 reveal">
             <div class="split-media">
-              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" alt="Yadukul engineers reviewing drawings at a construction site" loading="lazy" width="1200" height="1000">
-              <div class="split-badge"><strong>Since 2015</strong><span>Serving Nepal</span></div>
+              <?php $i_img = get_field( 'intro_image' ) ? get_field( 'intro_image' ) : get_field( 'intro_image_url' ); ?>
+              <?php if ( $i_img ) : ?>
+              <img src="<?php echo esc_url( $i_img ); ?>" alt="<?php echo esc_attr( get_field( 'intro_title' ) ); ?>" loading="lazy" width="1200" height="1000">
+              <?php endif; ?>
+              <?php if ( get_field( 'intro_badge_number' ) ) : ?>
+              <div class="split-badge"><strong><?php echo esc_html( get_field( 'intro_badge_number' ) ); ?></strong><span><?php echo esc_html( get_field( 'intro_badge_label' ) ); ?></span></div>
+              <?php endif; ?>
             </div>
           </div>
 
           <div class="col-lg-6 reveal" style="--d:.1s">
-            <span class="eyebrow">Company Introduction</span>
-            <h2 class="section-title" id="introHeading">Property, Engineering and Construction Under One Roof</h2>
-            <p>
-              Yadukul Real Estate &amp; Construction Pvt. Ltd. began in 2015 as a small land consultancy
-              in Kathmandu, helping families find plots they could actually build on. Clients kept
-              coming back with the next question &mdash; who will draw the map, who will get the permit,
-              who will build it &mdash; so we brought those services in-house.
-            </p>
-            <p>
-              Today we work across land buying and selling, property consultancy, architectural and
-              structural engineering, and turnkey construction. The name Yadukul reflects the values
-              the company was founded on: honesty in dealing, care for the people we work with, and
-              respect for what we build.
-            </p>
-            <p class="mb-0">
-              We operate across the Kathmandu Valley, Chitwan and Pokhara, and we take on a limited
-              number of construction projects each year so that every site keeps its own engineer.
-            </p>
+            <span class="eyebrow"><?php echo esc_html( get_field( 'intro_eyebrow' ) ); ?></span>
+            <h2 class="section-title" id="introHeading"><?php echo esc_html( get_field( 'intro_title' ) ); ?></h2>
+            <?php echo wp_kses_post( get_field( 'intro_text' ) ); ?>
           </div>
 
         </div>
 
+        <?php $i_stats = get_field( 'intro_stats' ); if ( $i_stats ) : ?>
         <div class="stat-grid mt-5 reveal">
-          <div class="stat-box"><strong><span data-count="10">10</span>+</strong><span>Years Experience</span></div>
-          <div class="stat-box"><strong><span data-count="500">500</span>+</strong><span>Properties</span></div>
-          <div class="stat-box"><strong><span data-count="250">250</span>+</strong><span>Happy Clients</span></div>
-          <div class="stat-box"><strong><span data-count="50">50</span>+</strong><span>Projects Completed</span></div>
+          <?php foreach ( $i_stats as $s ) : ?>
+          <div class="stat-box"><strong><span data-count="<?php echo esc_attr( $s['number'] ); ?>"><?php echo esc_html( $s['number'] ); ?></span>+</strong><span><?php echo esc_html( $s['label'] ); ?></span></div>
+          <?php endforeach; ?>
         </div>
+        <?php endif; ?>
       </div>
     </section>
 
-    <!-- ============ MISSION & VISION ============ -->
+    <?php /* ============ MISSION & VISION ============ */ ?>
     <section class="section bg-light-2" aria-labelledby="mvHeading">
       <div class="container">
       <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Direction</span>
-        <h2 class="section-title">Mission &amp; Vision</h2>
-        <p class="section-sub">Where we are going, and how we intend to get there.</p>
+        <span class="eyebrow eyebrow-center"><?php echo esc_html( get_field( 'mv_eyebrow' ) ); ?></span>
+        <h2 class="section-title" id="mvHeading"><?php echo esc_html( get_field( 'mv_title' ) ); ?></h2>
+        <p class="section-sub"><?php echo esc_html( get_field( 'mv_sub' ) ); ?></p>
       </div>
         <div class="row g-4">
-          <div class="col-lg-6 reveal">
+          <?php $mv = get_field( 'mv_cards' ); if ( $mv ) : foreach ( $mv as $i => $c ) : ?>
+          <div class="col-lg-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
             <div class="service-card h-100">
-              <div class="service-icon"><i class="bi bi-bullseye" aria-hidden="true"></i></div>
-              <h3>Our Mission</h3>
-              <p class="mb-0">
-                To make property decisions in Nepal simpler and safer &mdash; by verifying every listing
-                before it reaches a client, quoting honestly, and standing behind the buildings we
-                put our name on. We would rather lose a deal than sell a property we would not buy
-                ourselves.
-              </p>
+              <?php if ( ! empty( $c['icon'] ) ) : ?><div class="service-icon"><i class="bi <?php echo esc_attr( $c['icon'] ); ?>" aria-hidden="true"></i></div><?php endif; ?>
+              <h3><?php echo esc_html( $c['title'] ); ?></h3>
+              <p class="mb-0"><?php echo esc_html( $c['text'] ); ?></p>
             </div>
           </div>
-          <div class="col-lg-6 reveal" style="--d:.08s">
-            <div class="service-card h-100">
-              <div class="service-icon"><i class="bi bi-eye" aria-hidden="true"></i></div>
-              <h3>Our Vision</h3>
-              <p class="mb-0">
-                To be the property and construction partner Nepali families recommend to their own
-                relatives &mdash; known less for the number of deals closed than for the number of
-                clients who came back a second and third time.
-              </p>
-            </div>
-          </div>
+          <?php endforeach; endif; ?>
         </div>
       </div>
     </section>

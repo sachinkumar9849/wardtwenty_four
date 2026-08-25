@@ -1,0 +1,341 @@
+{
+ "properties": [
+  {
+   "purpose": "sale",
+   "type": "land",
+   "location": "kathmandu",
+   "price_numeric": "4800000",
+   "area_numeric": "1369",
+   "image_url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
+   "badge": "For Sale",
+   "kind": "Residential Land",
+   "title": "Residential Land at Budhanilkantha",
+   "location_text": "Budhanilkantha, Kathmandu",
+   "area_display": "4 Aana",
+   "road": "13 ft Road",
+   "price_display": "NPR 48 Lakhs",
+   "price_note": "Negotiable",
+   "featured": true
+  },
+  {
+   "purpose": "sale",
+   "type": "house",
+   "location": "lalitpur",
+   "price_numeric": "32500000",
+   "area_numeric": "2054",
+   "image_url": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+   "badge": "For Sale",
+   "kind": "Ready-Made House",
+   "title": "Modern 2.5 Storey House at Bhaisepati",
+   "location_text": "Bhaisepati, Lalitpur",
+   "area_display": "6 Aana",
+   "road": "20 ft Road",
+   "price_display": "NPR 3.25 Crore",
+   "price_note": "Fixed price",
+   "featured": true
+  },
+  {
+   "purpose": "sale",
+   "type": "commercial",
+   "location": "kathmandu",
+   "price_numeric": "120000000",
+   "area_numeric": "3080",
+   "image_url": "https://images.unsplash.com/photo-1554435493-93422e8220c8?auto=format&fit=crop&w=1200&q=80",
+   "badge": "For Sale",
+   "kind": "Commercial Building",
+   "title": "Commercial Building on Ring Road",
+   "location_text": "Chabahil, Kathmandu",
+   "area_display": "9 Aana",
+   "road": "30 ft Road",
+   "price_display": "NPR 12 Crore",
+   "price_note": "Rental income ready",
+   "featured": true
+  },
+  {
+   "purpose": "sale",
+   "type": "apartment",
+   "location": "kathmandu",
+   "price_numeric": "18500000",
+   "area_numeric": "1450",
+   "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+   "badge": "For Sale",
+   "kind": "Apartment",
+   "title": "3BHK Apartment at Dhapasi Heights",
+   "location_text": "Dhapasi, Kathmandu",
+   "area_display": "1,450 sq.ft",
+   "road": "Blacktopped",
+   "price_display": "NPR 1.85 Crore",
+   "price_note": "Bank loan available",
+   "featured": true
+  },
+  {
+   "purpose": "sale",
+   "type": "land",
+   "location": "bhaktapur",
+   "price_numeric": "6200000",
+   "area_numeric": "1711",
+   "image_url": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80",
+   "badge": "For Sale",
+   "kind": "Plotting Land",
+   "title": "Plotted Land at Suryabinayak",
+   "location_text": "Suryabinayak, Bhaktapur",
+   "area_display": "5 Aana",
+   "road": "16 ft Road",
+   "price_display": "NPR 62 Lakhs",
+   "price_note": "Per plot",
+   "featured": true
+  },
+  {
+   "purpose": "rent",
+   "type": "house",
+   "location": "pokhara",
+   "price_numeric": "95000",
+   "area_numeric": "3200",
+   "image_url": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80",
+   "badge": "",
+   "kind": "House for Rent",
+   "title": "Furnished Bungalow at Lakeside",
+   "location_text": "Lakeside, Pokhara",
+   "area_display": "3,200 sq.ft",
+   "road": "18 ft Road",
+   "price_display": "NPR 95,000",
+   "price_note": "Per month",
+   "featured": true
+  },
+  {
+   "purpose": "sale",
+   "type": "house",
+   "location": "lalitpur",
+   "price_numeric": "26500000",
+   "area_numeric": "1711",
+   "image_url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+   "badge": "For Sale",
+   "kind": "Ready-Made House",
+   "title": "Contemporary Duplex at Imadol",
+   "location_text": "Imadol, Lalitpur",
+   "area_display": "5 Aana",
+   "road": "16 ft Road",
+   "price_display": "NPR 2.65 Crore",
+   "price_note": "Negotiable",
+   "featured": false
+  },
+  {
+   "purpose": "rent",
+   "type": "commercial",
+   "location": "kathmandu",
+   "price_numeric": "120000",
+   "area_numeric": "820",
+   "image_url": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
+   "badge": "",
+   "kind": "Shop / Retail Space",
+   "title": "Ground Floor Retail Space, Newroad",
+   "location_text": "Newroad, Kathmandu",
+   "area_display": "820 sq.ft",
+   "road": "Main Road",
+   "price_display": "NPR 1,20,000",
+   "price_note": "Per month",
+   "featured": false
+  },
+  {
+   "purpose": "sale",
+   "type": "land",
+   "location": "chitwan",
+   "price_numeric": "19500000",
+   "area_numeric": "4107",
+   "image_url": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
+   "badge": "For Sale",
+   "kind": "Commercial Land",
+   "title": "Highway Facing Land at Bharatpur",
+   "location_text": "Bharatpur, Chitwan",
+   "area_display": "12 Aana",
+   "road": "40 ft Highway",
+   "price_display": "NPR 1.95 Crore",
+   "price_note": "Per plot",
+   "featured": false
+  }
+ ],
+ "services": [
+  {
+   "number_label": "Service 01",
+   "icon": "bi-map",
+   "title": "Land for Sale",
+   "items": [
+    "Tukra Land / Residential Land",
+    "Big Land / Plotting Projects",
+    "Commercial Land",
+    "Agricultural Land"
+   ]
+  },
+  {
+   "number_label": "Service 02",
+   "icon": "bi-house-door",
+   "title": "Building for Sale",
+   "items": [
+    "Ready-made House",
+    "Own Construction Projects",
+    "Commercial Building",
+    "Apartment / Other Buildings"
+   ]
+  },
+  {
+   "number_label": "Service 03",
+   "icon": "bi-key",
+   "title": "Property for Rent",
+   "items": [
+    "House Rent",
+    "Land Rent",
+    "Commercial Space Rent",
+    "Office / Shop Rent"
+   ]
+  },
+  {
+   "number_label": "Service 04",
+   "icon": "bi-bricks",
+   "title": "Construction Services",
+   "items": [
+    "New Building Construction",
+    "Turnkey Construction",
+    "Residential Construction",
+    "Commercial Construction"
+   ]
+  },
+  {
+   "number_label": "Service 05",
+   "icon": "bi-rulers",
+   "title": "Engineering & Consultancy",
+   "items": [
+    "House Map / Drawing",
+    "Architectural & Structural Design",
+    "Estimate & BOQ",
+    "Building Permit Consultancy",
+    "Site Supervision"
+   ]
+  },
+  {
+   "number_label": "Service 06",
+   "icon": "bi-briefcase",
+   "title": "Property Consultancy",
+   "items": [
+    "Property Buying / Selling",
+    "Land Valuation",
+    "Property Investment Consultancy",
+    "Land / House Search",
+    "Buyer-Seller Coordination"
+   ]
+  }
+ ],
+ "build_cards": [
+  {
+   "image_url": "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=80",
+   "title": "Ready-Made Houses",
+   "text": "Move-in ready homes with completed finishing, parking and verified legal documents.",
+   "url": "/buildings/"
+  },
+  {
+   "image_url": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
+   "title": "Commercial Buildings",
+   "text": "Retail, office and mixed-use buildings on main road locations with strong rental demand.",
+   "url": "/buildings/"
+  },
+  {
+   "image_url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
+   "title": "Apartments",
+   "text": "Serviced apartments with lift, backup power, parking and 24-hour security.",
+   "url": "/buildings/"
+  }
+ ],
+ "why_cards": [
+  {
+   "meta": "01",
+   "title": "Trusted Experience",
+   "text": "Professional property and construction support built on a decade of local work."
+  },
+  {
+   "meta": "02",
+   "title": "Verified Properties",
+   "text": "Quality-focused property listings with documents checked before they go live."
+  },
+  {
+   "meta": "03",
+   "title": "Complete Solutions",
+   "text": "Property, engineering and construction services under one roof."
+  },
+  {
+   "meta": "04",
+   "title": "Customer Focused",
+   "text": "Transparent communication and a dedicated point of contact throughout."
+  }
+ ],
+ "cat_cards": [
+  {
+   "image_url": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
+   "title": "Land",
+   "meta": "96 listings",
+   "url": "/properties/?type=land"
+  },
+  {
+   "image_url": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+   "title": "Houses",
+   "meta": "74 listings",
+   "url": "/properties/?type=house"
+  },
+  {
+   "image_url": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80",
+   "title": "Commercial",
+   "meta": "38 listings",
+   "url": "/properties/?type=commercial"
+  },
+  {
+   "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
+   "title": "Apartments",
+   "meta": "42 listings",
+   "url": "/properties/?type=apartment"
+  },
+  {
+   "image_url": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80",
+   "title": "Rental",
+   "meta": "57 listings",
+   "url": "/properties/"
+  },
+  {
+   "image_url": "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&w=1200&q=80",
+   "title": "Plotting",
+   "meta": "12 projects",
+   "url": "/properties/"
+  }
+ ],
+ "testimonials": [
+  {
+   "quote": "They found us a 4 aana plot in Budhanilkantha within our budget and handled the whole land registration process. Everything was explained clearly before we paid anything.",
+   "name": "Sabin Gurung",
+   "role": "Homebuyer, Kathmandu",
+   "rating": 5
+  },
+  {
+   "quote": "We handed over our house project as a turnkey contract. The drawings, the municipal permit and the construction were all managed by one team — finished close to schedule.",
+   "name": "Anita Shrestha",
+   "role": "Homeowner, Lalitpur",
+   "rating": 5
+  },
+  {
+   "quote": "Their valuation advice saved us from overpaying on a commercial plot in Bhaktapur. Honest people to work with, and they follow up long after the deal is done.",
+   "name": "Rajesh Tamang",
+   "role": "Investor, Bhaktapur",
+   "rating": 5
+  }
+ ],
+ "hero_stats": [
+  {
+   "number": "10",
+   "label": "Years Experience"
+  },
+  {
+   "number": "500",
+   "label": "Properties Listed"
+  },
+  {
+   "number": "250",
+   "label": "Happy Clients"
+  }
+ ]
+}

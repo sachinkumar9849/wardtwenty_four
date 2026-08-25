@@ -1,0 +1,47 @@
+{
+ "page-about.php": {
+  "image_url": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80",
+  "heading": "Your Trusted Partner in Property & Construction",
+  "subtitle": "One accountable team for finding land, checking documents, designing, and building — serving families and investors across Nepal since 2015."
+ },
+ "page-buildings.php": {
+  "image_url": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+  "heading": "Buildings That Fit Your Lifestyle",
+  "subtitle": "Ready-made homes, income-generating commercial buildings, serviced apartments and ongoing construction projects you can still customise."
+ },
+ "page-construction.php": {
+  "image_url": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=80",
+  "heading": "Build With Confidence",
+  "subtitle": "Earthquake-resistant structures, fixed-scope contracts and engineers on site every week — from foundation to handover."
+ },
+ "page-contact.php": {
+  "image_url": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
+  "heading": "Get in Touch",
+  "subtitle": "Tell us what you are looking for — land, a house, a rental, a drawing or a full construction contract. We reply within one working day."
+ },
+ "page-engineering.php": {
+  "image_url": "https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=1200&q=80",
+  "heading": "Engineering & Consultancy",
+  "subtitle": "Drawings, structural design, cost estimates and municipal permits — prepared by licensed engineers who also build."
+ },
+ "page-land-plotting.php": {
+  "image_url": "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&w=1200&q=80",
+  "heading": "Find Your Perfect Piece of Land",
+  "subtitle": "Carefully planned residential and commercial plotting projects with proper road access, prepared infrastructure and clear ownership documents."
+ },
+ "page-properties.php": {
+  "image_url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1800&q=80",
+  "heading": "Explore Properties",
+  "subtitle": "Verified land, houses, apartments and commercial properties for sale and rent across Nepal."
+ },
+ "page-property-details.php": {
+  "image_url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
+  "heading": "Residential Land at Budhanilkantha",
+  "subtitle": "Budhanilkantha–11, Kathmandu, Nepal"
+ },
+ "page-rent.php": {
+  "image_url": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80",
+  "heading": "Property for Rent",
+  "subtitle": "Houses, apartments, offices, shops, commercial spaces and land available on monthly rent — all verified before listing."
+ }
+}

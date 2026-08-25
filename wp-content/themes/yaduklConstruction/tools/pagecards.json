@@ -1,0 +1,177 @@
+{
+ "page-about.php": {
+  "value_cards": [
+   {
+    "title": "Integrity",
+    "text": "Full document disclosure before any payment. No hidden commission, ever.",
+    "icon": "bi-shield-check"
+   },
+   {
+    "title": "Quality",
+    "text": "Specified materials, tested concrete and workmanship we are willing to warrant.",
+    "icon": "bi-award"
+   },
+   {
+    "title": "Reliability",
+    "text": "Agreed timelines with weekly progress reporting, and honesty when something slips.",
+    "icon": "bi-clock-history"
+   },
+   {
+    "title": "Partnership",
+    "text": "One dedicated advisor per client, from first site visit to long after handover.",
+    "icon": "bi-people"
+   }
+  ],
+  "team_cards": [
+   {
+    "image_url": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1200&q=80",
+    "title": "Ram Prasad Yadav",
+    "role": "Managing Director",
+    "text": "",
+    "icon": ""
+   },
+   {
+    "image_url": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1200&q=80",
+    "title": "Sunita Karki",
+    "role": "Head of Property Consultancy",
+    "text": "",
+    "icon": ""
+   },
+   {
+    "image_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
+    "title": "Bikash Shrestha",
+    "role": "Senior Structural Engineer",
+    "text": "",
+    "icon": ""
+   },
+   {
+    "image_url": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80",
+    "title": "Pratima Adhikari",
+    "role": "Project Manager",
+    "text": "",
+    "icon": ""
+   }
+  ]
+ },
+ "page-construction.php": {
+  "service_cards": [
+   {
+    "title": "Residential Construction",
+    "text": "Family homes, duplexes and bungalows built to approved drawings with quality-checked materials.",
+    "icon": "bi-house-gear"
+   },
+   {
+    "title": "Commercial Construction",
+    "text": "Office blocks, showrooms and mixed-use buildings designed around rentable floor area.",
+    "icon": "bi-buildings"
+   },
+   {
+    "title": "Turnkey Construction",
+    "text": "One contract covering design, permit, structure, finishing and handover — you receive the keys.",
+    "icon": "bi-box-seam"
+   },
+   {
+    "title": "Construction Contract",
+    "text": "Labour-only or material-and-labour contracts with itemised BOQ and staged billing.",
+    "icon": "bi-file-earmark-ruled"
+   }
+  ]
+ },
+ "page-engineering.php": {
+  "service_cards": [
+   {
+    "title": "House Map / Drawing",
+    "text": "Complete working drawings — plans, elevations, sections and detail drawings ready for the municipality and the site.",
+    "icon": "bi-vector-pen"
+   },
+   {
+    "title": "Architectural Design",
+    "text": "Layouts planned around light, ventilation and your family's daily routine, with 3D views before anything is finalised.",
+    "icon": "bi-columns-gap"
+   },
+   {
+    "title": "Structural Design",
+    "text": "Earthquake-resistant RCC design with full analysis, reinforcement detailing and a signed structural report.",
+    "icon": "bi-diagram-3"
+   },
+   {
+    "title": "Estimate & BOQ",
+    "text": "Item-wise bill of quantities and rate analysis, so you know the real cost before committing to a contractor.",
+    "icon": "bi-calculator"
+   },
+   {
+    "title": "Building Permit Consultancy",
+    "text": "Document preparation, submission and follow-up until the municipal building permit is issued.",
+    "icon": "bi-file-earmark-check"
+   },
+   {
+    "title": "Site Supervision",
+    "text": "Scheduled site visits checking steel, concrete, levels and workmanship, with a written report each time.",
+    "icon": "bi-clipboard-check"
+   },
+   {
+    "title": "Engineering Consultancy",
+    "text": "Second-opinion reviews, feasibility studies, soil test coordination, retrofitting advice and valuation reports for banks and buyers.",
+    "icon": "bi-people"
+   },
+   {
+    "title": "Land Valuation",
+    "text": "Independent land and building valuation based on recent transactions, road access, zoning and development potential.",
+    "icon": "bi-graph-up"
+   }
+  ]
+ },
+ "page-land-plotting.php": {
+  "value_cards": [
+   {
+    "title": "Planned Road Network",
+    "text": "13 – 20 ft blacktopped internal roads with proper turning space.",
+    "icon": "bi-signpost-split"
+   },
+   {
+    "title": "Drainage & Water",
+    "text": "Underground drainage lines and a water supply connection at every plot boundary.",
+    "icon": "bi-droplet"
+   },
+   {
+    "title": "Electricity",
+    "text": "Transformer installed and poles laid along all internal roads.",
+    "icon": "bi-lightning-charge"
+   },
+   {
+    "title": "Clear Documents",
+    "text": "Individual Lalpurja per plot, ready for immediate transfer at the Land Revenue Office.",
+    "icon": "bi-file-earmark-check"
+   }
+  ]
+ },
+ "page-contact.php": {
+  "contact_cards": [
+   {
+    "title": "Office Address",
+    "text": "Chabahil Chowk, Ring RoadKathmandu 44600, Nepal",
+    "icon": "bi-geo-alt-fill"
+   },
+   {
+    "title": "Phone",
+    "text": "",
+    "icon": "bi-telephone-fill"
+   },
+   {
+    "title": "WhatsApp",
+    "text": "",
+    "icon": "bi-whatsapp"
+   },
+   {
+    "title": "Email",
+    "text": "",
+    "icon": "bi-envelope-fill"
+   },
+   {
+    "title": "Office Hours",
+    "text": "Sunday – Friday: 9:00 AM – 6:00 PMSaturday: Closed (site visits by appointment)",
+    "icon": "bi-clock-fill"
+   }
+  ]
+ }
+}

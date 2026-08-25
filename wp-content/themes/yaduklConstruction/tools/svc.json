@@ -1,0 +1,78 @@
+{
+ "engineering": [
+  {
+   "number_label": "Service 01",
+   "icon": "bi-vector-pen",
+   "title": "House Map / Drawing",
+   "text": "Complete working drawings — plans, elevations, sections and detail drawings ready for the municipality and the site."
+  },
+  {
+   "number_label": "Service 02",
+   "icon": "bi-columns-gap",
+   "title": "Architectural Design",
+   "text": "Layouts planned around light, ventilation and your family's daily routine, with 3D views before anything is finalised."
+  },
+  {
+   "number_label": "Service 03",
+   "icon": "bi-diagram-3",
+   "title": "Structural Design",
+   "text": "Earthquake-resistant RCC design with full analysis, reinforcement detailing and a signed structural report."
+  },
+  {
+   "number_label": "Service 04",
+   "icon": "bi-calculator",
+   "title": "Estimate & BOQ",
+   "text": "Item-wise bill of quantities and rate analysis, so you know the real cost before committing to a contractor."
+  },
+  {
+   "number_label": "Service 05",
+   "icon": "bi-file-earmark-check",
+   "title": "Building Permit Consultancy",
+   "text": "Document preparation, submission and follow-up until the municipal building permit is issued."
+  },
+  {
+   "number_label": "Service 06",
+   "icon": "bi-clipboard-check",
+   "title": "Site Supervision",
+   "text": "Scheduled site visits checking steel, concrete, levels and workmanship, with a written report each time."
+  },
+  {
+   "number_label": "Service 07",
+   "icon": "bi-people",
+   "title": "Engineering Consultancy",
+   "text": "Second-opinion reviews, feasibility studies, soil test coordination, retrofitting advice and valuation reports for banks and buyers."
+  },
+  {
+   "number_label": "Service 08",
+   "icon": "bi-graph-up",
+   "title": "Land Valuation",
+   "text": "Independent land and building valuation based on recent transactions, road access, zoning and development potential."
+  }
+ ],
+ "construction": [
+  {
+   "number_label": "01",
+   "icon": "bi-house-gear",
+   "title": "Residential Construction",
+   "text": "Family homes, duplexes and bungalows built to approved drawings with quality-checked materials."
+  },
+  {
+   "number_label": "02",
+   "icon": "bi-buildings",
+   "title": "Commercial Construction",
+   "text": "Office blocks, showrooms and mixed-use buildings designed around rentable floor area."
+  },
+  {
+   "number_label": "03",
+   "icon": "bi-box-seam",
+   "title": "Turnkey Construction",
+   "text": "One contract covering design, permit, structure, finishing and handover — you receive the keys."
+  },
+  {
+   "number_label": "04",
+   "icon": "bi-file-earmark-ruled",
+   "title": "Construction Contract",
+   "text": "Labour-only or material-and-labour contracts with itemised BOQ and staged billing."
+  }
+ ]
+}

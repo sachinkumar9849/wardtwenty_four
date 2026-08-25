@@ -1,0 +1,41 @@
+{
+ "intro_eyebrow": "Company Introduction",
+ "intro_title": "Property, Engineering and Construction Under One Roof",
+ "intro_text": "<p>Yadukul Real Estate & Construction Pvt. Ltd. began in 2015 as a small land consultancy in Kathmandu, helping families find plots they could actually build on. Clients kept coming back with the next question — who will draw the map, who will get the permit, who will build it — so we brought those services in-house.</p>\n<p>Today we work across land buying and selling, property consultancy, architectural and structural engineering, and turnkey construction. The name Yadukul reflects the values the company was founded on: honesty in dealing, care for the people we work with, and respect for what we build.</p>\n<p>We operate across the Kathmandu Valley, Chitwan and Pokhara, and we take on a limited number of construction projects each year so that every site keeps its own engineer.</p>",
+ "intro_image_url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
+ "intro_badge_number": "Since 2015",
+ "intro_badge_label": "Serving Nepal",
+ "intro_stats": [
+  {
+   "number": "10",
+   "label": "Years Experience"
+  },
+  {
+   "number": "500",
+   "label": "Properties"
+  },
+  {
+   "number": "250",
+   "label": "Happy Clients"
+  },
+  {
+   "number": "50",
+   "label": "Projects Completed"
+  }
+ ],
+ "mv_eyebrow": "Direction",
+ "mv_title": "Mission & Vision",
+ "mv_sub": "Where we are going, and how we intend to get there.",
+ "mv_cards": [
+  {
+   "icon": "bi-bullseye",
+   "title": "Our Mission",
+   "text": "To make property decisions in Nepal simpler and safer — by verifying every listing before it reaches a client, quoting honestly, and standing behind the buildings we put our name on. We would rather lose a deal than sell a property we would not buy ourselves."
+  },
+  {
+   "icon": "bi-eye",
+   "title": "Our Vision",
+   "text": "To be the property and construction partner Nepali families recommend to their own relatives — known less for the number of deals closed than for the number of clients who came back a second and third time."
+  }
+ ]
+}

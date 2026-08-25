@@ -43,6 +43,47 @@ $title_f = function ( $k ) { return array( 'key' => $k . '_t', 'label' => 'Title
 $text_f  = function ( $k ) { return array( 'key' => $k . '_x', 'label' => 'Text',  'name' => 'text',  'type' => 'textarea', 'rows' => 3 ); };
 $img_f   = function ( $k ) { return array( 'key' => $k . '_i', 'label' => 'Image URL', 'name' => 'image_url', 'type' => 'url' ); };
 
+// About – introduction block
+acf_add_local_field_group( array(
+	'key'        => 'g_about_intro',
+	'title'      => 'About – Introduction',
+	'location'   => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-about.php' ) ) ),
+	'menu_order' => 1,
+	'fields'     => array(
+		array( 'key' => 'ai_eyebrow', 'label' => 'Eyebrow',   'name' => 'intro_eyebrow', 'type' => 'text' ),
+		array( 'key' => 'ai_title',   'label' => 'Heading',    'name' => 'intro_title',   'type' => 'text' ),
+		array( 'key' => 'ai_text',    'label' => 'Body Text',  'name' => 'intro_text',    'type' => 'wysiwyg', 'media_upload' => 0, 'tabs' => 'visual', 'toolbar' => 'basic' ),
+		array( 'key' => 'ai_img',     'label' => 'Image',      'name' => 'intro_image',   'type' => 'image', 'return_format' => 'url' ),
+		array( 'key' => 'ai_img_url', 'label' => 'Image URL (fallback)', 'name' => 'intro_image_url', 'type' => 'url' ),
+		array( 'key' => 'ai_bn',      'label' => 'Badge Top',  'name' => 'intro_badge_number', 'type' => 'text', 'instructions' => 'e.g. Since 2015' ),
+		array( 'key' => 'ai_bl',      'label' => 'Badge Bottom','name' => 'intro_badge_label', 'type' => 'text', 'instructions' => 'e.g. Serving Nepal' ),
+		array( 'key' => 'ai_stats',   'label' => 'Stat Boxes', 'name' => 'intro_stats', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add stat',
+			'sub_fields' => array(
+				array( 'key' => 'ai_s_n', 'label' => 'Number', 'name' => 'number', 'type' => 'text' ),
+				array( 'key' => 'ai_s_l', 'label' => 'Label',  'name' => 'label',  'type' => 'text' ),
+			) ),
+	),
+) );
+
+// About – mission & vision
+acf_add_local_field_group( array(
+	'key'        => 'g_about_mv',
+	'title'      => 'About – Mission & Vision',
+	'location'   => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-about.php' ) ) ),
+	'menu_order' => 2,
+	'fields'     => array(
+		array( 'key' => 'mv_eyebrow', 'label' => 'Eyebrow',  'name' => 'mv_eyebrow', 'type' => 'text' ),
+		array( 'key' => 'mv_title',   'label' => 'Heading',   'name' => 'mv_title',   'type' => 'text' ),
+		array( 'key' => 'mv_sub',     'label' => 'Subtitle',  'name' => 'mv_sub',     'type' => 'textarea', 'rows' => 2 ),
+		array( 'key' => 'mv_cards',   'label' => 'Cards',     'name' => 'mv_cards', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add card',
+			'sub_fields' => array(
+				array( 'key' => 'mv_c_i', 'label' => 'Bootstrap Icon', 'name' => 'icon',  'type' => 'text' ),
+				array( 'key' => 'mv_c_t', 'label' => 'Title',          'name' => 'title', 'type' => 'text' ),
+				array( 'key' => 'mv_c_x', 'label' => 'Text',           'name' => 'text',  'type' => 'textarea', 'rows' => 5 ),
+			) ),
+	),
+) );
+
 // About – values + team
 y_page_cards( 'g_about_values', 'About – Our Values', 'page-about.php', 'value_cards', 'Value Cards',
 	array( $icon( 'av' ), $title_f( 'av' ), $text_f( 'av' ) ) );
