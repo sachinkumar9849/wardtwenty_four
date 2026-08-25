@@ -70,7 +70,7 @@
 
     <section class="page-hero">
       <div class="page-hero-media">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1800&q=80" alt="Aerial view of residential neighbourhood in the Kathmandu Valley" width="1800" height="1000">
+        <img src="<?php echo esc_url( y_page_hero_image() ); ?>" alt="<?php echo esc_attr( y_page_hero_heading() ); ?>" width="1800" height="1000">
       </div>
       <div class="container">
         <nav aria-label="Breadcrumb">
@@ -79,8 +79,8 @@
             <li class="breadcrumb-item active" aria-current="page">Properties</li>
           </ol>
         </nav>
-        <h1>Explore Properties</h1>
-        <p>Verified land, houses, apartments and commercial properties for sale and rent across Nepal.</p>
+        <h1><?php echo esc_html( y_page_hero_heading() ); ?></h1>
+        <?php if ( y_page_hero_sub() ) : ?><p><?php echo esc_html( y_page_hero_sub() ); ?></p><?php endif; ?>
       </div>
     </section>
 
@@ -129,12 +129,9 @@
                 <label class="field-label" for="f-location">Location</label>
                 <select class="form-select" id="f-location" name="location">
                   <option value="">All Locations</option>
-                  <option value="kathmandu">Kathmandu</option>
-                  <option value="lalitpur">Lalitpur</option>
-                  <option value="bhaktapur">Bhaktapur</option>
-                  <option value="chitwan">Chitwan</option>
-                  <option value="pokhara">Pokhara</option>
-                  <option value="other">Other</option>
+                  <?php foreach ( get_terms( array( 'taxonomy' => 'property_location', 'hide_empty' => false ) ) as $t ) : ?>
+                    <option value="<?php echo esc_attr( $t->slug ); ?>"<?php selected( isset($_GET['location']) ? $_GET['location'] : '', $t->slug ); ?>><?php echo esc_html( $t->name ); ?></option>
+                  <?php endforeach; ?>
                 </select>
               </div>
 
@@ -175,7 +172,7 @@
           <!-- ============ RESULTS ============ -->
           <div class="col-lg-9">
             <div class="results-bar">
-              <p><strong id="resultCount">12</strong> properties found</p>
+              <p><strong id="resultCount"><?php echo (int) wp_count_posts( "property" )->publish; ?></strong> properties found</p>
               <div class="d-flex align-items-center gap-2">
                 <label class="field-label mb-0" for="sortBy">Sort</label>
                 <select class="form-select form-select-sm" id="sortBy" style="width:auto" aria-label="Sort properties">
@@ -187,258 +184,24 @@
             </div>
 
             <div class="row g-4" id="propertyGrid">
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="sale" data-type="land" data-location="kathmandu" data-price="4800000" data-area="1369">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Residential Land at Budhanilkantha" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Residential Land</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Residential Land at Budhanilkantha</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Budhanilkantha, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>4 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>13 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 48 Lakhs<small>Negotiable</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="sale" data-type="house" data-location="lalitpur" data-price="32500000" data-area="2054">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80" alt="Modern 2.5 Storey House at Bhaisepati" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Ready-Made House</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Modern 2.5 Storey House at Bhaisepati</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Bhaisepati, Lalitpur</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>6 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>20 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 3.25 Crore<small>Fixed price</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="sale" data-type="commercial" data-location="kathmandu" data-price="120000000" data-area="3080">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1554435493-93422e8220c8?auto=format&fit=crop&w=1200&q=80" alt="Commercial Building on Ring Road" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Commercial Building</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Commercial Building on Ring Road</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Chabahil, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>9 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>30 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 12 Crore<small>Rental income ready</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="sale" data-type="apartment" data-location="kathmandu" data-price="18500000" data-area="1450">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80" alt="3BHK Apartment at Dhapasi Heights" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Apartment</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">3BHK Apartment at Dhapasi Heights</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Dhapasi, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>1,450 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>Blacktopped</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 1.85 Crore<small>Bank loan available</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="sale" data-type="land" data-location="bhaktapur" data-price="6200000" data-area="1711">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80" alt="Plotted Land at Suryabinayak" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Plotting Land</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Plotted Land at Suryabinayak</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Suryabinayak, Bhaktapur</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>5 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>16 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 62 Lakhs<small>Per plot</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="rent" data-type="house" data-location="pokhara" data-price="95000" data-area="3200">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80" alt="Furnished Bungalow at Lakeside" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">House for Rent</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Furnished Bungalow at Lakeside</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Lakeside, Pokhara</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>3,200 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>18 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 95,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="sale" data-type="house" data-location="lalitpur" data-price="26500000" data-area="1711">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" alt="Contemporary Duplex at Imadol" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Ready-Made House</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Contemporary Duplex at Imadol</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Imadol, Lalitpur</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>5 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>16 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 2.65 Crore<small>Negotiable</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="rent" data-type="commercial" data-location="kathmandu" data-price="120000" data-area="820">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80" alt="Ground Floor Retail Space, Newroad" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Shop / Retail Space</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Ground Floor Retail Space, Newroad</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Newroad, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>820 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>Main Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 1,20,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="sale" data-type="land" data-location="chitwan" data-price="19500000" data-area="4107">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80" alt="Highway Facing Land at Bharatpur" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Commercial Land</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Highway Facing Land at Bharatpur</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Bharatpur, Chitwan</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>12 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>40 ft Highway</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 1.95 Crore<small>Per plot</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="rent" data-type="apartment" data-location="lalitpur" data-price="65000" data-area="1100">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" alt="2BHK Serviced Apartment at Jhamsikhel" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Apartment</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">2BHK Serviced Apartment at Jhamsikhel</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Jhamsikhel, Lalitpur</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>1,100 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>Blacktopped</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 65,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="sale" data-type="land" data-location="lalitpur" data-price="8800000" data-area="5476">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=1200&q=80" alt="Agricultural Land at Godawari" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Agricultural Land</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Agricultural Land at Godawari</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Godawari, Lalitpur</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>1 Ropani</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>12 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 88 Lakhs<small>Negotiable</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-xl-4 col-md-6 property-col reveal" data-purpose="sale" data-type="house" data-location="bhaktapur" data-price="14500000" data-area="1540">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&w=1200&q=80" alt="Traditional Style House at Balkot" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Ready-Made House</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Traditional Style House at Balkot</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Balkot, Bhaktapur</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>4.5 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>14 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 1.45 Crore<small>Negotiable</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
+        <?php
+        set_query_var( 'y_col_class', 'col-xl-4 col-md-6' );
+        $args = array( 'post_type' => 'property', 'posts_per_page' => -1 );
+        // Respect ?type= / ?purpose= / ?location= coming from the home page links.
+        $tax = array();
+        foreach ( array( 'type' => 'property_type', 'purpose' => 'property_purpose', 'location' => 'property_location' ) as $q => $taxo ) {
+            if ( ! empty( $_GET[ $q ] ) ) {
+                $tax[] = array( 'taxonomy' => $taxo, 'field' => 'slug', 'terms' => sanitize_title( wp_unslash( $_GET[ $q ] ) ) );
+            }
+        }
+        if ( $tax ) { $args['tax_query'] = $tax; }
+        $plist = new WP_Query( $args );
+        while ( $plist->have_posts() ) : $plist->the_post();
+            get_template_part( 'template-parts/property-card' );
+        endwhile;
+        wp_reset_postdata();
+        set_query_var( 'y_col_class', '' );
+        ?>
             </div>
 
             <div class="no-results" id="noResults" hidden>
@@ -520,15 +283,15 @@
             </li>
             <li>
               <i class="bi bi-telephone" aria-hidden="true"></i>
-              <a href="tel:+97714567890">+977 1 4567890</a>
+              <a href="tel:<?php echo esc_attr( preg_replace( '/\\s+/', '', y_site( 'landline' ) ) ); ?>"><?php echo esc_html( y_site( 'landline' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-whatsapp" aria-hidden="true"></i>
-              <a href="https://wa.me/9779801234567" target="_blank" rel="noopener">+977 9801234567</a>
+              <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( y_site( 'phone' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-envelope" aria-hidden="true"></i>
-              <a href="mailto:info@yadukul.com.np">info@yadukul.com.np</a>
+              <a href="mailto:<?php echo esc_attr( y_site( 'email' ) ); ?>"><?php echo esc_html( y_site( 'email' ) ); ?></a>
             </li>
           </ul>
         </div>
@@ -559,10 +322,10 @@
 
   <!-- Floating quick actions -->
   <div class="floating-actions">
-    <a href="https://wa.me/9779801234567" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
     </a>
-    <a href="tel:+9779801234567" class="float-btn float-call" aria-label="Call us now">
+    <a href="tel:<?php echo esc_attr( y_site( 'phone_raw' ) ); ?>" class="float-btn float-call" aria-label="Call us now">
       <i class="bi bi-telephone-fill" aria-hidden="true"></i>
     </a>
     <a href="#" class="float-btn float-top" id="backToTop" aria-label="Back to top">

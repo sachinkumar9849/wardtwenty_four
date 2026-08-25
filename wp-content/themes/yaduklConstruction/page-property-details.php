@@ -70,7 +70,7 @@
 
     <section class="page-hero" style="padding-bottom:3.5rem">
       <div class="page-hero-media">
-        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Residential land plot at Budhanilkantha, Kathmandu" width="1800" height="1000">
+        <img src="<?php echo esc_url( y_page_hero_image() ); ?>" alt="<?php echo esc_attr( y_page_hero_heading() ); ?>" width="1800" height="1000">
       </div>
       <div class="container">
         <nav aria-label="Breadcrumb">
@@ -80,8 +80,8 @@
             <li class="breadcrumb-item active" aria-current="page">Residential Land at Budhanilkantha</li>
           </ol>
         </nav>
-        <h1>Residential Land at Budhanilkantha</h1>
-        <p><i class="bi bi-geo-alt me-2 text-accent" aria-hidden="true"></i>Budhanilkantha&ndash;11, Kathmandu, Nepal</p>
+        <h1><?php echo esc_html( y_page_hero_heading() ); ?></h1>
+        <?php if ( y_page_hero_sub() ) : ?><p><?php echo esc_html( y_page_hero_sub() ); ?></p><?php endif; ?>
       </div>
     </section>
 
@@ -230,10 +230,10 @@
               </ul>
 
               <div class="d-grid gap-2 detail-actions">
-                <a href="tel:+9779801234567" class="btn btn-accent">
+                <a href="tel:<?php echo esc_attr( y_site( 'phone_raw' ) ); ?>" class="btn btn-accent">
                   <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i>Call Now
                 </a>
-                <a href="https://wa.me/9779801234567" class="btn btn-dark-solid" target="_blank" rel="noopener">
+                <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" class="btn btn-dark-solid" target="_blank" rel="noopener">
                   <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
                 </a>
                 <a href="#enquiry" class="btn btn-outline-dark-2">
@@ -400,15 +400,15 @@
             </li>
             <li>
               <i class="bi bi-telephone" aria-hidden="true"></i>
-              <a href="tel:+97714567890">+977 1 4567890</a>
+              <a href="tel:<?php echo esc_attr( preg_replace( '/\\s+/', '', y_site( 'landline' ) ) ); ?>"><?php echo esc_html( y_site( 'landline' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-whatsapp" aria-hidden="true"></i>
-              <a href="https://wa.me/9779801234567" target="_blank" rel="noopener">+977 9801234567</a>
+              <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( y_site( 'phone' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-envelope" aria-hidden="true"></i>
-              <a href="mailto:info@yadukul.com.np">info@yadukul.com.np</a>
+              <a href="mailto:<?php echo esc_attr( y_site( 'email' ) ); ?>"><?php echo esc_html( y_site( 'email' ) ); ?></a>
             </li>
           </ul>
         </div>
@@ -439,10 +439,10 @@
 
   <!-- Floating quick actions -->
   <div class="floating-actions">
-    <a href="https://wa.me/9779801234567" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
     </a>
-    <a href="tel:+9779801234567" class="float-btn float-call" aria-label="Call us now">
+    <a href="tel:<?php echo esc_attr( y_site( 'phone_raw' ) ); ?>" class="float-btn float-call" aria-label="Call us now">
       <i class="bi bi-telephone-fill" aria-hidden="true"></i>
     </a>
     <a href="#" class="float-btn float-top" id="backToTop" aria-label="Back to top">

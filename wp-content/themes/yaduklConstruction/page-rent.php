@@ -70,7 +70,7 @@
 
     <section class="page-hero">
       <div class="page-hero-media">
-        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80" alt="Residential house available for rent" width="1800" height="1000">
+        <img src="<?php echo esc_url( y_page_hero_image() ); ?>" alt="<?php echo esc_attr( y_page_hero_heading() ); ?>" width="1800" height="1000">
       </div>
       <div class="container">
         <nav aria-label="Breadcrumb">
@@ -79,8 +79,8 @@
             <li class="breadcrumb-item active" aria-current="page">Rent</li>
           </ol>
         </nav>
-        <h1>Property for Rent</h1>
-        <p>Houses, apartments, offices, shops, commercial spaces and land available on monthly rent &mdash; all verified before listing.</p>
+        <h1><?php echo esc_html( y_page_hero_heading() ); ?></h1>
+        <?php if ( y_page_hero_sub() ) : ?><p><?php echo esc_html( y_page_hero_sub() ); ?></p><?php endif; ?>
       </div>
     </section>
 
@@ -124,132 +124,17 @@
         <p class="section-sub">Current rental listings with monthly rent shown.</p>
       </div>
         <div class="row g-4">
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="rent" data-type="house" data-location="pokhara" data-price="95000" data-area="3200">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80" alt="Furnished Bungalow at Lakeside" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">House Rent</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Furnished Bungalow at Lakeside</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Lakeside, Pokhara</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>3,200 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>18 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 95,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="rent" data-type="apartment" data-location="lalitpur" data-price="65000" data-area="1100">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" alt="2BHK Serviced Apartment at Jhamsikhel" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Apartment Rent</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">2BHK Serviced Apartment at Jhamsikhel</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Jhamsikhel, Lalitpur</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>1,100 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>Blacktopped</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 65,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="rent" data-type="commercial" data-location="kathmandu" data-price="120000" data-area="820">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80" alt="Ground Floor Retail Space, Newroad" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Shop Rent</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Ground Floor Retail Space, Newroad</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Newroad, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>820 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>Main Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 1,20,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="rent" data-type="commercial" data-location="kathmandu" data-price="210000" data-area="2400">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Furnished Office Floor at Hattisar" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Office Rent</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Furnished Office Floor at Hattisar</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Hattisar, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>2,400 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>24 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 2,10,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="rent" data-type="land" data-location="kathmandu" data-price="45000" data-area="2738">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80" alt="Open Land for Parking Yard, Balaju" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Land Rent</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Open Land for Parking Yard, Balaju</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Balaju, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>8 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>20 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 45,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="rent" data-type="house" data-location="kathmandu" data-price="55000" data-area="2600">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=80" alt="Family House with Garden at Tokha" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">House Rent</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Family House with Garden at Tokha</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Tokha, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>2,600 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>16 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 55,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
+        <?php
+        $rent = new WP_Query( array(
+            'post_type'      => 'property',
+            'posts_per_page' => -1,
+            'tax_query'      => array( array( 'taxonomy' => 'property_purpose', 'field' => 'slug', 'terms' => 'rent' ) ),
+        ) );
+        while ( $rent->have_posts() ) : $rent->the_post();
+            get_template_part( 'template-parts/property-card' );
+        endwhile;
+        wp_reset_postdata();
+        ?>
         </div>
 
         <div class="text-center mt-5 reveal">
@@ -359,15 +244,15 @@
             </li>
             <li>
               <i class="bi bi-telephone" aria-hidden="true"></i>
-              <a href="tel:+97714567890">+977 1 4567890</a>
+              <a href="tel:<?php echo esc_attr( preg_replace( '/\\s+/', '', y_site( 'landline' ) ) ); ?>"><?php echo esc_html( y_site( 'landline' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-whatsapp" aria-hidden="true"></i>
-              <a href="https://wa.me/9779801234567" target="_blank" rel="noopener">+977 9801234567</a>
+              <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( y_site( 'phone' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-envelope" aria-hidden="true"></i>
-              <a href="mailto:info@yadukul.com.np">info@yadukul.com.np</a>
+              <a href="mailto:<?php echo esc_attr( y_site( 'email' ) ); ?>"><?php echo esc_html( y_site( 'email' ) ); ?></a>
             </li>
           </ul>
         </div>
@@ -398,10 +283,10 @@
 
   <!-- Floating quick actions -->
   <div class="floating-actions">
-    <a href="https://wa.me/9779801234567" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
     </a>
-    <a href="tel:+9779801234567" class="float-btn float-call" aria-label="Call us now">
+    <a href="tel:<?php echo esc_attr( y_site( 'phone_raw' ) ); ?>" class="float-btn float-call" aria-label="Call us now">
       <i class="bi bi-telephone-fill" aria-hidden="true"></i>
     </a>
     <a href="#" class="float-btn float-top" id="backToTop" aria-label="Back to top">

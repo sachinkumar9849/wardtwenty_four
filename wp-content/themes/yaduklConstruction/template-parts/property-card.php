@@ -4,6 +4,8 @@
  * the values now come from the Property post type.
  */
 $pid      = get_the_ID();
+$col_cls  = get_query_var( 'y_col_class' );
+if ( ! $col_cls ) { $col_cls = 'col-lg-4 col-md-6'; }
 $img      = y_property_image( $pid );
 $kind     = get_field( 'kind', $pid );
 $loc      = get_field( 'location_text', $pid );
@@ -18,7 +20,7 @@ if ( ! $badge ) {
 	$badge = $purpose ? 'For ' . $purpose : '';
 }
 ?>
-<div class="col-lg-4 col-md-6 property-col reveal"
+<div class="<?php echo esc_attr( $col_cls ); ?> property-col reveal"
      data-purpose="<?php echo esc_attr( y_term_slug( $pid, 'property_purpose' ) ); ?>"
      data-type="<?php echo esc_attr( y_term_slug( $pid, 'property_type' ) ); ?>"
      data-location="<?php echo esc_attr( y_term_slug( $pid, 'property_location' ) ); ?>"

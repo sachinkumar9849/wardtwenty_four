@@ -1,19 +1,14 @@
-<?php
-/**
- * Template Name: Engineering
- */
-?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="House map and drawing, architectural and structural design, estimate and BOQ, building permit consultancy and site supervision by licensed engineers in Nepal.">
+  <meta name="description" content="4 aana residential land for sale at Budhanilkantha, Kathmandu with 13 ft road access, east facing, NPR 48,00,000. View photos, location map and enquire directly.">
   <meta name="author" content="Yadukul Real Estate &amp; Construction Pvt. Ltd.">
   <meta name="theme-color" content="#1F2937">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Engineering &amp; Consultancy Services in Nepal | Design, BOQ &amp; Permits | Yadukul">
-  <meta property="og:description" content="House map and drawing, architectural and structural design, estimate and BOQ, building permit consultancy and site supervision by licensed engineers in Nepal.">
+  <meta property="og:title" content="Residential Land at Budhanilkantha, Kathmandu &ndash; 4 Aana | Yadukul">
+  <meta property="og:description" content="4 aana residential land for sale at Budhanilkantha, Kathmandu with 13 ft road access, east facing, NPR 48,00,000. View photos, location map and enquire directly.">
   <meta property="og:site_name" content="Yadukul Real Estate &amp; Construction">
 
   <link rel="icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/favicon.svg" type="image/svg+xml">
@@ -66,134 +61,193 @@
       </div>
     </nav>
   </header>
-  <main id="main">
-
-    <section class="page-hero">
+  <main id="main"><?php
+while ( have_posts() ) : the_post();
+	$pid      = get_the_ID();
+	$gallery  = y_property_gallery( $pid );
+	$main_img = $gallery ? $gallery[0] : '';
+	$purpose  = y_term( $pid, 'property_purpose' );
+	$badge    = get_field( 'badge' ) ? get_field( 'badge' ) : ( $purpose ? 'For ' . $purpose : '' );
+	$amen     = get_field( 'amenities' );
+	$phone_r  = y_site( 'phone_raw' );
+	$wa       = y_site( 'whatsapp' );
+?>
+    <section class="page-hero" style="padding-bottom:3.5rem">
       <div class="page-hero-media">
-        <img src="<?php echo esc_url( y_page_hero_image() ); ?>" alt="<?php echo esc_attr( y_page_hero_heading() ); ?>" width="1800" height="1000">
+        <?php if ( $main_img ) : ?>
+        <img src="<?php echo esc_url( $main_img ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" width="1800" height="1000">
+        <?php endif; ?>
       </div>
       <div class="container">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Engineering</li>
+            <li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/properties/' ) ); ?>">Properties</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?php the_title(); ?></li>
           </ol>
         </nav>
-        <h1><?php echo esc_html( y_page_hero_heading() ); ?></h1>
-        <?php if ( y_page_hero_sub() ) : ?><p><?php echo esc_html( y_page_hero_sub() ); ?></p><?php endif; ?>
-        <a href="#services" class="btn btn-accent mt-4">Explore Services</a>
-      </div>
-    </section>
-
-    <!-- ============ SERVICES ============ -->
-    <section class="section" id="services" aria-labelledby="engServicesHeading">
-      <div class="container">
-      <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Our Expertise</span>
-        <h2 class="section-title">Engineering Services</h2>
-        <p class="section-sub">Everything you need between owning a plot and starting construction.</p>
-      </div>
-        <div class="row g-4">
-          <?php $rows = get_field( 'service_cards' ); if ( $rows ) : foreach ( array_slice( $rows, 0, 6 ) as $i => $c ) : ?>
-          <div class="col-lg-4 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
-            <div class="service-card"><?php if ( ! empty( $c['number_label'] ) ) : ?><span class="service-no"><?php echo esc_html( $c['number_label'] ); ?></span><?php endif; ?>
-              <?php if ( ! empty( $c['icon'] ) ) : ?><div class="service-icon"><i class="bi <?php echo esc_attr( $c['icon'] ); ?>" aria-hidden="true"></i></div><?php endif; ?>
-              <h3><?php echo esc_html( $c['title'] ); ?></h3>
-              <p><?php echo esc_html( $c['text'] ); ?></p>
-            </div>
-          </div>
-          <?php endforeach; endif; ?>
-        <?php $extra = array_slice( $rows, 6 ); if ( $extra ) : ?>
-        <div class="row g-4 mt-1">
-          <?php foreach ( $extra as $i => $c ) : ?>
-          <div class="col-lg-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
-            <div class="service-card"><?php if ( ! empty( $c['number_label'] ) ) : ?><span class="service-no"><?php echo esc_html( $c['number_label'] ); ?></span><?php endif; ?>
-              <?php if ( ! empty( $c['icon'] ) ) : ?><div class="service-icon"><i class="bi <?php echo esc_attr( $c['icon'] ); ?>" aria-hidden="true"></i></div><?php endif; ?>
-              <h3><?php echo esc_html( $c['title'] ); ?></h3>
-              <p class="mb-0"><?php echo esc_html( $c['text'] ); ?></p>
-            </div>
-          </div>
-          <?php endforeach; ?>
-        </div>
+        <h1><?php the_title(); ?></h1>
+        <?php $addr = get_field( 'full_address' ) ? get_field( 'full_address' ) : get_field( 'location_text' ); ?>
+        <?php if ( $addr ) : ?>
+        <p><i class="bi bi-geo-alt me-2 text-accent" aria-hidden="true"></i><?php echo esc_html( $addr ); ?></p>
         <?php endif; ?>
       </div>
     </section>
-      </div>
-    </section>
-    <!-- ============ PROCESS SPLIT ============ -->
-    <section class="section bg-light-2" aria-labelledby="engProcessHeading">
-      <div class="container">
-        <div class="row g-5 align-items-center">
-          <div class="col-lg-6 reveal">
-            <div class="split-media">
-              <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1200&q=80" alt="Structural drawings and site plans on a drafting table" loading="lazy" width="1200" height="1000">
-              <div class="split-badge"><strong>12</strong><span>Licensed Engineers</span></div>
-            </div>
-          </div>
-          <div class="col-lg-6 reveal" style="--d:.1s">
-            <span class="eyebrow">Design Process</span>
-            <h2 class="section-title" id="engProcessHeading">Drawings You Can Actually Build From</h2>
-            <p class="section-sub">
-              Because our engineers also supervise construction, the drawings we hand over are
-              detailed enough for the site &mdash; not just enough for the permit file. That single
-              difference removes most of the rework and cost escalation owners run into halfway
-              through a build.
-            </p>
-            <ul class="check-list">
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Site visit and bylaw check before the first sketch</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Two rounds of layout revisions included</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>3D views before the design is frozen</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Structural drawings with full reinforcement detail</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Soft and printed copies for the municipality and site</li>
-            </ul>
-            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-dark-solid">Discuss Your Drawing</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============ DELIVERABLES ============ -->
-    <section class="section section-dark" aria-labelledby="deliverHeading">
+    <section class="section" style="padding-top:3.5rem">
       <div class="container">
-        <div class="row g-5 align-items-center">
-          <div class="col-lg-5 reveal">
-            <span class="eyebrow">Deliverables</span>
-            <h2 class="section-title" id="deliverHeading">What You Receive</h2>
-            <p class="section-sub">A complete, buildable document set &mdash; yours to keep, whoever builds it.</p>
-            <a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>" class="btn btn-accent mt-4">See Construction Services</a>
-          </div>
-          <div class="col-lg-7">
-            <div class="row g-4">
-              <div class="col-sm-6 reveal"><div class="feature-dark"><i class="bi bi-file-earmark-richtext" aria-hidden="true"></i><h4>Architectural Set</h4><p>Plans, elevations, sections, door-window schedule and detail drawings.</p></div></div>
-              <div class="col-sm-6 reveal" style="--d:.08s"><div class="feature-dark"><i class="bi bi-bezier2" aria-hidden="true"></i><h4>Structural Set</h4><p>Foundation, column, beam and slab drawings with a signed analysis report.</p></div></div>
-              <div class="col-sm-6 reveal" style="--d:.16s"><div class="feature-dark"><i class="bi bi-table" aria-hidden="true"></i><h4>BOQ &amp; Estimate</h4><p>Item-wise quantities, rate analysis and a total project cost estimate.</p></div></div>
-              <div class="col-sm-6 reveal" style="--d:.24s"><div class="feature-dark"><i class="bi bi-stamp" aria-hidden="true"></i><h4>Permit File</h4><p>All municipal submission documents, prepared, submitted and followed up.</p></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="row g-4 g-xl-5">
 
-    <!-- ============ CTA ============ -->
-    <section class="section">
-      <div class="container">
-        <div class="cta-band reveal">
-          <div class="row align-items-center g-4">
-            <div class="col-lg-8">
-              <h2>Need Engineering Support?</h2>
-              <p>Share your plot size, location and what you want to build &mdash; we will tell you what is possible and what it costs.</p>
+          <div class="col-lg-7 col-xl-8">
+
+            <?php if ( $main_img ) : ?>
+            <div class="gallery-main" id="galleryMainWrap" data-bs-toggle="modal" data-bs-target="#galleryModal">
+              <img src="<?php echo esc_url( $main_img ); ?>" id="galleryMain" alt="<?php echo esc_attr( get_the_title() ); ?>" width="1200" height="790">
+              <span class="gallery-zoom"><i class="bi bi-arrows-fullscreen me-2" aria-hidden="true"></i>Click to enlarge</span>
             </div>
-            <div class="col-lg-4">
-              <div class="d-flex flex-wrap gap-3 justify-content-lg-end cta-actions">
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent">Talk to an Engineer</a>
+            <?php endif; ?>
+
+            <?php if ( count( $gallery ) > 1 ) : ?>
+            <div class="gallery-thumbs" role="tablist" aria-label="Property photo gallery">
+              <?php foreach ( $gallery as $i => $g ) : ?>
+              <button type="button" class="gallery-thumb<?php echo $i ? '' : ' active'; ?>" role="tab" aria-selected="<?php echo $i ? 'false' : 'true'; ?>" data-full="<?php echo esc_url( $g ); ?>">
+                <img src="<?php echo esc_url( $g ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?> photo <?php echo $i + 1; ?>" loading="lazy" width="200" height="150">
+              </button>
+              <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
+
+            <?php if ( trim( get_the_content() ) ) : ?>
+            <div class="mt-5">
+              <h2 class="section-title h3">Property Details</h2>
+              <div class="divider-gold mb-4"></div>
+              <?php the_content(); ?>
+            </div>
+            <?php endif; ?>
+
+            <?php if ( $amen ) : ?>
+              <h3 class="h5 mt-5 mb-3">Features &amp; Amenities</h3>
+              <div class="row">
+                <?php
+                $half = ceil( count( $amen ) / 2 );
+                foreach ( array_chunk( $amen, $half ) as $col ) : ?>
+                <div class="col-md-6">
+                  <?php foreach ( $col as $a ) : ?>
+                  <div class="amenity-item"><i class="bi bi-check2-circle" aria-hidden="true"></i><?php echo esc_html( $a['text'] ); ?></div>
+                  <?php endforeach; ?>
+                </div>
+                <?php endforeach; ?>
+              </div>
+            <?php endif; ?>
+
+            <?php if ( y_site( 'map_url' ) ) : ?>
+            <div class="mt-5">
+              <h2 class="section-title h3">Location</h2>
+              <div class="divider-gold mb-4"></div>
+              <div class="map-embed">
+                <iframe src="<?php echo esc_url( y_site( 'map_url' ) ); ?>" width="100%" height="380" style="border:0" allowfullscreen loading="lazy" title="Property location"></iframe>
               </div>
             </div>
+            <?php endif; ?>
+
           </div>
+
+          <div class="col-lg-5 col-xl-4">
+            <div class="detail-panel">
+              <?php if ( $badge ) : ?><span class="badge-status position-static d-inline-block mb-3"><?php echo esc_html( $badge ); ?></span><?php endif; ?>
+              <h2 class="h4 mb-2"><?php the_title(); ?></h2>
+              <?php if ( get_field( 'location_text' ) ) : ?>
+              <p class="property-location mb-3"><i class="bi bi-geo-alt" aria-hidden="true"></i><?php echo esc_html( get_field( 'location_text' ) ); ?></p>
+              <?php endif; ?>
+
+              <p class="detail-price mb-1"><?php echo esc_html( get_field( 'price_full' ) ? get_field( 'price_full' ) : get_field( 'price_display' ) ); ?></p>
+              <?php $pw = get_field( 'price_words' ) ? get_field( 'price_words' ) : get_field( 'price_note' ); ?>
+              <?php if ( $pw ) : ?><p class="small mb-0"><?php echo esc_html( $pw ); ?></p><?php endif; ?>
+
+              <ul class="spec-list">
+                <?php
+                $specs = array(
+                    array( 'bi-geo-alt',      'Location',      get_field( 'location_detail' ) ? get_field( 'location_detail' ) : get_field( 'location_text' ) ),
+                    array( 'bi-bounding-box', 'Area',          get_field( 'area_full' ) ? get_field( 'area_full' ) : get_field( 'area_display' ) ),
+                    array( 'bi-signpost-2',   'Road Access',   get_field( 'road_full' ) ? get_field( 'road_full' ) : get_field( 'road' ) ),
+                    array( 'bi-map',          'Property Type', get_field( 'kind' ) ? get_field( 'kind' ) : y_term( $pid, 'property_type' ) ),
+                    array( 'bi-tag',          'Purpose',       $badge ),
+                    array( 'bi-compass',      'Facing',        get_field( 'facing' ) ),
+                );
+                foreach ( $specs as $s ) :
+                    if ( ! $s[2] ) continue; ?>
+                <li><span><i class="bi <?php echo esc_attr( $s[0] ); ?>" aria-hidden="true"></i><?php echo esc_html( $s[1] ); ?></span><strong><?php echo esc_html( $s[2] ); ?></strong></li>
+                <?php endforeach; ?>
+              </ul>
+
+              <div class="d-grid gap-2 detail-actions">
+                <a href="tel:<?php echo esc_attr( $phone_r ); ?>" class="btn btn-accent">
+                  <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i>Call Now
+                </a>
+                <a href="https://wa.me/<?php echo esc_attr( $wa ); ?>" class="btn btn-dark-solid" target="_blank" rel="noopener">
+                  <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>WhatsApp
+                </a>
+                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-outline-dark-2">
+                  <i class="bi bi-envelope me-2" aria-hidden="true"></i>Send Enquiry
+                </a>
+              </div>
+
+              <p class="small text-muted-2 mt-4 mb-0">
+                <?php if ( get_field( 'property_id' ) ) : ?>
+                Property ID: <strong><?php echo esc_html( get_field( 'property_id' ) ); ?></strong><br>
+                <?php endif; ?>
+                Listed by <?php bloginfo( 'name' ); ?>
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
+    <?php
+    // Similar properties: same type, excluding this one.
+    $type_slug = y_term_slug( $pid, 'property_type' );
+    $similar = new WP_Query( array(
+        'post_type'      => 'property',
+        'posts_per_page' => 3,
+        'post__not_in'   => array( $pid ),
+        'tax_query'      => $type_slug ? array( array( 'taxonomy' => 'property_type', 'field' => 'slug', 'terms' => $type_slug ) ) : array(),
+    ) );
+    if ( ! $similar->have_posts() ) {
+        $similar = new WP_Query( array( 'post_type' => 'property', 'posts_per_page' => 3, 'post__not_in' => array( $pid ) ) );
+    }
+    if ( $similar->have_posts() ) : ?>
+    <section class="section bg-light-2" aria-labelledby="similarHeading">
+      <div class="container">
+        <h2 class="section-title" id="similarHeading">Similar Properties</h2>
+        <div class="divider-gold mb-5"></div>
+        <div class="row g-4">
+          <?php while ( $similar->have_posts() ) : $similar->the_post();
+              get_template_part( 'template-parts/property-card' );
+          endwhile; wp_reset_postdata(); ?>
+        </div>
+      </div>
+    </section>
+    <?php endif; ?>
+
+<?php endwhile; ?>
   </main>
+
+  <!-- Enlarged photo -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content border-0" style="border-radius:16px;overflow:hidden">
+        <div class="modal-header border-0">
+          <h2 class="modal-title h6" id="galleryModalLabel">Residential Land at Budhanilkantha</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="" id="galleryModalImage" alt="Enlarged property photo" class="w-100">
+        </div>
+      </div>
+    </div>
+  </div>
   <footer class="site-footer">
     <div class="container">
       <div class="row g-4 g-lg-5">

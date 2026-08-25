@@ -70,7 +70,7 @@
 
     <section class="page-hero">
       <div class="page-hero-media">
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=80" alt="Construction site with reinforced concrete structure in progress" width="1800" height="1000">
+        <img src="<?php echo esc_url( y_page_hero_image() ); ?>" alt="<?php echo esc_attr( y_page_hero_heading() ); ?>" width="1800" height="1000">
       </div>
       <div class="container">
         <nav aria-label="Breadcrumb">
@@ -79,8 +79,8 @@
             <li class="breadcrumb-item active" aria-current="page">Construction</li>
           </ol>
         </nav>
-        <h1>Build With Confidence</h1>
-        <p>Earthquake-resistant structures, fixed-scope contracts and engineers on site every week &mdash; from foundation to handover.</p>
+        <h1><?php echo esc_html( y_page_hero_heading() ); ?></h1>
+        <?php if ( y_page_hero_sub() ) : ?><p><?php echo esc_html( y_page_hero_sub() ); ?></p><?php endif; ?>
         <div class="hero-actions mt-4">
           <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent">Start Your Project</a>
           <a href="#process" class="btn btn-outline-light-2">See Our Process</a>
@@ -97,19 +97,15 @@
         <p class="section-sub">Four contract types, each with a clear scope, timeline and payment schedule.</p>
       </div>
         <div class="row g-4">
-          <div class="col-lg-3 col-md-6 reveal">
-            <div class="service-card"><span class="service-no">01</span><div class="service-icon"><i class="bi bi-house-gear" aria-hidden="true"></i></div><h3>Residential Construction</h3><p class="mb-0">Family homes, duplexes and bungalows built to approved drawings with quality-checked materials.</p></div>
+          <?php $rows = get_field( 'service_cards' ); if ( $rows ) : foreach ( $rows as $i => $c ) : ?>
+          <div class="col-lg-4 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
+            <div class="service-card"><?php if ( ! empty( $c['number_label'] ) ) : ?><span class="service-no"><?php echo esc_html( $c['number_label'] ); ?></span><?php endif; ?>
+              <?php if ( ! empty( $c['icon'] ) ) : ?><div class="service-icon"><i class="bi <?php echo esc_attr( $c['icon'] ); ?>" aria-hidden="true"></i></div><?php endif; ?>
+              <h3><?php echo esc_html( $c['title'] ); ?></h3>
+              <p><?php echo esc_html( $c['text'] ); ?></p>
+            </div>
           </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.08s">
-            <div class="service-card"><span class="service-no">02</span><div class="service-icon"><i class="bi bi-buildings" aria-hidden="true"></i></div><h3>Commercial Construction</h3><p class="mb-0">Office blocks, showrooms and mixed-use buildings designed around rentable floor area.</p></div>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.16s">
-            <div class="service-card"><span class="service-no">03</span><div class="service-icon"><i class="bi bi-box-seam" aria-hidden="true"></i></div><h3>Turnkey Construction</h3><p class="mb-0">One contract covering design, permit, structure, finishing and handover &mdash; you receive the keys.</p></div>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.24s">
-            <div class="service-card"><span class="service-no">04</span><div class="service-icon"><i class="bi bi-file-earmark-ruled" aria-hidden="true"></i></div><h3>Construction Contract</h3><p class="mb-0">Labour-only or material-and-labour contracts with itemised BOQ and staged billing.</p></div>
-          </div>
-        </div>
+          <?php endforeach; endif; ?>
       </div>
     </section>
 
@@ -296,15 +292,15 @@
             </li>
             <li>
               <i class="bi bi-telephone" aria-hidden="true"></i>
-              <a href="tel:+97714567890">+977 1 4567890</a>
+              <a href="tel:<?php echo esc_attr( preg_replace( '/\\s+/', '', y_site( 'landline' ) ) ); ?>"><?php echo esc_html( y_site( 'landline' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-whatsapp" aria-hidden="true"></i>
-              <a href="https://wa.me/9779801234567" target="_blank" rel="noopener">+977 9801234567</a>
+              <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( y_site( 'phone' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-envelope" aria-hidden="true"></i>
-              <a href="mailto:info@yadukul.com.np">info@yadukul.com.np</a>
+              <a href="mailto:<?php echo esc_attr( y_site( 'email' ) ); ?>"><?php echo esc_html( y_site( 'email' ) ); ?></a>
             </li>
           </ul>
         </div>
@@ -335,10 +331,10 @@
 
   <!-- Floating quick actions -->
   <div class="floating-actions">
-    <a href="https://wa.me/9779801234567" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
     </a>
-    <a href="tel:+9779801234567" class="float-btn float-call" aria-label="Call us now">
+    <a href="tel:<?php echo esc_attr( y_site( 'phone_raw' ) ); ?>" class="float-btn float-call" aria-label="Call us now">
       <i class="bi bi-telephone-fill" aria-hidden="true"></i>
     </a>
     <a href="#" class="float-btn float-top" id="backToTop" aria-label="Back to top">

@@ -70,7 +70,7 @@
 
     <section class="page-hero">
       <div class="page-hero-media">
-        <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&w=1200&q=80" alt="Land plotting project with laid out access roads" width="1800" height="1000">
+        <img src="<?php echo esc_url( y_page_hero_image() ); ?>" alt="<?php echo esc_attr( y_page_hero_heading() ); ?>" width="1800" height="1000">
       </div>
       <div class="container">
         <nav aria-label="Breadcrumb">
@@ -79,8 +79,8 @@
             <li class="breadcrumb-item active" aria-current="page">Land Plotting</li>
           </ol>
         </nav>
-        <h1>Find Your Perfect Piece of Land</h1>
-        <p>Carefully planned residential and commercial plotting projects with proper road access, prepared infrastructure and clear ownership documents.</p>
+        <h1><?php echo esc_html( y_page_hero_heading() ); ?></h1>
+        <?php if ( y_page_hero_sub() ) : ?><p><?php echo esc_html( y_page_hero_sub() ); ?></p><?php endif; ?>
         <a href="#projects" class="btn btn-accent mt-4">View Plotting Projects</a>
       </div>
     </section>
@@ -304,19 +304,15 @@
         <p class="section-sub">Infrastructure completed before a single plot is sold.</p>
       </div>
         <div class="row g-4">
-          <div class="col-lg-3 col-md-6 reveal">
-            <div class="value-card"><i class="bi bi-signpost-split" aria-hidden="true"></i><h3>Planned Road Network</h3><p>13 &ndash; 20 ft blacktopped internal roads with proper turning space.</p></div>
+          <?php $rows = get_field( 'value_cards' ); if ( $rows ) : foreach ( $rows as $i => $c ) : ?>
+          <div class="col-lg-3 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
+            <div class="value-card">
+              <?php if ( ! empty( $c['icon'] ) ) : ?><i class="bi <?php echo esc_attr( $c['icon'] ); ?>" aria-hidden="true"></i><?php endif; ?>
+              <h3><?php echo esc_html( $c['title'] ); ?></h3>
+              <p><?php echo esc_html( $c['text'] ); ?></p>
+            </div>
           </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.08s">
-            <div class="value-card"><i class="bi bi-droplet" aria-hidden="true"></i><h3>Drainage &amp; Water</h3><p>Underground drainage lines and a water supply connection at every plot boundary.</p></div>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.16s">
-            <div class="value-card"><i class="bi bi-lightning-charge" aria-hidden="true"></i><h3>Electricity</h3><p>Transformer installed and poles laid along all internal roads.</p></div>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.24s">
-            <div class="value-card"><i class="bi bi-file-earmark-check" aria-hidden="true"></i><h3>Clear Documents</h3><p>Individual Lalpurja per plot, ready for immediate transfer at the Land Revenue Office.</p></div>
-          </div>
-        </div>
+          <?php endforeach; endif; ?>
       </div>
     </section>
 
@@ -431,15 +427,15 @@
             </li>
             <li>
               <i class="bi bi-telephone" aria-hidden="true"></i>
-              <a href="tel:+97714567890">+977 1 4567890</a>
+              <a href="tel:<?php echo esc_attr( preg_replace( '/\\s+/', '', y_site( 'landline' ) ) ); ?>"><?php echo esc_html( y_site( 'landline' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-whatsapp" aria-hidden="true"></i>
-              <a href="https://wa.me/9779801234567" target="_blank" rel="noopener">+977 9801234567</a>
+              <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( y_site( 'phone' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-envelope" aria-hidden="true"></i>
-              <a href="mailto:info@yadukul.com.np">info@yadukul.com.np</a>
+              <a href="mailto:<?php echo esc_attr( y_site( 'email' ) ); ?>"><?php echo esc_html( y_site( 'email' ) ); ?></a>
             </li>
           </ul>
         </div>
@@ -470,10 +466,10 @@
 
   <!-- Floating quick actions -->
   <div class="floating-actions">
-    <a href="https://wa.me/9779801234567" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
     </a>
-    <a href="tel:+9779801234567" class="float-btn float-call" aria-label="Call us now">
+    <a href="tel:<?php echo esc_attr( y_site( 'phone_raw' ) ); ?>" class="float-btn float-call" aria-label="Call us now">
       <i class="bi bi-telephone-fill" aria-hidden="true"></i>
     </a>
     <a href="#" class="float-btn float-top" id="backToTop" aria-label="Back to top">

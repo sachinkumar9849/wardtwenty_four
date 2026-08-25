@@ -70,7 +70,7 @@
 
     <section class="page-hero">
       <div class="page-hero-media">
-        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80" alt="Yadukul team discussing a property project in the office" width="1800" height="1000">
+        <img src="<?php echo esc_url( y_page_hero_image() ); ?>" alt="<?php echo esc_attr( y_page_hero_heading() ); ?>" width="1800" height="1000">
       </div>
       <div class="container">
         <nav aria-label="Breadcrumb">
@@ -79,8 +79,8 @@
             <li class="breadcrumb-item active" aria-current="page">About Us</li>
           </ol>
         </nav>
-        <h1>Your Trusted Partner in Property &amp; Construction</h1>
-        <p>One accountable team for finding land, checking documents, designing, and building &mdash; serving families and investors across Nepal since 2015.</p>
+        <h1><?php echo esc_html( y_page_hero_heading() ); ?></h1>
+        <?php if ( y_page_hero_sub() ) : ?><p><?php echo esc_html( y_page_hero_sub() ); ?></p><?php endif; ?>
       </div>
     </section>
 
@@ -174,19 +174,15 @@
         <p class="section-sub">Four commitments that shape how we work with every client.</p>
       </div>
         <div class="row g-4">
-          <div class="col-lg-3 col-md-6 reveal">
-            <div class="value-card"><i class="bi bi-shield-check" aria-hidden="true"></i><h3>Integrity</h3><p>Full document disclosure before any payment. No hidden commission, ever.</p></div>
+          <?php $rows = get_field( 'value_cards' ); if ( $rows ) : foreach ( $rows as $i => $c ) : ?>
+          <div class="col-lg-3 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
+            <div class="value-card">
+              <?php if ( ! empty( $c['icon'] ) ) : ?><i class="bi <?php echo esc_attr( $c['icon'] ); ?>" aria-hidden="true"></i><?php endif; ?>
+              <h3><?php echo esc_html( $c['title'] ); ?></h3>
+              <p><?php echo esc_html( $c['text'] ); ?></p>
+            </div>
           </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.08s">
-            <div class="value-card"><i class="bi bi-award" aria-hidden="true"></i><h3>Quality</h3><p>Specified materials, tested concrete and workmanship we are willing to warrant.</p></div>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.16s">
-            <div class="value-card"><i class="bi bi-clock-history" aria-hidden="true"></i><h3>Reliability</h3><p>Agreed timelines with weekly progress reporting, and honesty when something slips.</p></div>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.24s">
-            <div class="value-card"><i class="bi bi-people" aria-hidden="true"></i><h3>Partnership</h3><p>One dedicated advisor per client, from first site visit to long after handover.</p></div>
-          </div>
-        </div>
+          <?php endforeach; endif; ?>
       </div>
     </section>
 
@@ -221,22 +217,12 @@
         <p class="section-sub">Property advisors and licensed engineers who work on your project directly.</p>
       </div>
         <div class="row g-4">
-          <div class="col-lg-3 col-md-6 reveal">
-            <div class="team-card"><div class="team-photo"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1200&q=80" alt="Managing Director of Yadukul Real Estate and Construction" loading="lazy" width="500" height="550"></div>
-              <h3>Ram Prasad Yadav</h3><span>Managing Director</span></div>
+          <?php $team = get_field( 'team_cards' ); if ( $team ) : foreach ( $team as $i => $c ) : ?>
+          <div class="col-lg-3 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
+            <div class="team-card"><div class="team-photo"><img src="<?php echo esc_url( $c['image_url'] ); ?>" alt="<?php echo esc_attr( $c['title'] ); ?>" loading="lazy" width="500" height="550"></div>
+              <h3><?php echo esc_html( $c['title'] ); ?></h3><span><?php echo esc_html( $c['role'] ); ?></span></div>
           </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.08s">
-            <div class="team-card"><div class="team-photo"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1200&q=80" alt="Head of Property Consultancy" loading="lazy" width="500" height="550"></div>
-              <h3>Sunita Karki</h3><span>Head of Property Consultancy</span></div>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.16s">
-            <div class="team-card"><div class="team-photo"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80" alt="Senior Structural Engineer" loading="lazy" width="500" height="550"></div>
-              <h3>Bikash Shrestha</h3><span>Senior Structural Engineer</span></div>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.24s">
-            <div class="team-card"><div class="team-photo"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80" alt="Project Manager for construction projects" loading="lazy" width="500" height="550"></div>
-              <h3>Pratima Adhikari</h3><span>Project Manager</span></div>
-          </div>
+          <?php endforeach; endif; ?>
         </div>
       </div>
     </section>
@@ -317,15 +303,15 @@
             </li>
             <li>
               <i class="bi bi-telephone" aria-hidden="true"></i>
-              <a href="tel:+97714567890">+977 1 4567890</a>
+              <a href="tel:<?php echo esc_attr( preg_replace( '/\\s+/', '', y_site( 'landline' ) ) ); ?>"><?php echo esc_html( y_site( 'landline' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-whatsapp" aria-hidden="true"></i>
-              <a href="https://wa.me/9779801234567" target="_blank" rel="noopener">+977 9801234567</a>
+              <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( y_site( 'phone' ) ); ?></a>
             </li>
             <li>
               <i class="bi bi-envelope" aria-hidden="true"></i>
-              <a href="mailto:info@yadukul.com.np">info@yadukul.com.np</a>
+              <a href="mailto:<?php echo esc_attr( y_site( 'email' ) ); ?>"><?php echo esc_html( y_site( 'email' ) ); ?></a>
             </li>
           </ul>
         </div>
@@ -356,10 +342,10 @@
 
   <!-- Floating quick actions -->
   <div class="floating-actions">
-    <a href="https://wa.me/9779801234567" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
       <i class="bi bi-whatsapp" aria-hidden="true"></i>
     </a>
-    <a href="tel:+9779801234567" class="float-btn float-call" aria-label="Call us now">
+    <a href="tel:<?php echo esc_attr( y_site( 'phone_raw' ) ); ?>" class="float-btn float-call" aria-label="Call us now">
       <i class="bi bi-telephone-fill" aria-hidden="true"></i>
     </a>
     <a href="#" class="float-btn float-top" id="backToTop" aria-label="Back to top">

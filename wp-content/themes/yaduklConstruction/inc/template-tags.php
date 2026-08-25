@@ -84,3 +84,86 @@ function y_term_slug( $post_id, $tax ) {
 	$t = get_the_terms( $post_id, $tax );
 	return ( $t && ! is_wp_error( $t ) ) ? $t[0]->slug : '';
 }
+
+/* -------------------------------------------------------------
+ * Site Settings helpers
+ * ---------------------------------------------------------- */
+
+/** A Site Settings value with a sensible fallback. */
+function y_site( $name, $fallback = '' ) {
+	if ( function_exists( 'get_field' ) ) {
+		$v = get_field( $name, 'option' );
+		if ( $v !== null && $v !== '' && $v !== false ) {
+			return $v;
+		}
+	}
+	$defaults = array(
+		'phone'       => '+977 9801234567',
+		'phone_raw'   => '+9779779801234567',
+		'landline'    => '+977 1 4567890',
+		'whatsapp'    => '9779801234567',
+		'email'       => 'info@yadukul.com.np',
+		'email_sales' => 'sales@yadukul.com.np',
+	);
+	if ( $fallback === '' && isset( $defaults[ $name ] ) ) {
+		return $defaults[ $name ];
+	}
+	return $fallback;
+}
+
+/** Gallery image URLs for a property: ACF gallery, then URL rows, then featured image. */
+function y_property_gallery( $post_id ) {
+	$out = array();
+	if ( function_exists( 'get_field' ) ) {
+		$g = get_field( 'gallery', $post_id );
+		if ( is_array( $g ) ) {
+			foreach ( $g as $item ) {
+				$out[] = is_array( $item ) ? $item['url'] : $item;
+			}
+		}
+		if ( ! $out ) {
+			$rows = get_field( 'gallery_urls', $post_id );
+			if ( is_array( $rows ) ) {
+				foreach ( $rows as $r ) {
+					if ( ! empty( $r['url'] ) ) {
+						$out[] = $r['url'];
+					}
+				}
+			}
+		}
+	}
+	if ( ! $out ) {
+		$main = y_property_image( $post_id );
+		if ( $main ) {
+			$out[] = $main;
+		}
+	}
+	return $out;
+}
+
+/* -------------------------------------------------------------
+ * Page banner helpers (Page Banner field group)
+ * ---------------------------------------------------------- */
+
+/** Banner heading: the field, else the page title. */
+function y_page_hero_heading() {
+	$v = function_exists( 'get_field' ) ? get_field( 'hero_heading' ) : '';
+	return $v ? $v : get_the_title();
+}
+
+/** Banner intro text. */
+function y_page_hero_sub() {
+	return function_exists( 'get_field' ) ? (string) get_field( 'hero_subtitle' ) : '';
+}
+
+/** Banner image: image field, then URL field. */
+function y_page_hero_image() {
+	if ( ! function_exists( 'get_field' ) ) {
+		return '';
+	}
+	$v = get_field( 'hero_image' );
+	if ( ! $v ) {
+		$v = get_field( 'hero_image_url' );
+	}
+	return (string) $v;
+}
