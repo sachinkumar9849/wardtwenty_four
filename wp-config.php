@@ -78,6 +78,9 @@ $table_prefix  = 'st_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define('WP_DEBUG', true);
+define('WP_DEBUG_DISPLAY', false);   // keep notices off the page
+define('WP_DEBUG_LOG', true);        // send them to wp-content/debug.log instead
+@ini_set('display_errors', 0);
 
 	
 
