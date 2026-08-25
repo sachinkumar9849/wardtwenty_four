@@ -3,6 +3,12 @@
  * Yadukul Construction theme setup.
  */
 
+/* Theme includes */
+require_once get_template_directory() . '/inc/post-types.php';
+require_once get_template_directory() . '/inc/template-tags.php';
+require_once get_template_directory() . '/inc/options-page.php';
+require_once get_template_directory() . '/inc/acf-fields.php';
+
 function yadukul_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );

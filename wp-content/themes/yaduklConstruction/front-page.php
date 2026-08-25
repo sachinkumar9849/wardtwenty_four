@@ -63,50 +63,43 @@
   </header>
   <main id="main">
 
-    <!-- ============ 1. HERO ============ -->
+    <?php /* ============ 1. HERO ============ */ ?>
     <section class="hero">
       <div class="hero-media">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80" alt="Modern residential house with landscaped garden in Kathmandu Valley" width="1800" height="1200" fetchpriority="high">
+        <img src="<?php echo esc_url( y_image( 'hero_image', 'hero_image_url' ) ); ?>" alt="<?php y_text( 'hero_title' ); ?>" width="1800" height="1200" fetchpriority="high">
       </div>
       <div class="container hero-inner">
         <div class="row">
           <div class="col-lg-9 col-xl-8">
-            <span class="eyebrow">Trusted Property &amp; Construction Partner</span>
-            <h1 data-np="सही सम्पत्ति खोज्नुहोस्। आफ्नो भविष्य निर्माण गर्नुहोस्।">Find the Right Property. Build Your Future.</h1>
-            <p class="lead-text">
-              Discover land, houses, commercial properties and construction solutions with a
-              trusted team of real estate and engineering professionals.
-            </p>
+            <span class="eyebrow"><?php y_text( 'hero_eyebrow' ); ?></span>
+            <h1 data-np="<?php echo esc_attr( y_get( 'hero_title_np' ) ); ?>"><?php y_text( 'hero_title' ); ?></h1>
+            <p class="lead-text"><?php y_text( 'hero_text' ); ?></p>
             <div class="hero-actions">
-              <a href="<?php echo esc_url( home_url( '/properties/' ) ); ?>" class="btn btn-accent">Explore Properties</a>
-              <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-outline-light-2">Contact Us</a>
+              <a href="<?php y_url( 'hero_btn1_url', '/properties/' ); ?>" class="btn btn-accent"><?php y_text( 'hero_btn1_text', 'Explore Properties' ); ?></a>
+              <a href="<?php y_url( 'hero_btn2_url', '/contact/' ); ?>" class="btn btn-outline-light-2"><?php y_text( 'hero_btn2_text', 'Contact Us' ); ?></a>
             </div>
 
+            <?php $stats = y_rows( 'hero_stats' ); if ( $stats ) : ?>
             <div class="hero-stats">
+              <?php foreach ( $stats as $s ) : ?>
               <div class="h-stat">
-                <strong><span data-count="10">10</span>+</strong>
-                <span>Years Experience</span>
+                <strong><span data-count="<?php echo esc_attr( $s['number'] ); ?>"><?php echo esc_html( $s['number'] ); ?></span>+</strong>
+                <span><?php echo esc_html( $s['label'] ); ?></span>
               </div>
-              <div class="h-stat">
-                <strong><span data-count="500">500</span>+</strong>
-                <span>Properties Listed</span>
-              </div>
-              <div class="h-stat">
-                <strong><span data-count="250">250</span>+</strong>
-                <span>Happy Clients</span>
-              </div>
+              <?php endforeach; ?>
             </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 2. PROPERTY SEARCH ============ -->
+    <?php /* ============ 2. PROPERTY SEARCH ============ */ ?>
     <section class="search-wrap" aria-labelledby="searchHeading">
       <div class="container">
         <div class="search-card">
-          <h2 id="searchHeading" data-np="आफ्नो सम्पत्ति खोज्नुहोस्">Find Your Property</h2>
-          <p class="search-sub">Search from our latest properties</p>
+          <h2 id="searchHeading"><?php y_text( 'search_title', 'Find Your Property' ); ?></h2>
+          <p class="search-sub"><?php y_text( 'search_sub', 'Search from our latest properties' ); ?></p>
 
           <form id="propertySearch" novalidate>
             <div class="row g-3 align-items-end">
@@ -115,8 +108,9 @@
                 <label class="field-label" for="s-purpose">Purpose</label>
                 <select class="form-select" id="s-purpose" name="purpose">
                   <option value="">Buy or Rent</option>
-                  <option value="sale">Sale</option>
-                  <option value="rent">Rent</option>
+                  <?php foreach ( get_terms( array( 'taxonomy' => 'property_purpose', 'hide_empty' => false ) ) as $t ) : ?>
+                    <option value="<?php echo esc_attr( $t->slug ); ?>"><?php echo esc_html( $t->name ); ?></option>
+                  <?php endforeach; ?>
                 </select>
               </div>
 
@@ -124,10 +118,9 @@
                 <label class="field-label" for="s-type">Property Type</label>
                 <select class="form-select" id="s-type" name="type">
                   <option value="">All Types</option>
-                  <option value="land">Land</option>
-                  <option value="house">House</option>
-                  <option value="commercial">Commercial</option>
-                  <option value="apartment">Apartment</option>
+                  <?php foreach ( get_terms( array( 'taxonomy' => 'property_type', 'hide_empty' => false ) ) as $t ) : ?>
+                    <option value="<?php echo esc_attr( $t->slug ); ?>"><?php echo esc_html( $t->name ); ?></option>
+                  <?php endforeach; ?>
                 </select>
               </div>
 
@@ -135,12 +128,9 @@
                 <label class="field-label" for="s-location">Location</label>
                 <select class="form-select" id="s-location" name="location">
                   <option value="">All Locations</option>
-                  <option value="kathmandu">Kathmandu</option>
-                  <option value="lalitpur">Lalitpur</option>
-                  <option value="bhaktapur">Bhaktapur</option>
-                  <option value="chitwan">Chitwan</option>
-                  <option value="pokhara">Pokhara</option>
-                  <option value="other">Other</option>
+                  <?php foreach ( get_terms( array( 'taxonomy' => 'property_location', 'hide_empty' => false ) ) as $t ) : ?>
+                    <option value="<?php echo esc_attr( $t->slug ); ?>"><?php echo esc_html( $t->name ); ?></option>
+                  <?php endforeach; ?>
                 </select>
               </div>
 
@@ -167,517 +157,199 @@
       </div>
     </section>
 
-    <!-- ============ 3. FEATURED PROPERTIES ============ -->
+    <?php /* ============ 3. FEATURED PROPERTIES ============ */ ?>
     <section class="section" aria-labelledby="featuredHeading">
       <div class="container">
         <div class="row align-items-end section-head reveal">
           <div class="col-lg-8">
-            <span class="eyebrow">Handpicked Listings</span>
-            <h2 class="section-title" id="featuredHeading" data-np="विशेष सम्पत्तिहरू">Featured Properties</h2>
-            <p class="section-sub">Explore our handpicked properties across the Kathmandu Valley and beyond.</p>
+            <span class="eyebrow"><?php y_text( 'feat_eyebrow' ); ?></span>
+            <h2 class="section-title" id="featuredHeading"><?php y_text( 'feat_title', 'Featured Properties' ); ?></h2>
+            <p class="section-sub"><?php y_text( 'feat_sub' ); ?></p>
           </div>
           <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
-            <a href="<?php echo esc_url( home_url( '/properties/' ) ); ?>" class="btn-link-accent">View All Properties <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            <a href="<?php echo esc_url( home_url( '/properties/' ) ); ?>" class="btn-link-accent"><?php y_text( 'feat_link_text', 'View All Properties' ); ?> <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
 
         <div class="row g-4">
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="sale" data-type="land" data-location="kathmandu" data-price="4800000" data-area="1369">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Residential Land at Budhanilkantha" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Residential Land</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Residential Land at Budhanilkantha</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Budhanilkantha, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>4 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>13 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 48 Lakhs<small>Negotiable</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="sale" data-type="house" data-location="lalitpur" data-price="32500000" data-area="2054">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80" alt="Modern 2.5 Storey House at Bhaisepati" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Ready-Made House</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Modern 2.5 Storey House at Bhaisepati</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Bhaisepati, Lalitpur</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>6 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>20 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 3.25 Crore<small>Fixed price</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="sale" data-type="commercial" data-location="kathmandu" data-price="120000000" data-area="3080">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1554435493-93422e8220c8?auto=format&fit=crop&w=1200&q=80" alt="Commercial Building on Ring Road" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Commercial Building</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Commercial Building on Ring Road</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Chabahil, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>9 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>30 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 12 Crore<small>Rental income ready</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="sale" data-type="apartment" data-location="kathmandu" data-price="18500000" data-area="1450">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80" alt="3BHK Apartment at Dhapasi Heights" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Apartment</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">3BHK Apartment at Dhapasi Heights</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Dhapasi, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>1,450 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>Blacktopped</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 1.85 Crore<small>Bank loan available</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="sale" data-type="land" data-location="bhaktapur" data-price="6200000" data-area="1711">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80" alt="Plotted Land at Suryabinayak" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Plotting Land</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Plotted Land at Suryabinayak</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Suryabinayak, Bhaktapur</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>5 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>16 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 62 Lakhs<small>Per plot</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="rent" data-type="house" data-location="pokhara" data-price="95000" data-area="3200">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80" alt="Furnished Bungalow at Lakeside" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">House for Rent</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Furnished Bungalow at Lakeside</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Lakeside, Pokhara</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>3,200 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>18 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 95,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
+        <?php
+        $featured = new WP_Query( array(
+            'post_type'      => 'property',
+            'posts_per_page' => (int) y_get( 'feat_count', 6 ),
+            'meta_query'     => array( array( 'key' => 'featured', 'value' => '1' ) ),
+        ) );
+        while ( $featured->have_posts() ) : $featured->the_post();
+            get_template_part( 'template-parts/property-card' );
+        endwhile;
+        wp_reset_postdata();
+        ?>
         </div>
       </div>
     </section>
 
-    <!-- ============ 4. SERVICES ============ -->
+    <?php /* ============ 4. SERVICES ============ */ ?>
     <section class="section bg-light-2" aria-labelledby="servicesHeading">
       <div class="container">
-      <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">What We Do</span>
-        <h2 class="section-title">Our Services</h2>
-        <p class="section-sub">Complete property and construction solutions under one roof.</p>
-      </div>
+        <div class="section-head section-head-center text-center reveal">
+          <span class="eyebrow eyebrow-center"><?php y_text( 'serv_eyebrow' ); ?></span>
+          <h2 class="section-title" id="servicesHeading"><?php y_text( 'serv_title', 'Our Services' ); ?></h2>
+          <p class="section-sub"><?php y_text( 'serv_sub' ); ?></p>
+        </div>
         <div class="row g-4">
-
-          <div class="col-lg-4 col-md-6 reveal">
+          <?php foreach ( y_rows( 'services' ) as $i => $s ) : ?>
+          <div class="col-lg-4 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
             <div class="service-card">
-              <span class="service-no">Service 01</span>
-              <div class="service-icon"><i class="bi bi-map" aria-hidden="true"></i></div>
-              <h3>Land for Sale</h3>
+              <?php if ( ! empty( $s['number_label'] ) ) : ?><span class="service-no"><?php echo esc_html( $s['number_label'] ); ?></span><?php endif; ?>
+              <div class="service-icon"><i class="bi <?php echo esc_attr( $s['icon'] ); ?>" aria-hidden="true"></i></div>
+              <h3><?php echo esc_html( $s['title'] ); ?></h3>
+              <?php if ( ! empty( $s['items'] ) ) : ?>
               <ul class="service-list">
-                <li>Tukra Land / Residential Land</li>
-                <li>Big Land / Plotting Projects</li>
-                <li>Commercial Land</li>
-                <li>Agricultural Land</li>
+                <?php foreach ( $s['items'] as $it ) : ?><li><?php echo esc_html( $it['text'] ); ?></li><?php endforeach; ?>
               </ul>
+              <?php endif; ?>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.08s">
-            <div class="service-card">
-              <span class="service-no">Service 02</span>
-              <div class="service-icon"><i class="bi bi-house-door" aria-hidden="true"></i></div>
-              <h3>Building for Sale</h3>
-              <ul class="service-list">
-                <li>Ready-made House</li>
-                <li>Own Construction Projects</li>
-                <li>Commercial Building</li>
-                <li>Apartment / Other Buildings</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.16s">
-            <div class="service-card">
-              <span class="service-no">Service 03</span>
-              <div class="service-icon"><i class="bi bi-key" aria-hidden="true"></i></div>
-              <h3>Property for Rent</h3>
-              <ul class="service-list">
-                <li>House Rent</li>
-                <li>Land Rent</li>
-                <li>Commercial Space Rent</li>
-                <li>Office / Shop Rent</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="service-card">
-              <span class="service-no">Service 04</span>
-              <div class="service-icon"><i class="bi bi-bricks" aria-hidden="true"></i></div>
-              <h3>Construction Services</h3>
-              <ul class="service-list">
-                <li>New Building Construction</li>
-                <li>Turnkey Construction</li>
-                <li>Residential Construction</li>
-                <li>Commercial Construction</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.08s">
-            <div class="service-card">
-              <span class="service-no">Service 05</span>
-              <div class="service-icon"><i class="bi bi-rulers" aria-hidden="true"></i></div>
-              <h3>Engineering &amp; Consultancy</h3>
-              <ul class="service-list">
-                <li>House Map / Drawing</li>
-                <li>Architectural &amp; Structural Design</li>
-                <li>Estimate &amp; BOQ</li>
-                <li>Building Permit Consultancy</li>
-                <li>Site Supervision</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.16s">
-            <div class="service-card">
-              <span class="service-no">Service 06</span>
-              <div class="service-icon"><i class="bi bi-briefcase" aria-hidden="true"></i></div>
-              <h3>Property Consultancy</h3>
-              <ul class="service-list">
-                <li>Property Buying / Selling</li>
-                <li>Land Valuation</li>
-                <li>Property Investment Consultancy</li>
-                <li>Land / House Search</li>
-                <li>Buyer-Seller Coordination</li>
-              </ul>
-            </div>
-          </div>
-
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
-    <!-- ============ 5. LAND PLOTTING ============ -->
+
+    <?php /* ============ 5. LAND PLOTTING ============ */ ?>
     <section class="section" aria-labelledby="plottingHeading">
       <div class="container">
         <div class="row g-5 align-items-center">
-
           <div class="col-lg-6 reveal">
             <div class="split-media">
-              <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&w=1200&q=80" alt="Planned residential land plotting project with access roads" loading="lazy" width="1200" height="900">
+              <img src="<?php echo esc_url( y_image( 'plot_image', 'plot_image_url' ) ); ?>" alt="<?php y_text( 'plot_title' ); ?>" loading="lazy" width="1200" height="900">
+              <?php if ( y_get( 'plot_badge_number' ) ) : ?>
               <div class="split-badge">
-                <strong>28</strong>
-                <span>Plots Available</span>
+                <strong><?php y_text( 'plot_badge_number' ); ?></strong>
+                <span><?php y_text( 'plot_badge_label' ); ?></span>
               </div>
+              <?php endif; ?>
             </div>
           </div>
 
           <div class="col-lg-6 reveal" style="--d:.1s">
-            <span class="eyebrow">Land Plotting</span>
-            <h2 class="section-title" id="plottingHeading">Find Your Perfect Piece of Land</h2>
-            <p class="section-sub">
-              Explore carefully planned residential and commercial land plotting projects with
-              proper road access, location advantages and investment potential.
-            </p>
+            <span class="eyebrow"><?php y_text( 'plot_eyebrow' ); ?></span>
+            <h2 class="section-title" id="plottingHeading"><?php y_text( 'plot_title' ); ?></h2>
+            <p class="section-sub"><?php y_text( 'plot_sub' ); ?></p>
+            <?php $pl = y_rows( 'plot_list' ); if ( $pl ) : ?>
             <ul class="check-list">
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Residential Plots</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Commercial Plots</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Proper Road Access</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Prime Locations</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Investment Opportunities</li>
+              <?php foreach ( $pl as $li ) : ?>
+              <li><i class="bi bi-check2-circle" aria-hidden="true"></i><?php echo esc_html( $li['text'] ); ?></li>
+              <?php endforeach; ?>
             </ul>
-            <a href="<?php echo esc_url( home_url( '/land-plotting/' ) ); ?>" class="btn btn-dark-solid">View Plotting Projects</a>
+            <?php endif; ?>
+            <a href="<?php y_url( 'plot_btn_url', '/land-plotting/' ); ?>" class="btn btn-dark-solid"><?php y_text( 'plot_btn_text', 'View Plotting Projects' ); ?></a>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ============ 6. BUILDINGS ============ -->
+    <?php /* ============ 6. BUILDINGS ============ */ ?>
     <section class="section bg-light-2" aria-labelledby="buildingsHeading">
       <div class="container">
-      <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Buildings</span>
-        <h2 class="section-title">Buildings That Fit Your Lifestyle</h2>
-        <p class="section-sub">Ready-made homes, income-generating commercial space and modern apartments.</p>
-      </div>
+        <div class="section-head section-head-center text-center reveal">
+          <span class="eyebrow eyebrow-center"><?php y_text( 'build_eyebrow' ); ?></span>
+          <h2 class="section-title" id="buildingsHeading"><?php y_text( 'build_title' ); ?></h2>
+          <p class="section-sub"><?php y_text( 'build_sub' ); ?></p>
+        </div>
         <div class="row g-4">
-
-          <div class="col-lg-4 col-md-6 reveal">
+          <?php foreach ( y_rows( 'build_cards' ) as $i => $c ) : ?>
+          <div class="col-lg-4 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
             <article class="property-card">
-              <div class="property-media"><img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=80" alt="Ready-made family house with parking space" loading="lazy" width="600" height="450"></div>
+              <div class="property-media"><img src="<?php echo esc_url( $c['image_url'] ); ?>" alt="<?php echo esc_attr( $c['title'] ); ?>" loading="lazy" width="600" height="450"></div>
               <div class="property-body">
-                <h3 class="property-title">Ready-Made Houses</h3>
-                <p class="mb-4">Move-in ready homes with completed finishing, parking and verified legal documents.</p>
-                <a href="<?php echo esc_url( home_url( '/buildings/' ) ); ?>" class="btn btn-outline-dark-2 mt-auto align-self-start">View Properties</a>
+                <h3 class="property-title"><?php echo esc_html( $c['title'] ); ?></h3>
+                <p class="mb-4"><?php echo esc_html( $c['text'] ); ?></p>
+                <a href="<?php echo esc_url( strpos( $c['url'], 'http' ) === 0 ? $c['url'] : home_url( $c['url'] ) ); ?>" class="btn btn-outline-dark-2 mt-auto align-self-start">View Properties</a>
               </div>
             </article>
           </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.08s">
-            <article class="property-card">
-              <div class="property-media"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Commercial building suitable for offices and retail" loading="lazy" width="600" height="450"></div>
-              <div class="property-body">
-                <h3 class="property-title">Commercial Buildings</h3>
-                <p class="mb-4">Retail, office and mixed-use buildings on main road locations with strong rental demand.</p>
-                <a href="<?php echo esc_url( home_url( '/buildings/' ) ); ?>" class="btn btn-outline-dark-2 mt-auto align-self-start">View Properties</a>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.16s">
-            <article class="property-card">
-              <div class="property-media"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80" alt="Modern apartment living room interior" loading="lazy" width="600" height="450"></div>
-              <div class="property-body">
-                <h3 class="property-title">Apartments</h3>
-                <p class="mb-4">Serviced apartments with lift, backup power, parking and 24-hour security.</p>
-                <a href="<?php echo esc_url( home_url( '/buildings/' ) ); ?>" class="btn btn-outline-dark-2 mt-auto align-self-start">View Properties</a>
-              </div>
-            </article>
-          </div>
-
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
 
-    <!-- ============ 7. CONSTRUCTION & ENGINEERING ============ -->
+    <?php /* ============ 7. CONSTRUCTION & ENGINEERING ============ */ ?>
     <section class="section section-dark" aria-labelledby="constructionHeading">
       <div class="container">
         <div class="row g-5 align-items-center">
           <div class="col-lg-5 reveal">
-            <span class="eyebrow">Construction &amp; Engineering</span>
-            <h2 class="section-title" id="constructionHeading">From Design to Construction</h2>
-            <p class="section-sub">
-              Professional architectural, structural and construction services delivered by
-              experienced professionals.
-            </p>
-            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent mt-4">Talk to Our Experts</a>
+            <span class="eyebrow"><?php y_text( 'const_eyebrow' ); ?></span>
+            <h2 class="section-title" id="constructionHeading"><?php y_text( 'const_title' ); ?></h2>
+            <p class="section-sub"><?php y_text( 'const_sub' ); ?></p>
+            <a href="<?php y_url( 'const_btn_url', '/contact/' ); ?>" class="btn btn-accent mt-4"><?php y_text( 'const_btn_text', 'Talk to Our Experts' ); ?></a>
           </div>
 
           <div class="col-lg-7">
             <div class="row g-4">
-              <div class="col-sm-6 reveal">
+              <?php foreach ( y_rows( 'const_cards' ) as $i => $c ) : ?>
+              <div class="col-sm-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
                 <div class="feature-dark">
-                  <i class="bi bi-pencil-square" aria-hidden="true"></i>
-                  <h4>Architectural Design</h4>
-                  <p>Functional, light-filled layouts drawn to municipal requirements.</p>
+                  <i class="bi <?php echo esc_attr( $c['icon'] ); ?>" aria-hidden="true"></i>
+                  <h4><?php echo esc_html( $c['title'] ); ?></h4>
+                  <p><?php echo esc_html( $c['text'] ); ?></p>
                 </div>
               </div>
-              <div class="col-sm-6 reveal" style="--d:.08s">
-                <div class="feature-dark">
-                  <i class="bi bi-diagram-3" aria-hidden="true"></i>
-                  <h4>Structural Design</h4>
-                  <p>Earthquake-resistant RCC design following the Nepal Building Code.</p>
-                </div>
-              </div>
-              <div class="col-sm-6 reveal" style="--d:.16s">
-                <div class="feature-dark">
-                  <i class="bi bi-bricks" aria-hidden="true"></i>
-                  <h4>Construction</h4>
-                  <p>Turnkey execution with quality materials and agreed timelines.</p>
-                </div>
-              </div>
-              <div class="col-sm-6 reveal" style="--d:.24s">
-                <div class="feature-dark">
-                  <i class="bi bi-clipboard-check" aria-hidden="true"></i>
-                  <h4>Site Supervision</h4>
-                  <p>On-site engineers checking quality, safety and progress weekly.</p>
-                </div>
-              </div>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 8. WHY CHOOSE US ============ -->
+    <?php /* ============ 8. WHY CHOOSE US ============ */ ?>
     <section class="section" aria-labelledby="whyHeading">
       <div class="container">
-      <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Our Strength</span>
-        <h2 class="section-title">Why Choose Us?</h2>
-        <p class="section-sub">A single, accountable team from property search through to handover.</p>
-      </div>
+        <div class="section-head section-head-center text-center reveal">
+          <span class="eyebrow eyebrow-center"><?php y_text( 'why_eyebrow' ); ?></span>
+          <h2 class="section-title" id="whyHeading"><?php y_text( 'why_title', 'Why Choose Us?' ); ?></h2>
+          <p class="section-sub"><?php y_text( 'why_sub' ); ?></p>
+        </div>
         <div class="row g-4 g-lg-5">
-
-          <div class="col-lg-3 col-md-6 reveal">
+          <?php foreach ( y_rows( 'why_cards' ) as $i => $c ) : ?>
+          <div class="col-lg-3 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
             <div class="why-item">
-              <span class="why-num">01</span>
+              <span class="why-num"><?php echo esc_html( $c['meta'] ? $c['meta'] : sprintf( '%02d', $i + 1 ) ); ?></span>
               <div>
-                <h3>Trusted Experience</h3>
-                <p>Professional property and construction support built on a decade of local work.</p>
+                <h3><?php echo esc_html( $c['title'] ); ?></h3>
+                <p><?php echo esc_html( $c['text'] ); ?></p>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.08s">
-            <div class="why-item">
-              <span class="why-num">02</span>
-              <div>
-                <h3>Verified Properties</h3>
-                <p>Quality-focused property listings with documents checked before they go live.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.16s">
-            <div class="why-item">
-              <span class="why-num">03</span>
-              <div>
-                <h3>Complete Solutions</h3>
-                <p>Property, engineering and construction services under one roof.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.24s">
-            <div class="why-item">
-              <span class="why-num">04</span>
-              <div>
-                <h3>Customer Focused</h3>
-                <p>Transparent communication and a dedicated point of contact throughout.</p>
-              </div>
-            </div>
-          </div>
-
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
-    <!-- ============ 9. PROPERTY CATEGORIES ============ -->
+
+    <?php /* ============ 9. PROPERTY CATEGORIES ============ */ ?>
     <section class="section bg-light-2" aria-labelledby="categoriesHeading">
       <div class="container">
-      <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Browse By Category</span>
-        <h2 class="section-title">Property Categories</h2>
-        <p class="section-sub">Start from the type of property you have in mind.</p>
-      </div>
+        <div class="section-head section-head-center text-center reveal">
+          <span class="eyebrow eyebrow-center"><?php y_text( 'cat_eyebrow' ); ?></span>
+          <h2 class="section-title" id="categoriesHeading"><?php y_text( 'cat_title', 'Property Categories' ); ?></h2>
+          <p class="section-sub"><?php y_text( 'cat_sub' ); ?></p>
+        </div>
         <div class="row g-4">
-
-          <div class="col-lg-4 col-md-6 reveal">
-            <a class="category-tile" href="<?php echo esc_url( home_url( '/properties/' ) ); ?>?type=land">
-              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80" alt="Open land plot ready for construction" loading="lazy" width="600" height="470">
+          <?php foreach ( y_rows( 'cat_cards' ) as $i => $c ) : ?>
+          <div class="col-lg-4 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .06 ) . 's"' : ''; ?>>
+            <a class="category-tile" href="<?php echo esc_url( strpos( $c['url'], 'http' ) === 0 ? $c['url'] : home_url( $c['url'] ) ); ?>">
+              <img src="<?php echo esc_url( $c['image_url'] ); ?>" alt="<?php echo esc_attr( $c['title'] ); ?>" loading="lazy" width="600" height="470">
               <div class="category-body">
-                <h3>Land</h3>
-                <span>96 listings</span>
+                <h3><?php echo esc_html( $c['title'] ); ?></h3>
+                <span><?php echo esc_html( $c['meta'] ); ?></span>
                 <span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
               </div>
             </a>
           </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.06s">
-            <a class="category-tile" href="<?php echo esc_url( home_url( '/properties/' ) ); ?>?type=house">
-              <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80" alt="Residential house exterior at dusk" loading="lazy" width="600" height="470">
-              <div class="category-body">
-                <h3>Houses</h3>
-                <span>74 listings</span>
-                <span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.12s">
-            <a class="category-tile" href="<?php echo esc_url( home_url( '/properties/' ) ); ?>?type=commercial">
-              <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80" alt="Commercial office building facade" loading="lazy" width="600" height="470">
-              <div class="category-body">
-                <h3>Commercial</h3>
-                <span>38 listings</span>
-                <span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal">
-            <a class="category-tile" href="<?php echo esc_url( home_url( '/properties/' ) ); ?>?type=apartment">
-              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80" alt="Apartment building balconies" loading="lazy" width="600" height="470">
-              <div class="category-body">
-                <h3>Apartments</h3>
-                <span>42 listings</span>
-                <span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.06s">
-            <a class="category-tile" href="<?php echo esc_url( home_url( '/rent/' ) ); ?>">
-              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80" alt="House available for monthly rent" loading="lazy" width="600" height="470">
-              <div class="category-body">
-                <h3>Rental</h3>
-                <span>57 listings</span>
-                <span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.12s">
-            <a class="category-tile" href="<?php echo esc_url( home_url( '/land-plotting/' ) ); ?>">
-              <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&w=1200&q=80" alt="Land plotting project with marked plots" loading="lazy" width="600" height="470">
-              <div class="category-body">
-                <h3>Plotting</h3>
-                <span>12 projects</span>
-                <span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
-              </div>
-            </a>
-          </div>
-
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
 
-    <!-- ============ 10. ABOUT COMPANY ============ -->
+    <?php /* ============ 10. ABOUT COMPANY ============ */ ?>
     <section class="section" aria-labelledby="aboutHeading">
       <div class="container position-relative">
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/brand-illustration.jpeg" class="about-illustration d-none d-lg-block" alt="" aria-hidden="true" loading="lazy">
@@ -685,62 +357,54 @@
 
           <div class="col-lg-6 reveal">
             <div class="split-media">
-              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" alt="Yadukul team reviewing a residential construction project" loading="lazy" width="1200" height="1000">
+              <img src="<?php echo esc_url( y_image( 'about_image', 'about_image_url' ) ); ?>" alt="<?php y_text( 'about_title' ); ?>" loading="lazy" width="1200" height="1000">
+              <?php if ( y_get( 'about_badge_number' ) ) : ?>
               <div class="split-badge">
-                <strong>10+</strong>
-                <span>Years in Nepal</span>
+                <strong><?php y_text( 'about_badge_number' ); ?></strong>
+                <span><?php y_text( 'about_badge_label' ); ?></span>
               </div>
+              <?php endif; ?>
             </div>
           </div>
 
           <div class="col-lg-6 reveal" style="--d:.1s">
-            <span class="eyebrow">About Our Company</span>
-            <h2 class="section-title" id="aboutHeading">Your Trusted Partner in Property &amp; Construction</h2>
-            <p class="section-sub">
-              Yadukul Real Estate &amp; Construction helps families, investors and businesses across
-              Nepal buy and sell land, choose the right property, and build on it with confidence.
-              From the first site visit to the final handover, one team stays accountable — property
-              consultancy, architectural and structural engineering, and construction under a single roof.
-            </p>
+            <span class="eyebrow"><?php y_text( 'about_eyebrow' ); ?></span>
+            <h2 class="section-title" id="aboutHeading"><?php y_text( 'about_title' ); ?></h2>
+            <p class="section-sub"><?php y_text( 'about_sub' ); ?></p>
 
+            <?php $ast = y_rows( 'about_stats' ); if ( $ast ) : ?>
             <div class="stat-grid">
+              <?php foreach ( $ast as $s ) : ?>
               <div class="stat-box">
-                <strong><span data-count="10">10</span>+</strong>
-                <span>Years Experience</span>
+                <strong><span data-count="<?php echo esc_attr( $s['number'] ); ?>"><?php echo esc_html( $s['number'] ); ?></span>+</strong>
+                <span><?php echo esc_html( $s['label'] ); ?></span>
               </div>
-              <div class="stat-box">
-                <strong><span data-count="500">500</span>+</strong>
-                <span>Properties</span>
-              </div>
-              <div class="stat-box">
-                <strong><span data-count="250">250</span>+</strong>
-                <span>Happy Clients</span>
-              </div>
-              <div class="stat-box">
-                <strong><span data-count="50">50</span>+</strong>
-                <span>Projects Completed</span>
-              </div>
+              <?php endforeach; ?>
             </div>
+            <?php endif; ?>
 
-            <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="btn btn-dark-solid">Learn More About Us</a>
+            <a href="<?php y_url( 'about_btn_url', '/about/' ); ?>" class="btn btn-dark-solid"><?php y_text( 'about_btn_text', 'Learn More About Us' ); ?></a>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ============ 11. CTA ============ -->
+    <?php /* ============ 11. CTA ============ */ ?>
     <section class="section-tight">
       <div class="container">
         <div class="cta-band reveal">
           <div class="row align-items-center g-4">
             <div class="col-lg-8">
-              <h2>Ready to Buy, Sell or Build?</h2>
-              <p>Talk to our property advisors and engineers today — the first consultation is free.</p>
+              <h2><?php y_text( 'cta_title' ); ?></h2>
+              <p><?php y_text( 'cta_text' ); ?></p>
             </div>
             <div class="col-lg-4">
               <div class="d-flex flex-wrap gap-3 justify-content-lg-end cta-actions">
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent">Get a Free Consultation</a>
+                <a href="<?php y_url( 'cta_btn_url', '/contact/' ); ?>" class="btn btn-accent"><?php y_text( 'cta_btn_text', 'Get a Free Consultation' ); ?></a>
+                <?php if ( y_get( 'cta_btn2_text' ) ) : ?>
+                <a href="<?php y_url( 'cta_btn2_url', '/contact/' ); ?>" class="btn btn-outline-light-2"><?php y_text( 'cta_btn2_text' ); ?></a>
+                <?php endif; ?>
               </div>
             </div>
           </div>
@@ -748,84 +412,52 @@
       </div>
     </section>
 
-    <!-- ============ 12. TESTIMONIALS ============ -->
+    <?php /* ============ 12. TESTIMONIALS ============ */ ?>
     <section class="section bg-light-2" aria-labelledby="testimonialsHeading">
       <div class="container">
-      <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Client Voices</span>
-        <h2 class="section-title">What Our Clients Say</h2>
-        <p class="section-sub">Families and investors who found, bought and built with us.</p>
-      </div>
+        <div class="section-head section-head-center text-center reveal">
+          <span class="eyebrow eyebrow-center"><?php y_text( 'testi_eyebrow' ); ?></span>
+          <h2 class="section-title" id="testimonialsHeading"><?php y_text( 'testi_title', 'What Our Clients Say' ); ?></h2>
+          <p class="section-sub"><?php y_text( 'testi_sub' ); ?></p>
+        </div>
         <div class="row g-4">
-
-          <div class="col-lg-4 col-md-6 reveal">
+          <?php
+          $tq = new WP_Query( array( 'post_type' => 'testimonial', 'posts_per_page' => 3 ) );
+          $i = 0;
+          while ( $tq->have_posts() ) : $tq->the_post();
+              $rating = (int) get_field( 'rating' ); if ( ! $rating ) { $rating = 5; }
+              $name   = get_the_title();
+              $words  = preg_split( '/\s+/', trim( $name ) );
+              $initials = strtoupper( mb_substr( $words[0], 0, 1 ) . ( isset( $words[1] ) ? mb_substr( $words[1], 0, 1 ) : '' ) );
+          ?>
+          <div class="col-lg-4 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
             <div class="testimonial-card">
-              <div class="testimonial-stars" aria-label="Rated 5 out of 5">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <div class="testimonial-stars" aria-label="Rated <?php echo esc_attr( $rating ); ?> out of 5">
+                <?php for ( $s = 0; $s < $rating; $s++ ) : ?><i class="bi bi-star-fill"></i><?php endfor; ?>
               </div>
-              <blockquote>
-                They found us a 4 aana plot in Budhanilkantha within our budget and handled the
-                whole land registration process. Everything was explained clearly before we paid anything.
-              </blockquote>
+              <blockquote><?php echo esc_html( wp_strip_all_tags( get_the_content() ) ); ?></blockquote>
               <div class="testimonial-person">
-                <span class="testimonial-avatar" aria-hidden="true">SG</span>
+                <span class="testimonial-avatar" aria-hidden="true"><?php echo esc_html( $initials ); ?></span>
                 <div>
-                  <strong>Sabin Gurung</strong>
-                  <span>Homebuyer, Kathmandu</span>
+                  <strong><?php echo esc_html( $name ); ?></strong>
+                  <span><?php echo esc_html( get_field( 'role' ) ); ?></span>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.08s">
-            <div class="testimonial-card">
-              <div class="testimonial-stars" aria-label="Rated 5 out of 5">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <blockquote>
-                We handed over our house project as a turnkey contract. The drawings, the municipal
-                permit and the construction were all managed by one team — finished close to schedule.
-              </blockquote>
-              <div class="testimonial-person">
-                <span class="testimonial-avatar" aria-hidden="true">AS</span>
-                <div>
-                  <strong>Anita Shrestha</strong>
-                  <span>Homeowner, Lalitpur</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.16s">
-            <div class="testimonial-card">
-              <div class="testimonial-stars" aria-label="Rated 5 out of 5">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              </div>
-              <blockquote>
-                Their valuation advice saved us from overpaying on a commercial plot in Bhaktapur.
-                Honest people to work with, and they follow up long after the deal is done.
-              </blockquote>
-              <div class="testimonial-person">
-                <span class="testimonial-avatar" aria-hidden="true">RT</span>
-                <div>
-                  <strong>Rajesh Tamang</strong>
-                  <span>Investor, Bhaktapur</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          <?php $i++; endwhile; wp_reset_postdata(); ?>
         </div>
       </div>
     </section>
-    <!-- ============ 13. LATEST PROPERTIES ============ -->
+
+    <?php /* ============ 13. LATEST PROPERTIES ============ */ ?>
     <section class="section" aria-labelledby="latestHeading">
       <div class="container">
         <div class="row align-items-end section-head reveal">
           <div class="col-lg-8">
-            <span class="eyebrow">Just Listed</span>
-            <h2 class="section-title" id="latestHeading">Latest Properties</h2>
-            <p class="section-sub">Fresh listings added to our portfolio this month.</p>
+            <span class="eyebrow"><?php y_text( 'latest_eyebrow' ); ?></span>
+            <h2 class="section-title" id="latestHeading"><?php y_text( 'latest_title', 'Latest Properties' ); ?></h2>
+            <p class="section-sub"><?php y_text( 'latest_sub' ); ?></p>
           </div>
           <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
             <a href="<?php echo esc_url( home_url( '/properties/' ) ); ?>" class="btn-link-accent">Browse All <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
@@ -833,73 +465,21 @@
         </div>
 
         <div class="row g-4">
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="sale" data-type="house" data-location="lalitpur" data-price="26500000" data-area="1711">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" alt="Contemporary Duplex at Imadol" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Ready-Made House</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Contemporary Duplex at Imadol</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Imadol, Lalitpur</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>5 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>16 ft Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 2.65 Crore<small>Negotiable</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="rent" data-type="commercial" data-location="kathmandu" data-price="120000" data-area="820">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80" alt="Ground Floor Retail Space, Newroad" loading="lazy" width="600" height="450">
-              <span class="badge-status rent">For Rent</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Shop / Retail Space</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Ground Floor Retail Space, Newroad</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Newroad, Kathmandu</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>820 sq.ft</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>Main Road</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 1,20,000<small>Per month</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 property-col reveal" data-purpose="sale" data-type="land" data-location="chitwan" data-price="19500000" data-area="4107">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80" alt="Highway Facing Land at Bharatpur" loading="lazy" width="600" height="450">
-              <span class="badge-status">For Sale</span>
-            </div>
-            <div class="property-body">
-              <span class="property-kind">Commercial Land</span>
-              <h3 class="property-title"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>">Highway Facing Land at Bharatpur</a></h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Bharatpur, Chitwan</p>
-              <div class="property-meta">
-                <div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong>12 Aana</strong></div>
-                <div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong>40 ft Highway</strong></div>
-              </div>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 1.95 Crore<small>Per plot</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Details</a>
-              </div>
-            </div>
-          </article>
-        </div>
+        <?php
+        $latest = new WP_Query( array(
+            'post_type'      => 'property',
+            'posts_per_page' => (int) y_get( 'latest_count', 3 ),
+            'orderby'        => 'date',
+            'order'          => 'DESC',
+        ) );
+        while ( $latest->have_posts() ) : $latest->the_post();
+            get_template_part( 'template-parts/property-card' );
+        endwhile;
+        wp_reset_postdata();
+        ?>
         </div>
       </div>
     </section>
-
   </main>
   <footer class="site-footer">
     <div class="container">
