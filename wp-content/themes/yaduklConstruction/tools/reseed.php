@@ -72,6 +72,50 @@ if ( $p && $about ) {
 	echo "  about: " . count( $about ) . " intro/mission fields\n";
 }
 
+/* --- Buildings page sections --- */
+$b_page = get_page_by_path( 'buildings' );
+$b_data = $load( 'buildings.json' );
+if ( $b_page && $b_data ) {
+	foreach ( $b_data as $k => $v ) { update_field( $k, $v, $b_page->ID ); }
+	echo "  buildings: " . count( $b_data ) . " section fields\n";
+}
+
+/* --- Land plotting page sections --- */
+$lp_page = get_page_by_path( 'land-plotting' );
+$lp_data = $load( 'landplotting.json' );
+if ( $lp_page && $lp_data ) {
+	foreach ( $lp_data as $k => $v ) { update_field( $k, $v, $lp_page->ID ); }
+	echo "  land-plotting: " . count( $lp_data ) . " section fields\n";
+}
+
+/* --- Plotting projects (content only; never creates duplicates) --- */
+$pl = $load( 'plotting.json' );
+if ( ! empty( $pl['projects'] ) ) {
+	foreach ( $pl['projects'] as $i => $pr ) {
+		$post = get_page_by_title( $pr['title'], OBJECT, 'plot_project' );
+		if ( $post && $post->post_status !== 'publish' ) {
+			// Bring a trashed/draft project back so its page works again.
+			wp_update_post( array( 'ID' => $post->ID, 'post_status' => 'publish' ) );
+		}
+		if ( ! $post ) {
+			// Recreate a project that was deleted entirely.
+			$new_id = wp_insert_post( array(
+				'post_type' => 'plot_project', 'post_status' => 'publish',
+				'post_title' => $pr['title'], 'menu_order' => $i,
+			) );
+			if ( ! $new_id ) { continue; }
+			$post = get_post( $new_id );
+			echo "    recreated missing project: " . $pr['title'] . "\n";
+		}
+		foreach ( array( 'location_text', 'total_area', 'plot_sizes', 'road_access', 'price_display', 'price_note', 'badge', 'image_url' ) as $f ) {
+			update_field( $f, $pr[ $f ], $post->ID );
+		}
+	}
+	$first = get_page_by_title( 'Yadukul Green Valley', OBJECT, 'plot_project' );
+	if ( $first && ! empty( $pl['plots'] ) ) { update_field( 'plots', $pl['plots'], $first->ID ); }
+	echo "  plotting projects: " . count( $pl['projects'] ) . " restored\n";
+}
+
 /* --- Page banners --- */
 $map = array(
 	'page-about.php' => 'about', 'page-buildings.php' => 'buildings', 'page-construction.php' => 'construction',

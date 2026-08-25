@@ -27,6 +27,24 @@ function yadukul_register_post_types() {
 		'rewrite'      => array( 'slug' => 'property' ),
 	) );
 
+
+	register_post_type( 'plot_project', array(
+		'labels' => array(
+			'name'          => 'Plotting Projects',
+			'singular_name' => 'Plotting Project',
+			'add_new_item'  => 'Add New Plotting Project',
+			'edit_item'     => 'Edit Plotting Project',
+			'all_items'     => 'All Plotting Projects',
+			'not_found'     => 'No plotting projects yet.',
+		),
+		'public'        => true,
+		'has_archive'   => false,
+		'menu_icon'     => 'dashicons-location-alt',
+		'menu_position' => 6,
+		'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'page-attributes' ),
+		'rewrite'       => array( 'slug' => 'plotting-project' ),
+	) );
+
 	register_post_type( 'testimonial', array(
 		'labels' => array(
 			'name'          => 'Testimonials',

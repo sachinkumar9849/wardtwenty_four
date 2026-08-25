@@ -43,6 +43,113 @@ $title_f = function ( $k ) { return array( 'key' => $k . '_t', 'label' => 'Title
 $text_f  = function ( $k ) { return array( 'key' => $k . '_x', 'label' => 'Text',  'name' => 'text',  'type' => 'textarea', 'rows' => 3 ); };
 $img_f   = function ( $k ) { return array( 'key' => $k . '_i', 'label' => 'Image URL', 'name' => 'image_url', 'type' => 'url' ); };
 
+// Buildings – all section headings, category tiles and construction projects
+acf_add_local_field_group( array(
+	'key'        => 'g_build_page',
+	'title'      => 'Buildings – Sections',
+	'location'   => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-buildings.php' ) ) ),
+	'menu_order' => 1,
+	'fields'     => array(
+		array( 'key' => 'bp_tab1', 'label' => 'Categories', 'type' => 'tab' ),
+		array( 'key' => 'bp_c_eye', 'label' => 'Eyebrow',  'name' => 'cat_eyebrow', 'type' => 'text' ),
+		array( 'key' => 'bp_c_ttl', 'label' => 'Heading',  'name' => 'cat_title',   'type' => 'text' ),
+		array( 'key' => 'bp_c_sub', 'label' => 'Subtitle', 'name' => 'cat_sub',     'type' => 'textarea', 'rows' => 2 ),
+		array( 'key' => 'bp_c_tiles', 'label' => 'Category Tiles', 'name' => 'cat_tiles', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add tile',
+			'sub_fields' => array(
+				array( 'key' => 'bp_t_img',  'label' => 'Image URL', 'name' => 'image_url', 'type' => 'url' ),
+				array( 'key' => 'bp_t_ttl',  'label' => 'Title',     'name' => 'title',     'type' => 'text' ),
+				array( 'key' => 'bp_t_meta', 'label' => 'Small Text','name' => 'meta',      'type' => 'text', 'instructions' => 'e.g. 24 listings' ),
+				array( 'key' => 'bp_t_url',  'label' => 'Link',      'name' => 'url',       'type' => 'text', 'instructions' => 'e.g. #ready-made' ),
+			) ),
+
+		array( 'key' => 'bp_tab2', 'label' => 'Listing Headings', 'type' => 'tab' ),
+		array( 'key' => 'bp_r_eye', 'label' => 'Ready-Made – Eyebrow',  'name' => 'ready_eyebrow', 'type' => 'text' ),
+		array( 'key' => 'bp_r_ttl', 'label' => 'Ready-Made – Heading',  'name' => 'ready_title',   'type' => 'text' ),
+		array( 'key' => 'bp_r_sub', 'label' => 'Ready-Made – Subtitle', 'name' => 'ready_sub',     'type' => 'textarea', 'rows' => 2 ),
+		array( 'key' => 'bp_m_eye', 'label' => 'Commercial – Eyebrow',  'name' => 'comm_eyebrow',  'type' => 'text' ),
+		array( 'key' => 'bp_m_ttl', 'label' => 'Commercial – Heading',  'name' => 'comm_title',    'type' => 'text' ),
+		array( 'key' => 'bp_m_sub', 'label' => 'Commercial – Subtitle', 'name' => 'comm_sub',      'type' => 'textarea', 'rows' => 2 ),
+		array( 'key' => 'bp_a_eye', 'label' => 'Apartments – Eyebrow',  'name' => 'apt_eyebrow',   'type' => 'text' ),
+		array( 'key' => 'bp_a_ttl', 'label' => 'Apartments – Heading',  'name' => 'apt_title',     'type' => 'text' ),
+		array( 'key' => 'bp_a_sub', 'label' => 'Apartments – Subtitle', 'name' => 'apt_sub',       'type' => 'textarea', 'rows' => 2 ),
+
+		array( 'key' => 'bp_tab3', 'label' => 'Construction Projects', 'type' => 'tab' ),
+		array( 'key' => 'bp_p_eye', 'label' => 'Eyebrow',  'name' => 'proj_eyebrow', 'type' => 'text' ),
+		array( 'key' => 'bp_p_ttl', 'label' => 'Heading',  'name' => 'proj_title',   'type' => 'text' ),
+		array( 'key' => 'bp_p_sub', 'label' => 'Subtitle', 'name' => 'proj_sub',     'type' => 'textarea', 'rows' => 2 ),
+		array( 'key' => 'bp_p_cards', 'label' => 'Project Cards', 'name' => 'proj_cards', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add project',
+			'sub_fields' => array(
+				array( 'key' => 'bp_pc_img',  'label' => 'Image URL', 'name' => 'image_url', 'type' => 'url' ),
+				array( 'key' => 'bp_pc_ttl',  'label' => 'Title',     'name' => 'title',     'type' => 'text' ),
+				array( 'key' => 'bp_pc_meta', 'label' => 'Caption',   'name' => 'meta',      'type' => 'text', 'instructions' => 'e.g. 6 units · handover Q3 2026' ),
+			) ),
+		array( 'key' => 'bp_p_btn', 'label' => 'Button Text', 'name' => 'proj_btn_text', 'type' => 'text' ),
+		array( 'key' => 'bp_p_url', 'label' => 'Button Link', 'name' => 'proj_btn_url',  'type' => 'text' ),
+
+		array( 'key' => 'bp_tab4', 'label' => 'Call To Action', 'type' => 'tab' ),
+		array( 'key' => 'bp_x_ttl', 'label' => 'Heading',     'name' => 'cta_title',    'type' => 'text' ),
+		array( 'key' => 'bp_x_sub', 'label' => 'Text',        'name' => 'cta_text',     'type' => 'textarea', 'rows' => 2 ),
+		array( 'key' => 'bp_x_btn', 'label' => 'Button Text', 'name' => 'cta_btn_text', 'type' => 'text' ),
+		array( 'key' => 'bp_x_url', 'label' => 'Button Link', 'name' => 'cta_btn_url',  'type' => 'text' ),
+	),
+) );
+
+// Land plotting – section headings, location split and investment cards
+acf_add_local_field_group( array(
+	'key'        => 'g_plot_page',
+	'title'      => 'Land Plotting – Sections',
+	'location'   => array( array( array( 'param' => 'page_template', 'operator' => '==', 'value' => 'page-land-plotting.php' ) ) ),
+	'menu_order' => 1,
+	'fields'     => array(
+		array( 'key' => 'lp_tab1', 'label' => 'Projects', 'type' => 'tab' ),
+		array( 'key' => 'lp_p_eye', 'label' => 'Eyebrow',  'name' => 'projects_eyebrow', 'type' => 'text' ),
+		array( 'key' => 'lp_p_ttl', 'label' => 'Heading',  'name' => 'projects_title',   'type' => 'text' ),
+		array( 'key' => 'lp_p_sub', 'label' => 'Subtitle', 'name' => 'projects_sub',     'type' => 'textarea', 'rows' => 2 ),
+
+		array( 'key' => 'lp_tab2', 'label' => 'Available Plots', 'type' => 'tab' ),
+		array( 'key' => 'lp_a_eye', 'label' => 'Eyebrow',  'name' => 'plots_eyebrow', 'type' => 'text' ),
+		array( 'key' => 'lp_a_ttl', 'label' => 'Heading',  'name' => 'plots_title',   'type' => 'text' ),
+		array( 'key' => 'lp_a_sub', 'label' => 'Subtitle', 'name' => 'plots_sub',     'type' => 'textarea', 'rows' => 2 ),
+		array( 'key' => 'lp_a_note','label' => 'Footnote', 'name' => 'plots_note',    'type' => 'text' ),
+
+		array( 'key' => 'lp_tab3', 'label' => 'Project Location', 'type' => 'tab' ),
+		array( 'key' => 'lp_l_eye', 'label' => 'Eyebrow',   'name' => 'loc_eyebrow', 'type' => 'text' ),
+		array( 'key' => 'lp_l_ttl', 'label' => 'Heading',   'name' => 'loc_title',   'type' => 'text' ),
+		array( 'key' => 'lp_l_sub', 'label' => 'Text',      'name' => 'loc_sub',     'type' => 'textarea', 'rows' => 4 ),
+		array( 'key' => 'lp_l_img', 'label' => 'Image URL', 'name' => 'loc_image_url', 'type' => 'url' ),
+		array( 'key' => 'lp_l_bn',  'label' => 'Badge Top',    'name' => 'loc_badge_number', 'type' => 'text' ),
+		array( 'key' => 'lp_l_bl',  'label' => 'Badge Bottom', 'name' => 'loc_badge_label',  'type' => 'text' ),
+		array( 'key' => 'lp_l_list','label' => 'Checklist', 'name' => 'loc_list', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add point',
+			'sub_fields' => array( array( 'key' => 'lp_l_li', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ) ) ),
+		array( 'key' => 'lp_l_btn', 'label' => 'Button Text', 'name' => 'loc_btn_text', 'type' => 'text' ),
+		array( 'key' => 'lp_l_url', 'label' => 'Button Link', 'name' => 'loc_btn_url',  'type' => 'text' ),
+
+		array( 'key' => 'lp_tabF', 'label' => 'Project Features', 'type' => 'tab' ),
+		array( 'key' => 'lp_f_eye', 'label' => 'Eyebrow',  'name' => 'features_eyebrow', 'type' => 'text' ),
+		array( 'key' => 'lp_f_ttl', 'label' => 'Heading',  'name' => 'features_title',   'type' => 'text' ),
+		array( 'key' => 'lp_f_sub', 'label' => 'Subtitle', 'name' => 'features_sub',     'type' => 'textarea', 'rows' => 2 ),
+
+		array( 'key' => 'lp_tabC', 'label' => 'Call To Action', 'type' => 'tab' ),
+		array( 'key' => 'lp_c_ttl', 'label' => 'Heading',     'name' => 'cta_title',    'type' => 'text' ),
+		array( 'key' => 'lp_c_sub', 'label' => 'Text',        'name' => 'cta_text',     'type' => 'textarea', 'rows' => 2 ),
+		array( 'key' => 'lp_c_btn', 'label' => 'Button Text', 'name' => 'cta_btn_text', 'type' => 'text' ),
+		array( 'key' => 'lp_c_url', 'label' => 'Button Link', 'name' => 'cta_btn_url',  'type' => 'text' ),
+
+		array( 'key' => 'lp_tab4', 'label' => 'Investment', 'type' => 'tab' ),
+		array( 'key' => 'lp_i_eye', 'label' => 'Eyebrow',  'name' => 'invest_eyebrow', 'type' => 'text' ),
+		array( 'key' => 'lp_i_ttl', 'label' => 'Heading',  'name' => 'invest_title',   'type' => 'text' ),
+		array( 'key' => 'lp_i_sub', 'label' => 'Text',     'name' => 'invest_sub',     'type' => 'textarea', 'rows' => 3 ),
+		array( 'key' => 'lp_i_btn', 'label' => 'Button Text', 'name' => 'invest_btn_text', 'type' => 'text' ),
+		array( 'key' => 'lp_i_url', 'label' => 'Button Link', 'name' => 'invest_btn_url',  'type' => 'text' ),
+		array( 'key' => 'lp_i_cards', 'label' => 'Benefit Cards', 'name' => 'invest_cards', 'type' => 'repeater', 'layout' => 'block', 'button_label' => 'Add benefit',
+			'sub_fields' => array(
+				array( 'key' => 'lp_i_c_i', 'label' => 'Bootstrap Icon', 'name' => 'icon',  'type' => 'text' ),
+				array( 'key' => 'lp_i_c_t', 'label' => 'Title',          'name' => 'title', 'type' => 'text' ),
+				array( 'key' => 'lp_i_c_x', 'label' => 'Text',           'name' => 'text',  'type' => 'textarea', 'rows' => 2 ),
+			) ),
+	),
+) );
+
 // About – introduction block
 acf_add_local_field_group( array(
 	'key'        => 'g_about_intro',

@@ -89,137 +89,20 @@
     <section class="section" id="projects" aria-labelledby="projectsHeading">
       <div class="container">
       <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Our Projects</span>
-        <h2 class="section-title">Featured Plotting Projects</h2>
-        <p class="section-sub">Serviced plots ready for registration and construction.</p>
+        <span class="eyebrow eyebrow-center"><?php echo esc_html( get_field( 'projects_eyebrow' ) ); ?></span>
+        <h2 class="section-title"><?php echo esc_html( get_field( 'projects_title' ) ); ?></h2>
+        <p class="section-sub"><?php echo esc_html( get_field( 'projects_sub' ) ); ?></p>
       </div>
         <div class="row g-4">
-        <div class="col-lg-4 col-md-6 reveal">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Yadukul Green Valley land plotting project" loading="lazy" width="600" height="450">
-              <span class="badge-status">Plotting Project</span>
-            </div>
-            <div class="property-body">
-              <h3 class="property-title">Yadukul Green Valley</h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Budhanilkantha, Kathmandu</p>
-              <ul class="spec-list mt-0 mb-3">
-                <li><span><i class="bi bi-bounding-box" aria-hidden="true"></i>Total Area</span><strong>3 Ropani 8 Aana</strong></li>
-                <li><span><i class="bi bi-grid-3x3" aria-hidden="true"></i>Plot Sizes</span><strong>4 &ndash; 6 Aana</strong></li>
-                <li><span><i class="bi bi-signpost-2" aria-hidden="true"></i>Road Access</span><strong>13 ft Blacktopped</strong></li>
-              </ul>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 46 Lakhs<small>Starting price</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Project</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 reveal" style=--d:.08s>
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80" alt="Surya Residency Plots land plotting project" loading="lazy" width="600" height="450">
-              <span class="badge-status">Plotting Project</span>
-            </div>
-            <div class="property-body">
-              <h3 class="property-title">Surya Residency Plots</h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Suryabinayak, Bhaktapur</p>
-              <ul class="spec-list mt-0 mb-3">
-                <li><span><i class="bi bi-bounding-box" aria-hidden="true"></i>Total Area</span><strong>5 Ropani</strong></li>
-                <li><span><i class="bi bi-grid-3x3" aria-hidden="true"></i>Plot Sizes</span><strong>4 &ndash; 8 Aana</strong></li>
-                <li><span><i class="bi bi-signpost-2" aria-hidden="true"></i>Road Access</span><strong>16 ft Blacktopped</strong></li>
-              </ul>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 58 Lakhs<small>Starting price</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Project</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 reveal" style=--d:.16s>
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80" alt="Highway Business Park land plotting project" loading="lazy" width="600" height="450">
-              <span class="badge-status">Plotting Project</span>
-            </div>
-            <div class="property-body">
-              <h3 class="property-title">Highway Business Park</h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Bharatpur, Chitwan</p>
-              <ul class="spec-list mt-0 mb-3">
-                <li><span><i class="bi bi-bounding-box" aria-hidden="true"></i>Total Area</span><strong>12 Ropani</strong></li>
-                <li><span><i class="bi bi-grid-3x3" aria-hidden="true"></i>Plot Sizes</span><strong>8 &ndash; 16 Aana</strong></li>
-                <li><span><i class="bi bi-signpost-2" aria-hidden="true"></i>Road Access</span><strong>40 ft Highway</strong></li>
-              </ul>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 1.15 Crore<small>Starting price</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Project</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 reveal">
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1552083375-1447ce886485?auto=format&fit=crop&w=1200&q=80" alt="Lakeview Hill Plots land plotting project" loading="lazy" width="600" height="450">
-              <span class="badge-status">Plotting Project</span>
-            </div>
-            <div class="property-body">
-              <h3 class="property-title">Lakeview Hill Plots</h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Lakeside Extension, Pokhara</p>
-              <ul class="spec-list mt-0 mb-3">
-                <li><span><i class="bi bi-bounding-box" aria-hidden="true"></i>Total Area</span><strong>7 Ropani</strong></li>
-                <li><span><i class="bi bi-grid-3x3" aria-hidden="true"></i>Plot Sizes</span><strong>5 &ndash; 10 Aana</strong></li>
-                <li><span><i class="bi bi-signpost-2" aria-hidden="true"></i>Road Access</span><strong>20 ft Blacktopped</strong></li>
-              </ul>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 72 Lakhs<small>Starting price</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Project</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 reveal" style=--d:.08s>
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&w=1200&q=80" alt="Godawari Garden Plots land plotting project" loading="lazy" width="600" height="450">
-              <span class="badge-status">Plotting Project</span>
-            </div>
-            <div class="property-body">
-              <h3 class="property-title">Godawari Garden Plots</h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Godawari, Lalitpur</p>
-              <ul class="spec-list mt-0 mb-3">
-                <li><span><i class="bi bi-bounding-box" aria-hidden="true"></i>Total Area</span><strong>4 Ropani</strong></li>
-                <li><span><i class="bi bi-grid-3x3" aria-hidden="true"></i>Plot Sizes</span><strong>4 &ndash; 5 Aana</strong></li>
-                <li><span><i class="bi bi-signpost-2" aria-hidden="true"></i>Road Access</span><strong>14 ft Gravelled</strong></li>
-              </ul>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 52 Lakhs<small>Starting price</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Project</a>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div class="col-lg-4 col-md-6 reveal" style=--d:.16s>
-          <article class="property-card">
-            <div class="property-media">
-              <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1800&q=80" alt="Tokha Hillside Phase II land plotting project" loading="lazy" width="600" height="450">
-              <span class="badge-status">Plotting Project</span>
-            </div>
-            <div class="property-body">
-              <h3 class="property-title">Tokha Hillside Phase II</h3>
-              <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i>Tokha, Kathmandu</p>
-              <ul class="spec-list mt-0 mb-3">
-                <li><span><i class="bi bi-bounding-box" aria-hidden="true"></i>Total Area</span><strong>6 Ropani 4 Aana</strong></li>
-                <li><span><i class="bi bi-grid-3x3" aria-hidden="true"></i>Plot Sizes</span><strong>4 &ndash; 7 Aana</strong></li>
-                <li><span><i class="bi bi-signpost-2" aria-hidden="true"></i>Road Access</span><strong>16 ft Blacktopped</strong></li>
-              </ul>
-              <div class="property-foot">
-                <p class="property-price mb-0">NPR 68 Lakhs<small>Starting price</small></p>
-                <a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View Project</a>
-              </div>
-            </div>
-          </article>
-        </div>
+        <?php
+        $projects = new WP_Query( array( 'post_type' => 'plot_project', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC' ) );
+        $pi = 0;
+        while ( $projects->have_posts() ) : $projects->the_post();
+            set_query_var( 'y_card_index', $pi++ );
+            get_template_part( 'template-parts/project-card' );
+        endwhile;
+        wp_reset_postdata();
+        ?>
         </div>
       </div>
     </section>
@@ -228,9 +111,9 @@
     <section class="section bg-light-2" aria-labelledby="plotsHeading">
       <div class="container">
       <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Availability</span>
-        <h2 class="section-title">Available Plots</h2>
-        <p class="section-sub">Current plot availability in Yadukul Green Valley, Budhanilkantha.</p>
+        <span class="eyebrow eyebrow-center"><?php echo esc_html( get_field( 'plots_eyebrow' ) ); ?></span>
+        <h2 class="section-title"><?php echo esc_html( get_field( 'plots_title' ) ); ?></h2>
+        <p class="section-sub"><?php echo esc_html( get_field( 'plots_sub' ) ); ?></p>
       </div>
         <div class="table-responsive reveal">
           <table class="table align-middle bg-white" style="border-radius:16px;overflow:hidden">
@@ -247,16 +130,20 @@
               </tr>
             </thead>
             <tbody>
-              <tr><th scope="row">A-01</th><td>4 Aana</td><td>East</td><td>13 ft</td><td>NPR 46,00,000</td><td><span class="badge rounded-pill text-bg-success">Available</span></td><td class="text-end"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View</a></td></tr>
-              <tr><th scope="row">A-02</th><td>4 Aana</td><td>South</td><td>13 ft</td><td>NPR 48,00,000</td><td><span class="badge rounded-pill text-bg-success">Available</span></td><td class="text-end"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View</a></td></tr>
-              <tr><th scope="row">A-05</th><td>5 Aana</td><td>North-East</td><td>13 ft</td><td>NPR 57,00,000</td><td><span class="badge rounded-pill text-bg-warning">On Hold</span></td><td class="text-end"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View</a></td></tr>
-              <tr><th scope="row">B-03</th><td>6 Aana</td><td>East</td><td>20 ft</td><td>NPR 72,00,000</td><td><span class="badge rounded-pill text-bg-success">Available</span></td><td class="text-end"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View</a></td></tr>
-              <tr><th scope="row">B-04</th><td>6 Aana</td><td>West</td><td>20 ft</td><td>NPR 68,00,000</td><td><span class="badge rounded-pill text-bg-secondary">Sold</span></td><td class="text-end"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View</a></td></tr>
-              <tr><th scope="row">C-01</th><td>4.5 Aana</td><td>South-East</td><td>13 ft</td><td>NPR 51,00,000</td><td><span class="badge rounded-pill text-bg-success">Available</span></td><td class="text-end"><a href="<?php echo esc_url( home_url( '/property-details/' ) ); ?>" class="btn-view">View</a></td></tr>
+              <?php
+              $lp_project = get_posts( array( 'post_type' => 'plot_project', 'numberposts' => 1, 'orderby' => 'menu_order', 'order' => 'ASC' ) );
+              $lp_plots   = $lp_project ? get_field( 'plots', $lp_project[0]->ID ) : array();
+              if ( $lp_plots ) : foreach ( $lp_plots as $pl ) :
+                  $cls = 'text-bg-success';
+                  if ( $pl['status'] === 'On Hold' ) { $cls = 'text-bg-warning'; }
+                  if ( $pl['status'] === 'Sold' )    { $cls = 'text-bg-secondary'; }
+              ?>
+              <tr><th scope="row"><?php echo esc_html( $pl['plot_no'] ); ?></th><td><?php echo esc_html( $pl['area'] ); ?></td><td><?php echo esc_html( $pl['facing'] ); ?></td><td><?php echo esc_html( $pl['road'] ); ?></td><td><?php echo esc_html( $pl['price'] ); ?></td><td><span class="badge rounded-pill <?php echo esc_attr( $cls ); ?>"><?php echo esc_html( $pl['status'] ); ?></span></td><td class="text-end"><a href="<?php echo esc_url( get_permalink( $lp_project[0]->ID ) ); ?>" class="btn-view">View</a></td></tr>
+              <?php endforeach; endif; ?>
             </tbody>
           </table>
         </div>
-        <p class="small text-center mt-3 mb-0"><i class="bi bi-info-circle me-1 text-accent" aria-hidden="true"></i>Prices are indicative and subject to final negotiation. Updated monthly.</p>
+        <p class="small text-center mt-3 mb-0"><i class="bi bi-info-circle me-1 text-accent" aria-hidden="true"></i><?php echo esc_html( get_field( 'plots_note' ) ); ?></p>
       </div>
     </section>
     <!-- ============ PROJECT LOCATION & FEATURES ============ -->
@@ -266,29 +153,26 @@
 
           <div class="col-lg-6 reveal">
             <div class="split-media">
-              <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80" alt="Aerial view of the plotting project and surrounding area" loading="lazy" width="1200" height="1000">
-              <div class="split-badge">
-                <strong>15 min</strong>
-                <span>To Ring Road</span>
-              </div>
+              <?php $limg = get_field( 'loc_image_url' ); if ( $limg ) : ?><img src="<?php echo esc_url( $limg ); ?>" alt="Aerial view of the plotting project and surrounding area" loading="lazy" width="1200" height="1000"><?php endif; ?>
+              <?php if ( get_field( 'loc_badge_number' ) ) : ?><div class="split-badge">
+                <strong><?php echo esc_html( get_field( 'loc_badge_number' ) ); ?></strong>
+                <span><?php echo esc_html( get_field( 'loc_badge_label' ) ); ?></span>
+              </div><?php endif; ?>
             </div>
           </div>
 
           <div class="col-lg-6 reveal" style="--d:.1s">
-            <span class="eyebrow">Project Location</span>
-            <h2 class="section-title" id="locationHeading">Connected, Established, Ready to Build</h2>
-            <p class="section-sub">
-              Our plotting projects are chosen for connectivity first. Every project sits on an
-              established road corridor with schools, health services and daily shops already in
-              the neighbourhood &mdash; not on land that will only become useful in a decade.
-            </p>
+            <span class="eyebrow"><?php echo esc_html( get_field( 'loc_eyebrow' ) ); ?></span>
+            <h2 class="section-title" id="locationHeading"><?php echo esc_html( get_field( 'loc_title' ) ); ?></h2>
+            <p class=\"section-sub\"><?php echo esc_html( get_field( 'loc_sub' ) ); ?></p>
+            <?php $ll = get_field( 'loc_list' ); if ( $ll ) : ?>
             <ul class="check-list">
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>15 minutes to Ring Road, 25 to the city centre</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Schools and health post within 1 km</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Public transport on the main access road</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Fully residential zoning under the municipal plan</li>
+              <?php foreach ( $ll as $li ) : ?>
+              <li><i class="bi bi-check2-circle" aria-hidden="true"></i><?php echo esc_html( $li['text'] ); ?></li>
+              <?php endforeach; ?>
             </ul>
-            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-dark-solid">Book a Site Visit</a>
+            <?php endif; ?>
+            <a href="<?php echo esc_url( home_url( get_field( 'loc_btn_url' ) ? get_field( 'loc_btn_url' ) : '/contact/' ) ); ?>" class="btn btn-dark-solid"><?php echo esc_html( get_field( 'loc_btn_text' ) ? get_field( 'loc_btn_text' ) : 'Book a Site Visit' ); ?></a>
           </div>
 
         </div>
@@ -299,9 +183,9 @@
     <section class="section bg-light-2" aria-labelledby="featuresHeading">
       <div class="container">
       <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">What's Included</span>
-        <h2 class="section-title">Project Features</h2>
-        <p class="section-sub">Infrastructure completed before a single plot is sold.</p>
+        <span class="eyebrow eyebrow-center"><?php echo esc_html( get_field( 'features_eyebrow' ) ); ?></span>
+        <h2 class="section-title" id="featuresHeading"><?php echo esc_html( get_field( 'features_title' ) ); ?></h2>
+        <p class="section-sub"><?php echo esc_html( get_field( 'features_sub' ) ); ?></p>
       </div>
         <div class="row g-4">
           <?php $rows = get_field( 'value_cards' ); if ( $rows ) : foreach ( $rows as $i => $c ) : ?>
@@ -321,18 +205,17 @@
       <div class="container">
         <div class="row g-5 align-items-center">
           <div class="col-lg-5 reveal">
-            <span class="eyebrow">Investment</span>
-            <h2 class="section-title" id="investHeading">Why Plotted Land Holds Its Value</h2>
-            <p class="section-sub">Serviced plots in connected corridors have consistently outperformed raw land across the Kathmandu Valley.</p>
-            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent mt-4">Speak to an Advisor</a>
+            <span class="eyebrow"><?php echo esc_html( get_field( 'invest_eyebrow' ) ); ?></span>
+            <h2 class="section-title" id="investHeading"><?php echo esc_html( get_field( 'invest_title' ) ); ?></h2>
+            <p class=\"section-sub\"><?php echo esc_html( get_field( 'invest_sub' ) ); ?></p>
+            <a href="<?php echo esc_url( home_url( get_field( 'invest_btn_url' ) ? get_field( 'invest_btn_url' ) : '/contact/' ) ); ?>" class="btn btn-accent mt-4"><?php echo esc_html( get_field( 'invest_btn_text' ) ? get_field( 'invest_btn_text' ) : 'Speak to an Advisor' ); ?></a>
           </div>
           <div class="col-lg-7">
             <div class="row g-4">
-              <div class="col-sm-6 reveal"><div class="feature-dark"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><h4>Steady Appreciation</h4><p>Serviced plots on established corridors resell faster and at better prices.</p></div></div>
-              <div class="col-sm-6 reveal" style="--d:.08s"><div class="feature-dark"><i class="bi bi-bank" aria-hidden="true"></i><h4>Loan Eligible</h4><p>Clear individual ownership makes bank financing straightforward.</p></div></div>
-              <div class="col-sm-6 reveal" style="--d:.16s"><div class="feature-dark"><i class="bi bi-hammer" aria-hidden="true"></i><h4>Build Immediately</h4><p>No filling, levelling or access disputes &mdash; start construction right away.</p></div></div>
-              <div class="col-sm-6 reveal" style="--d:.24s"><div class="feature-dark"><i class="bi bi-shield-check" aria-hidden="true"></i><h4>Low Legal Risk</h4><p>Every plot is verified before listing, with no lien or boundary conflict.</p></div></div>
-            </div>
+              <?php $ic = get_field( 'invest_cards' ); if ( $ic ) : foreach ( $ic as $i => $c ) : ?>
+              <div class="col-sm-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>><div class="feature-dark"><i class="bi <?php echo esc_attr( $c['icon'] ); ?>" aria-hidden="true"></i><h4><?php echo esc_html( $c['title'] ); ?></h4><p><?php echo esc_html( $c['text'] ); ?></p></div></div>
+              <?php endforeach; endif; ?>
+              </div>
           </div>
         </div>
       </div>
@@ -357,12 +240,12 @@
         <div class="cta-band reveal">
           <div class="row align-items-center g-4">
             <div class="col-lg-8">
-              <h2>Reserve Your Plot Today</h2>
-              <p>Plots are released in phases. Book a site visit and we will walk the boundary with you.</p>
+              <h2><?php echo esc_html( get_field( 'cta_title' ) ); ?></h2>
+              <p><?php echo esc_html( get_field( 'cta_text' ) ); ?></p>
             </div>
             <div class="col-lg-4">
               <div class="d-flex flex-wrap gap-3 justify-content-lg-end cta-actions">
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent">Contact Our Team</a>
+                <a href="<?php echo esc_url( home_url( get_field( 'cta_btn_url' ) ? get_field( 'cta_btn_url' ) : '/contact/' ) ); ?>" class="btn btn-accent"><?php echo esc_html( get_field( 'cta_btn_text' ) ? get_field( 'cta_btn_text' ) : 'Contact Our Team' ); ?></a>
               </div>
             </div>
           </div>

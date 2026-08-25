@@ -1,0 +1,142 @@
+{
+ "projects": [
+  {
+   "title": "Yadukul Green Valley",
+   "image_url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
+   "badge": "Plotting Project",
+   "location_text": "Budhanilkantha, Kathmandu",
+   "total_area": "3 Ropani 8 Aana",
+   "plot_sizes": "4 – 6 Aana",
+   "road_access": "13 ft Blacktopped",
+   "price_display": "NPR 46 Lakhs",
+   "price_note": "Starting price"
+  },
+  {
+   "title": "Surya Residency Plots",
+   "image_url": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80",
+   "badge": "Plotting Project",
+   "location_text": "Suryabinayak, Bhaktapur",
+   "total_area": "5 Ropani",
+   "plot_sizes": "4 – 8 Aana",
+   "road_access": "16 ft Blacktopped",
+   "price_display": "NPR 58 Lakhs",
+   "price_note": "Starting price"
+  },
+  {
+   "title": "Highway Business Park",
+   "image_url": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
+   "badge": "Plotting Project",
+   "location_text": "Bharatpur, Chitwan",
+   "total_area": "12 Ropani",
+   "plot_sizes": "8 – 16 Aana",
+   "road_access": "40 ft Highway",
+   "price_display": "NPR 1.15 Crore",
+   "price_note": "Starting price"
+  },
+  {
+   "title": "Lakeview Hill Plots",
+   "image_url": "https://images.unsplash.com/photo-1552083375-1447ce886485?auto=format&fit=crop&w=1200&q=80",
+   "badge": "Plotting Project",
+   "location_text": "Lakeside Extension, Pokhara",
+   "total_area": "7 Ropani",
+   "plot_sizes": "5 – 10 Aana",
+   "road_access": "20 ft Blacktopped",
+   "price_display": "NPR 72 Lakhs",
+   "price_note": "Starting price"
+  },
+  {
+   "title": "Godawari Garden Plots",
+   "image_url": "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&w=1200&q=80",
+   "badge": "Plotting Project",
+   "location_text": "Godawari, Lalitpur",
+   "total_area": "4 Ropani",
+   "plot_sizes": "4 – 5 Aana",
+   "road_access": "14 ft Gravelled",
+   "price_display": "NPR 52 Lakhs",
+   "price_note": "Starting price"
+  },
+  {
+   "title": "Tokha Hillside Phase II",
+   "image_url": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1800&q=80",
+   "badge": "Plotting Project",
+   "location_text": "Tokha, Kathmandu",
+   "total_area": "6 Ropani 4 Aana",
+   "plot_sizes": "4 – 7 Aana",
+   "road_access": "16 ft Blacktopped",
+   "price_display": "NPR 68 Lakhs",
+   "price_note": "Starting price"
+  }
+ ],
+ "plots": [
+  {
+   "plot_no": "A-01",
+   "area": "4 Aana",
+   "facing": "East",
+   "road": "13 ft",
+   "price": "NPR 46,00,000",
+   "status": "Available"
+  },
+  {
+   "plot_no": "A-02",
+   "area": "4 Aana",
+   "facing": "South",
+   "road": "13 ft",
+   "price": "NPR 48,00,000",
+   "status": "Available"
+  },
+  {
+   "plot_no": "A-05",
+   "area": "5 Aana",
+   "facing": "North-East",
+   "road": "13 ft",
+   "price": "NPR 57,00,000",
+   "status": "On Hold"
+  },
+  {
+   "plot_no": "B-03",
+   "area": "6 Aana",
+   "facing": "East",
+   "road": "20 ft",
+   "price": "NPR 72,00,000",
+   "status": "Available"
+  },
+  {
+   "plot_no": "B-04",
+   "area": "6 Aana",
+   "facing": "West",
+   "road": "20 ft",
+   "price": "NPR 68,00,000",
+   "status": "Sold"
+  },
+  {
+   "plot_no": "C-01",
+   "area": "4.5 Aana",
+   "facing": "South-East",
+   "road": "13 ft",
+   "price": "NPR 51,00,000",
+   "status": "Available"
+  }
+ ],
+ "invest": [
+  {
+   "icon": "bi-graph-up-arrow",
+   "title": "Steady Appreciation",
+   "text": "Serviced plots on established corridors resell faster and at better prices."
+  },
+  {
+   "icon": "bi-bank",
+   "title": "Loan Eligible",
+   "text": "Clear individual ownership makes bank financing straightforward."
+  },
+  {
+   "icon": "bi-hammer",
+   "title": "Build Immediately",
+   "text": "No filling, levelling or access disputes — start construction right away."
+  },
+  {
+   "icon": "bi-shield-check",
+   "title": "Low Legal Risk",
+   "text": "Every plot is verified before listing, with no lien or boundary conflict."
+  }
+ ]
+}

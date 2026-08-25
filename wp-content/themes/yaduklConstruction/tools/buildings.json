@@ -1,0 +1,66 @@
+{
+ "cat_eyebrow": "Browse",
+ "cat_title": "Building Categories",
+ "cat_sub": "Four ways to own built property with Yadukul.",
+ "cat_tiles": [
+  {
+   "url": "#ready-made",
+   "image_url": "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=80",
+   "title": "Ready-Made Houses",
+   "meta": "24 listings"
+  },
+  {
+   "url": "#commercial",
+   "image_url": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
+   "title": "Commercial Buildings",
+   "meta": "16 listings"
+  },
+  {
+   "url": "#apartments",
+   "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+   "title": "Apartments",
+   "meta": "19 listings"
+  },
+  {
+   "url": "#projects",
+   "image_url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+   "title": "Construction Projects",
+   "meta": "7 ongoing"
+  }
+ ],
+ "ready_eyebrow": "Move-In Ready",
+ "ready_title": "Ready-Made Houses",
+ "ready_sub": "Completed homes with finished interiors, parking and verified legal documents.",
+ "comm_eyebrow": "Income Property",
+ "comm_title": "Commercial Buildings",
+ "comm_sub": "Main-road buildings with existing tenants or ready-to-lease floors.",
+ "apt_eyebrow": "Serviced Living",
+ "apt_title": "Apartments",
+ "apt_sub": "Lift, backup power, parking and 24-hour security as standard.",
+ "proj_eyebrow": "Under Construction",
+ "proj_title": "Own Construction Projects",
+ "proj_sub": "Buy early and still choose your finishes, layout and fittings.",
+ "proj_cards": [
+  {
+   "image_url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+   "title": "Tokha Residency — Phase I",
+   "meta": "6 units · handover Q3 2026"
+  },
+  {
+   "image_url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
+   "title": "Imadol Commercial Block",
+   "meta": "4 floors · handover Q1 2027"
+  },
+  {
+   "image_url": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80",
+   "title": "Balkot Twin Houses",
+   "meta": "2 units · handover Q4 2026"
+  }
+ ],
+ "proj_btn_text": "See Our Construction Services",
+ "proj_btn_url": "/construction/",
+ "cta_title": "Looking for Something Specific?",
+ "cta_text": "Tell us your budget, location and size — we will shortlist buildings that actually match.",
+ "cta_btn_text": "Request a Shortlist",
+ "cta_btn_url": "/contact/"
+}

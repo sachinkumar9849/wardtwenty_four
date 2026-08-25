@@ -1,0 +1,65 @@
+{
+ "features_eyebrow": "What's Included",
+ "features_title": "Project Features",
+ "features_sub": "Infrastructure completed before a single plot is sold.",
+ "cta_title": "Reserve Your Plot Today",
+ "cta_text": "Plots are released in phases. Book a site visit and we will walk the boundary with you.",
+ "cta_btn_text": "Contact Our Team",
+ "cta_btn_url": "/contact/",
+ "projects_eyebrow": "Our Projects",
+ "projects_title": "Featured Plotting Projects",
+ "projects_sub": "Serviced plots ready for registration and construction.",
+ "plots_eyebrow": "Availability",
+ "plots_title": "Available Plots",
+ "plots_sub": "Current plot availability in Yadukul Green Valley, Budhanilkantha.",
+ "plots_note": "Prices are indicative and subject to final negotiation. Updated monthly.",
+ "loc_eyebrow": "Project Location",
+ "loc_title": "Connected, Established, Ready to Build",
+ "loc_sub": "Our plotting projects are chosen for connectivity first. Every project sits on an established road corridor with schools, health services and daily shops already in the neighbourhood — not on land that will only become useful in a decade.",
+ "loc_image_url": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
+ "loc_badge_number": "15 min",
+ "loc_badge_label": "To Ring Road",
+ "loc_btn_text": "Book a Site Visit",
+ "loc_btn_url": "/contact/",
+ "invest_eyebrow": "Investment",
+ "invest_title": "Why Plotted Land Holds Its Value",
+ "invest_sub": "Serviced plots in connected corridors have consistently outperformed raw land across the Kathmandu Valley.",
+ "invest_btn_text": "Speak to an Advisor",
+ "invest_btn_url": "/contact/",
+ "loc_list": [
+  {
+   "text": "15 minutes to Ring Road, 25 to the city centre"
+  },
+  {
+   "text": "Schools and health post within 1 km"
+  },
+  {
+   "text": "Public transport on the main access road"
+  },
+  {
+   "text": "Fully residential zoning under the municipal plan"
+  }
+ ],
+ "invest_cards": [
+  {
+   "icon": "bi-graph-up-arrow",
+   "title": "Steady Appreciation",
+   "text": "Serviced plots on established corridors resell faster and at better prices."
+  },
+  {
+   "icon": "bi-bank",
+   "title": "Loan Eligible",
+   "text": "Clear individual ownership makes bank financing straightforward."
+  },
+  {
+   "icon": "bi-hammer",
+   "title": "Build Immediately",
+   "text": "No filling, levelling or access disputes — start construction right away."
+  },
+  {
+   "icon": "bi-shield-check",
+   "title": "Low Legal Risk",
+   "text": "Every plot is verified before listing, with no lien or boundary conflict."
+  }
+ ]
+}

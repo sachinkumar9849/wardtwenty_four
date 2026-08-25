@@ -88,35 +88,19 @@
     <section class="section" aria-labelledby="catHeading">
       <div class="container">
       <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Browse</span>
-        <h2 class="section-title">Building Categories</h2>
-        <p class="section-sub">Four ways to own built property with Yadukul.</p>
+        <span class="eyebrow eyebrow-center"><?php echo esc_html( get_field( 'cat_eyebrow' ) ); ?></span>
+        <h2 class="section-title"><?php echo esc_html( get_field( 'cat_title' ) ); ?></h2>
+        <p class="section-sub"><?php echo esc_html( get_field( 'cat_sub' ) ); ?></p>
       </div>
         <div class="row g-4">
-          <div class="col-lg-3 col-md-6 reveal">
-            <a class="category-tile" href="#ready-made">
-              <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=80" alt="Ready-made house with parking" loading="lazy" width="600" height="470">
-              <div class="category-body"><h3>Ready-Made Houses</h3><span>24 listings</span><span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span></div>
+          <?php $tiles = get_field( 'cat_tiles' ); if ( $tiles ) : foreach ( $tiles as $i => $t ) : ?>
+          <div class="col-lg-3 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .06 ) . 's"' : ''; ?>>
+            <a class="category-tile" href="<?php echo esc_url( strpos( $t['url'], '#' ) === 0 || strpos( $t['url'], 'http' ) === 0 ? $t['url'] : home_url( $t['url'] ) ); ?>">
+              <img src="<?php echo esc_url( $t['image_url'] ); ?>" alt="<?php echo esc_attr( $t['title'] ); ?>" loading="lazy" width="600" height="470">
+              <div class="category-body"><h3><?php echo esc_html( $t['title'] ); ?></h3><span><?php echo esc_html( $t['meta'] ); ?></span><span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span></div>
             </a>
           </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.06s">
-            <a class="category-tile" href="#commercial">
-              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Commercial building on a main road" loading="lazy" width="600" height="470">
-              <div class="category-body"><h3>Commercial Buildings</h3><span>16 listings</span><span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span></div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.12s">
-            <a class="category-tile" href="#apartments">
-              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80" alt="Apartment tower with balconies" loading="lazy" width="600" height="470">
-              <div class="category-body"><h3>Apartments</h3><span>19 listings</span><span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span></div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-6 reveal" style="--d:.18s">
-            <a class="category-tile" href="#projects">
-              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Building under construction" loading="lazy" width="600" height="470">
-              <div class="category-body"><h3>Construction Projects</h3><span>7 ongoing</span><span class="category-explore">Explore <i class="bi bi-arrow-right" aria-hidden="true"></i></span></div>
-            </a>
-          </div>
+          <?php endforeach; endif; ?>
         </div>
       </div>
     </section>
@@ -126,9 +110,9 @@
       <div class="container">
         <div class="row align-items-end section-head reveal">
           <div class="col-lg-8">
-            <span class="eyebrow">Move-In Ready</span>
-            <h2 class="section-title" id="readyHeading">Ready-Made Houses</h2>
-            <p class="section-sub">Completed homes with finished interiors, parking and verified legal documents.</p>
+            <span class="eyebrow"><?php echo esc_html( get_field( 'ready_eyebrow' ) ); ?></span>
+            <h2 class="section-title" id="readyHeading"><?php echo esc_html( get_field( 'ready_title' ) ); ?></h2>
+            <p class="section-sub"><?php echo esc_html( get_field( 'ready_sub' ) ); ?></p>
           </div>
           <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
             <a href="<?php echo esc_url( home_url( '/properties/' ) ); ?>?type=house" class="btn-link-accent">See All Houses <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
@@ -158,9 +142,9 @@
       <div class="container">
         <div class="row align-items-end section-head reveal">
           <div class="col-lg-8">
-            <span class="eyebrow">Income Property</span>
-            <h2 class="section-title" id="commHeading">Commercial Buildings</h2>
-            <p class="section-sub">Main-road buildings with existing tenants or ready-to-lease floors.</p>
+            <span class="eyebrow"><?php echo esc_html( get_field( 'comm_eyebrow' ) ); ?></span>
+            <h2 class="section-title" id="commHeading"><?php echo esc_html( get_field( 'comm_title' ) ); ?></h2>
+            <p class="section-sub"><?php echo esc_html( get_field( 'comm_sub' ) ); ?></p>
           </div>
           <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
             <a href="<?php echo esc_url( home_url( '/properties/' ) ); ?>?type=commercial" class="btn-link-accent">See All Commercial <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
@@ -187,9 +171,9 @@
       <div class="container">
         <div class="row align-items-end section-head reveal">
           <div class="col-lg-8">
-            <span class="eyebrow">Serviced Living</span>
-            <h2 class="section-title" id="aptHeading">Apartments</h2>
-            <p class="section-sub">Lift, backup power, parking and 24-hour security as standard.</p>
+            <span class="eyebrow"><?php echo esc_html( get_field( 'apt_eyebrow' ) ); ?></span>
+            <h2 class="section-title" id="aptHeading"><?php echo esc_html( get_field( 'apt_title' ) ); ?></h2>
+            <p class="section-sub"><?php echo esc_html( get_field( 'apt_sub' ) ); ?></p>
           </div>
           <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
             <a href="<?php echo esc_url( home_url( '/properties/' ) ); ?>?type=apartment" class="btn-link-accent">See All Apartments <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
@@ -215,30 +199,22 @@
     <section class="section" id="projects" aria-labelledby="projHeading">
       <div class="container">
       <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Under Construction</span>
-        <h2 class="section-title">Own Construction Projects</h2>
-        <p class="section-sub">Buy early and still choose your finishes, layout and fittings.</p>
+        <span class="eyebrow eyebrow-center"><?php echo esc_html( get_field( 'proj_eyebrow' ) ); ?></span>
+        <h2 class="section-title"><?php echo esc_html( get_field( 'proj_title' ) ); ?></h2>
+        <p class="section-sub"><?php echo esc_html( get_field( 'proj_sub' ) ); ?></p>
       </div>
         <div class="row g-4">
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Residential block under construction at Tokha" loading="lazy" width="600" height="450">
-              <div class="gallery-caption"><strong>Tokha Residency &mdash; Phase I</strong><span>6 units &middot; handover Q3 2026</span></div>
+          <?php $pcards = get_field( 'proj_cards' ); if ( $pcards ) : foreach ( $pcards as $i => $c ) : ?>
+          <div class="col-lg-4 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
+            <div class="gallery-item"><img src="<?php echo esc_url( $c['image_url'] ); ?>" alt="<?php echo esc_attr( $c['title'] ); ?>" loading="lazy" width="600" height="450">
+              <div class="gallery-caption"><strong><?php echo esc_html( $c['title'] ); ?></strong><span><?php echo esc_html( $c['meta'] ); ?></span></div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.08s">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" alt="Commercial structure under construction in Lalitpur" loading="lazy" width="600" height="450">
-              <div class="gallery-caption"><strong>Imadol Commercial Block</strong><span>4 floors &middot; handover Q1 2027</span></div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.16s">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80" alt="Twin house project under construction in Bhaktapur" loading="lazy" width="600" height="450">
-              <div class="gallery-caption"><strong>Balkot Twin Houses</strong><span>2 units &middot; handover Q4 2026</span></div>
-            </div>
-          </div>
+          <?php endforeach; endif; ?>
         </div>
 
         <div class="text-center mt-5 reveal">
-          <a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>" class="btn btn-dark-solid">See Our Construction Services</a>
+          <a href="<?php echo esc_url( home_url( get_field( 'proj_btn_url' ) ? get_field( 'proj_btn_url' ) : '/construction/' ) ); ?>" class="btn btn-dark-solid"><?php echo esc_html( get_field( 'proj_btn_text' ) ? get_field( 'proj_btn_text' ) : 'See Our Construction Services' ); ?></a>
         </div>
       </div>
     </section>
@@ -249,12 +225,12 @@
         <div class="cta-band reveal">
           <div class="row align-items-center g-4">
             <div class="col-lg-8">
-              <h2>Looking for Something Specific?</h2>
-              <p>Tell us your budget, location and size &mdash; we will shortlist buildings that actually match.</p>
+              <h2><?php echo esc_html( get_field( 'cta_title' ) ); ?></h2>
+              <p><?php echo esc_html( get_field( 'cta_text' ) ); ?></p>
             </div>
             <div class="col-lg-4">
               <div class="d-flex flex-wrap gap-3 justify-content-lg-end cta-actions">
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent">Request a Shortlist</a>
+                <a href="<?php echo esc_url( home_url( get_field( 'cta_btn_url' ) ? get_field( 'cta_btn_url' ) : '/contact/' ) ); ?>" class="btn btn-accent"><?php echo esc_html( get_field( 'cta_btn_text' ) ? get_field( 'cta_btn_text' ) : 'Request a Shortlist' ); ?></a>
               </div>
             </div>
           </div>

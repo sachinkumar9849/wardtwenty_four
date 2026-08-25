@@ -66,3 +66,32 @@ acf_add_local_field_group( array(
 			'sub_fields' => array( array( 'key' => 'd_am', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ) ) ),
 	),
 ) );
+
+/* Plotting Project fields. */
+acf_add_local_field_group( array(
+	'key'      => 'group_plot_project',
+	'title'    => 'Project Details',
+	'location' => array( array( array( 'param' => 'post_type', 'operator' => '==', 'value' => 'plot_project' ) ) ),
+	'fields'   => array(
+		array( 'key' => 'pp_loc',    'label' => 'Location',      'name' => 'location_text', 'type' => 'text', 'instructions' => 'e.g. Budhanilkantha, Kathmandu' ),
+		array( 'key' => 'pp_total',  'label' => 'Total Area',    'name' => 'total_area',    'type' => 'text', 'instructions' => 'e.g. 3 Ropani 8 Aana' ),
+		array( 'key' => 'pp_sizes',  'label' => 'Plot Sizes',    'name' => 'plot_sizes',    'type' => 'text', 'instructions' => 'e.g. 4 – 6 Aana' ),
+		array( 'key' => 'pp_road',   'label' => 'Road Access',   'name' => 'road_access',   'type' => 'text', 'instructions' => 'e.g. 13 ft Blacktopped' ),
+		array( 'key' => 'pp_price',  'label' => 'Starting Price','name' => 'price_display', 'type' => 'text', 'instructions' => 'e.g. NPR 46 Lakhs' ),
+		array( 'key' => 'pp_note',   'label' => 'Price Note',    'name' => 'price_note',    'type' => 'text', 'instructions' => 'e.g. Starting price' ),
+		array( 'key' => 'pp_badge',  'label' => 'Badge',         'name' => 'badge',         'type' => 'text', 'instructions' => 'Corner badge. Defaults to "Plotting Project".' ),
+		array( 'key' => 'pp_img',    'label' => 'Image URL',     'name' => 'image_url',     'type' => 'url', 'instructions' => 'Used when no Featured Image is set.' ),
+		array( 'key' => 'pp_plots',  'label' => 'Available Plots', 'name' => 'plots', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add plot',
+			'sub_fields' => array(
+				array( 'key' => 'pp_p_no',     'label' => 'Plot No.', 'name' => 'plot_no', 'type' => 'text' ),
+				array( 'key' => 'pp_p_area',   'label' => 'Area',     'name' => 'area',    'type' => 'text' ),
+				array( 'key' => 'pp_p_facing', 'label' => 'Facing',   'name' => 'facing',  'type' => 'text' ),
+				array( 'key' => 'pp_p_road',   'label' => 'Road',     'name' => 'road',    'type' => 'text' ),
+				array( 'key' => 'pp_p_price',  'label' => 'Price',    'name' => 'price',   'type' => 'text' ),
+				array( 'key' => 'pp_p_status', 'label' => 'Status',   'name' => 'status',  'type' => 'select',
+					'choices' => array( 'Available' => 'Available', 'On Hold' => 'On Hold', 'Sold' => 'Sold' ), 'default_value' => 'Available' ),
+			) ),
+		array( 'key' => 'pp_amen', 'label' => 'Project Features', 'name' => 'amenities', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add feature',
+			'sub_fields' => array( array( 'key' => 'pp_a', 'label' => 'Text', 'name' => 'text', 'type' => 'text' ) ) ),
+	),
+) );
