@@ -1,0 +1,183 @@
+/* ==========================================================================
+   YADUKUL REAL ESTATE & CONSTRUCTION
+   responsive.css — breakpoint refinements (loaded after style.css)
+   Breakpoints follow Bootstrap 5: xxl 1400 / xl 1200 / lg 992 / md 768 / sm 576
+   ========================================================================== */
+
+/* ---------- Large desktop ------------------------------------------------ */
+@media (max-width: 1399.98px) {
+  .container { max-width: 1180px; }
+  .navbar-main .nav-link { padding: .55rem .48rem; font-size: .715rem; letter-spacing: .07em; }
+  .navbar-main .nav-link::after { left: .48rem; right: .48rem; }
+  .nav-actions { gap: .7rem; }
+  .nav-actions .btn { padding: .68rem 1.15rem; font-size: .8rem; }
+}
+
+/* ---------- Laptop / small desktop --------------------------------------- */
+@media (max-width: 1199.98px) {
+  :root { --section-y: 5.25rem; }
+
+  /* collapsed menu becomes a light panel so links stay readable
+     over the transparent navbar */
+  .navbar-main .navbar-collapse {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.1rem 1.3rem 1.4rem;
+    margin-top: .9rem;
+  }
+  .navbar-main .navbar-nav { margin: 0 !important; }
+  .navbar-main .nav-link,
+  .navbar-main.scrolled .nav-link {
+    color: var(--secondary);
+    font-size: .8rem;
+    padding: .68rem .25rem;
+    border-bottom: 1px solid var(--light);
+  }
+  .navbar-main .nav-link::after { left: .25rem; right: auto; width: 22px; bottom: .38rem; }
+  .navbar-main .nav-link.active { color: var(--accent); }
+  .nav-actions {
+    margin-top: 1.1rem;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .lang-switch, .navbar-main .lang-btn { color: var(--muted); }
+  .lang-switch { padding-left: 0; border-left: 0; }
+  .navbar-main .lang-btn.active { color: var(--accent); }
+
+  .hero { min-height: 82vh; }
+  .hero-inner { padding: 8rem 0 6rem; }
+  .detail-panel { position: static; }
+  .about-illustration { width: 150px; }
+}
+
+/* ---------- Tablet -------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  :root { --section-y: 4.5rem; }
+
+  html { scroll-padding-top: 80px; }
+
+  .hero { min-height: auto; }
+  .hero-inner { padding: 7.5rem 0 5rem; text-align: left; }
+  .hero h1 { max-width: 100%; }
+  .hero-stats { gap: 2rem; margin-top: 2.5rem; padding-top: 1.6rem; }
+  .hero-stats .h-stat strong { font-size: 1.55rem; }
+  .hero-stats .h-stat > span { font-size: .68rem; }
+
+  .search-wrap { margin-top: -56px; }
+  .search-card { padding: 1.9rem 1.6rem 1.7rem; }
+
+  .section-head { margin-bottom: 2.5rem; }
+  .section-sub { max-width: 100%; }
+
+  .split-media img { aspect-ratio: 16 / 11; }
+  .split-badge { right: 16px; bottom: 16px; padding: .95rem 1.2rem; }
+  .split-badge strong { font-size: 1.35rem; }
+
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 1.4rem 1rem; }
+
+  .cta-band { padding: 3rem 2rem; text-align: center; }
+  .cta-band .cta-actions { justify-content: center; }
+
+  .page-hero { padding: 9rem 0 4rem; }
+
+  .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+
+  .filter-card { position: static; margin-bottom: 2rem; }
+
+  .site-footer { padding-top: 3.75rem; }
+  .footer-bottom { margin-top: 2.75rem; text-align: center; }
+  .footer-legal { justify-content: center; }
+}
+
+/* ---------- Mobile -------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  :root { --section-y: 3.5rem; }
+
+  body { font-size: .97rem; }
+
+  .hero { text-align: center; }
+  .hero-inner { padding: 7rem 0 4rem; text-align: center; }
+  .hero .eyebrow { justify-content: center; }
+  .hero .eyebrow::after { content: ""; width: 28px; height: 1px; background: var(--accent); }
+  .hero h1 { font-size: clamp(2rem, 8vw, 2.6rem); margin-inline: auto; }
+  .hero p.lead-text { margin-inline: auto; }
+  .hero-media::after {
+    background: linear-gradient(180deg, rgba(17,24,39,.86) 0%, rgba(17,24,39,.78) 100%);
+  }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; }
+  .hero-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.25rem;
+    margin-inline: auto;
+  }
+
+  .search-wrap { margin-top: -40px; }
+  .search-card { padding: 1.5rem 1.25rem 1.4rem; border-radius: var(--radius); }
+  .search-card h2 { font-size: 1.32rem; }
+  .search-card .btn { width: 100%; }
+
+  .section-head { text-align: center; }
+  .section-head .eyebrow { justify-content: center; }
+  .section-head .eyebrow::after { content: ""; width: 28px; height: 1px; background: var(--accent); }
+  .section-head .section-sub { margin-inline: auto; }
+  .section-head .text-lg-end { text-align: center !important; }
+
+  .property-body { padding: 1.25rem; }
+  .property-meta { gap: 1.1rem; }
+  .property-foot { flex-direction: row; align-items: center; }
+
+  .service-card { padding: 1.75rem 1.4rem; }
+
+  .split-badge {
+    position: static;
+    max-width: 100%;
+    margin-top: 1rem;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+  }
+  .split-badge strong { font-size: 1.3rem; }
+
+  .why-item { gap: 1rem; }
+  .why-num { width: 46px; height: 46px; font-size: 1.3rem; }
+
+  .cta-band { padding: 2.5rem 1.4rem; }
+  .cta-band .btn { width: 100%; }
+
+  .page-hero { padding: 8rem 0 3.25rem; }
+
+  .gallery-thumbs { grid-template-columns: repeat(3, 1fr); gap: .55rem; }
+  .detail-panel { padding: 1.5rem; }
+  .detail-price { font-size: 1.75rem; }
+  .detail-actions .btn { width: 100%; }
+
+  .form-card { padding: 1.6rem 1.3rem; }
+
+  .floating-actions { right: 14px; bottom: 16px; gap: .55rem; }
+  .float-btn { width: 48px; height: 48px; font-size: 1.25rem; }
+
+  .footer-bottom .footer-legal { flex-wrap: wrap; gap: .9rem; justify-content: center; }
+}
+
+/* ---------- Small mobile -------------------------------------------------- */
+@media (max-width: 575.98px) {
+  .container, .container-fluid { padding-inline: 1.15rem; }
+
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+  .navbar-brand img { width: 38px; height: 38px; }
+  .brand-text strong { font-size: 1.08rem; }
+  .brand-text small { font-size: .5rem; letter-spacing: .17em; }
+  .section-title { font-size: clamp(1.55rem, 6.4vw, 1.95rem); }
+  .btn { padding: .78rem 1.5rem; font-size: .88rem; }
+}
+
+/* ---------- Print --------------------------------------------------------- */
+@media print {
+  .navbar-main, .floating-actions, .site-footer, .search-wrap { display: none !important; }
+  body { color: #000; }
+}

@@ -1,0 +1,15 @@
+/*
+Theme Name: Yadukul Construction
+Theme URI: http://localhost:8080/
+Author: Yadukul Real Estate & Construction Pvt. Ltd.
+Description: Real estate and construction theme for Yadukul - property listings, land plotting, construction and engineering services.
+Version: 1.0
+License: GNU General Public License v2 or later
+Text Domain: yadukul
+*/
+
+/*
+  The actual styling lives in css/style.css and css/responsive.css,
+  which are loaded by functions.php. WordPress only requires THIS file
+  to exist (with the header above) in order to recognise the theme.
+*/
