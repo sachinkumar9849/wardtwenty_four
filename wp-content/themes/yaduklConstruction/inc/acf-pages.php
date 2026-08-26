@@ -23,6 +23,18 @@ acf_add_local_field_group( array(
 	),
 ) );
 
+/* --- Search-engine description, on every page --- */
+acf_add_local_field_group( array(
+	'key'        => 'group_page_seo',
+	'title'      => 'Search Engine Description',
+	'location'   => array( array( array( 'param' => 'post_type', 'operator' => '==', 'value' => 'page' ) ) ),
+	'menu_order' => 20,
+	'fields'     => array(
+		array( 'key' => 'seo_desc', 'label' => 'Meta Description', 'name' => 'meta_description', 'type' => 'textarea', 'rows' => 3,
+			'instructions' => 'The summary Google shows under the page title. Around 150–160 characters.' ),
+	),
+) );
+
 /** Build a card repeater bound to one page template. */
 function y_page_cards( $key, $title, $template, $name, $label, $subs ) {
 	acf_add_local_field_group( array(

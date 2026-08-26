@@ -14,4 +14,9 @@ brew services list | grep -q "^mysql.*started" || { echo "Starting MySQL..."; br
 
 echo "WordPress running at http://localhost:$PORT   (admin: http://localhost:$PORT/wp-admin/)"
 echo "Press Ctrl+C to stop."
+# Multiple workers are REQUIRED, not an optimization. WordPress fires a loopback
+# request to its own wp-cron.php while serving a page; with a single-threaded
+# server that request can never be accepted, so every page load deadlocks until
+# the socket times out. PHP 7.4+ honours PHP_CLI_SERVER_WORKERS on Unix.
+export PHP_CLI_SERVER_WORKERS=4
 exec "$PHP" -S "localhost:$PORT" -t "$ROOT" "$ROOT/router.php"

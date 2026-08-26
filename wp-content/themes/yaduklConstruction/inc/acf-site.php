@@ -27,6 +27,49 @@ acf_add_local_field_group( array(
 	'title'    => 'Contact & Company Details',
 	'location' => array( array( array( 'param' => 'options_page', 'operator' => '==', 'value' => 'yadukul-settings' ) ) ),
 	'fields'   => array(
+		array( 'key' => 's_tabA', 'label' => 'Branding', 'type' => 'tab' ),
+		array( 'key' => 's_logo',     'label' => 'Logo',          'name' => 'logo',       'type' => 'image', 'return_format' => 'url', 'instructions' => 'Shown in the header and footer. SVG or PNG.' ),
+		array( 'key' => 's_logo_url', 'label' => 'Logo URL',      'name' => 'logo_url',   'type' => 'text', 'instructions' => 'Used when no logo is chosen above.' ),
+		array( 'key' => 's_brand',    'label' => 'Brand Name',    'name' => 'brand_name', 'type' => 'text', 'instructions' => 'e.g. YADUKUL' ),
+		array( 'key' => 's_brand_t',  'label' => 'Brand Tagline', 'name' => 'brand_tagline', 'type' => 'text', 'instructions' => 'e.g. Real Estate & Construction' ),
+		array( 'key' => 's_cta_txt',  'label' => 'Header Button Text', 'name' => 'header_btn_text', 'type' => 'text' ),
+		array( 'key' => 's_cta_np',   'label' => 'Header Button (Nepali)', 'name' => 'header_btn_np', 'type' => 'text' ),
+		array( 'key' => 's_cta_url',  'label' => 'Header Button Link', 'name' => 'header_btn_url', 'type' => 'text' ),
+
+		array( 'key' => 's_home_seo', 'label' => 'Home Meta Description', 'name' => 'home_meta_description', 'type' => 'textarea', 'rows' => 3, 'instructions' => 'Search-engine summary for the home page.' ),
+
+		array( 'key' => 's_tabN', 'label' => 'Navigation', 'type' => 'tab' ),
+		array( 'key' => 's_nav', 'label' => 'Main Menu', 'name' => 'nav_items', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add menu item',
+			'sub_fields' => array(
+				array( 'key' => 's_n_l',  'label' => 'Label',          'name' => 'label',    'type' => 'text' ),
+				array( 'key' => 's_n_np', 'label' => 'Label (Nepali)', 'name' => 'label_np', 'type' => 'text' ),
+				array( 'key' => 's_n_u',  'label' => 'Link',           'name' => 'url',      'type' => 'text', 'instructions' => 'e.g. /properties/' ),
+			) ),
+
+		array( 'key' => 's_tabF', 'label' => 'Footer', 'type' => 'tab' ),
+		array( 'key' => 's_f_about', 'label' => 'About Text', 'name' => 'footer_about', 'type' => 'textarea', 'rows' => 4 ),
+		array( 'key' => 's_f_q_h',   'label' => 'Column 1 Heading', 'name' => 'footer_col1_title', 'type' => 'text' ),
+		array( 'key' => 's_f_q',     'label' => 'Column 1 Links',   'name' => 'footer_col1', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add link',
+			'sub_fields' => array(
+				array( 'key' => 's_fq_l',  'label' => 'Label',          'name' => 'label',    'type' => 'text' ),
+				array( 'key' => 's_fq_np', 'label' => 'Label (Nepali)', 'name' => 'label_np', 'type' => 'text' ),
+				array( 'key' => 's_fq_u',  'label' => 'Link',           'name' => 'url',      'type' => 'text' ),
+			) ),
+		array( 'key' => 's_f_s_h',   'label' => 'Column 2 Heading', 'name' => 'footer_col2_title', 'type' => 'text' ),
+		array( 'key' => 's_f_s',     'label' => 'Column 2 Links',   'name' => 'footer_col2', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add link',
+			'sub_fields' => array(
+				array( 'key' => 's_fs_l', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+				array( 'key' => 's_fs_u', 'label' => 'Link',  'name' => 'url',   'type' => 'text' ),
+			) ),
+		array( 'key' => 's_f_c_h',   'label' => 'Column 3 Heading', 'name' => 'footer_col3_title', 'type' => 'text' ),
+		array( 'key' => 's_f_copy',  'label' => 'Copyright Line',   'name' => 'copyright', 'type' => 'text', 'instructions' => 'Use {year} for the current year.' ),
+		array( 'key' => 's_f_legal', 'label' => 'Legal Links',      'name' => 'footer_legal', 'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add link',
+			'sub_fields' => array(
+				array( 'key' => 's_fl_l', 'label' => 'Label', 'name' => 'label', 'type' => 'text' ),
+				array( 'key' => 's_fl_u', 'label' => 'Link',  'name' => 'url',   'type' => 'text' ),
+			) ),
+
+		array( 'key' => 's_tabC', 'label' => 'Contact', 'type' => 'tab' ),
 		array( 'key' => 's_phone',    'label' => 'Phone',            'name' => 'phone',        'type' => 'text', 'instructions' => 'Display format, e.g. +977 9801234567' ),
 		array( 'key' => 's_phone_r',  'label' => 'Phone (dial)',     'name' => 'phone_raw',    'type' => 'text', 'instructions' => 'Digits used by the Call button, e.g. +9779801234567' ),
 		array( 'key' => 's_landline', 'label' => 'Landline',         'name' => 'landline',     'type' => 'text' ),

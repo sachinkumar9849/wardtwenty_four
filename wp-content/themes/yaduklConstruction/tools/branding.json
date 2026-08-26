@@ -1,0 +1,119 @@
+{
+ "brand_name": "YADUKUL",
+ "brand_tagline": "Real Estate & Construction",
+ "header_btn_text": "Get Started",
+ "header_btn_np": "सुरु गर्नुहोस्",
+ "header_btn_url": "/contact/",
+ "footer_about": "A Nepal-based property and construction company delivering land, houses, commercial spaces, engineering design and turnkey construction under one roof — with transparent advice at every step.",
+ "footer_col1_title": "Quick Links",
+ "footer_col2_title": "Services",
+ "footer_col3_title": "Contact",
+ "copyright": "© {year} Yadukul Real Estate & Construction Pvt. Ltd. All Rights Reserved.",
+ "address": "Chabahil Chowk, Ring Road\nKathmandu 44600, Nepal",
+ "nav_items": [
+  {
+   "label": "Home",
+   "label_np": "गृहपृष्ठ",
+   "url": "/"
+  },
+  {
+   "label": "Properties",
+   "label_np": "सम्पत्ति",
+   "url": "/properties/"
+  },
+  {
+   "label": "Land Plotting",
+   "label_np": "जग्गा प्लटिङ",
+   "url": "/land-plotting/"
+  },
+  {
+   "label": "Buildings",
+   "label_np": "भवन",
+   "url": "/buildings/"
+  },
+  {
+   "label": "Rent",
+   "label_np": "भाडा",
+   "url": "/rent/"
+  },
+  {
+   "label": "Construction",
+   "label_np": "निर्माण",
+   "url": "/construction/"
+  },
+  {
+   "label": "Engineering",
+   "label_np": "इन्जिनियरिङ",
+   "url": "/engineering/"
+  },
+  {
+   "label": "About Us",
+   "label_np": "हाम्रो बारेमा",
+   "url": "/about/"
+  },
+  {
+   "label": "Contact",
+   "label_np": "सम्पर्क",
+   "url": "/contact/"
+  }
+ ],
+ "footer_col1": [
+  {
+   "label": "Home",
+   "label_np": "गृहपृष्ठ",
+   "url": "/"
+  },
+  {
+   "label": "Properties",
+   "label_np": "सम्पत्ति",
+   "url": "/properties/"
+  },
+  {
+   "label": "Land Plotting",
+   "label_np": "जग्गा प्लटिङ",
+   "url": "/land-plotting/"
+  },
+  {
+   "label": "Buildings",
+   "label_np": "भवन",
+   "url": "/buildings/"
+  },
+  {
+   "label": "Rent",
+   "label_np": "भाडा",
+   "url": "/rent/"
+  }
+ ],
+ "footer_col2": [
+  {
+   "label": "Construction",
+   "url": "/construction/"
+  },
+  {
+   "label": "Engineering",
+   "url": "/engineering/"
+  },
+  {
+   "label": "Property Consultancy",
+   "url": "/about/"
+  },
+  {
+   "label": "Land Valuation",
+   "url": "/engineering/"
+  },
+  {
+   "label": "Investment Advice",
+   "url": "/contact/"
+  }
+ ],
+ "footer_legal": [
+  {
+   "label": "Privacy Policy",
+   "url": "#"
+  },
+  {
+   "label": "Terms & Conditions",
+   "url": "#"
+  }
+ ]
+}

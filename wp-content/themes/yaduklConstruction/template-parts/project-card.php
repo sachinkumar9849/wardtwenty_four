@@ -34,7 +34,7 @@ $i     = (int) get_query_var( 'y_card_index' );
       </ul>
       <div class="property-foot">
         <p class="property-price mb-0"><?php echo esc_html( get_field( 'price_display' ) ); ?><?php if ( get_field( 'price_note' ) ) : ?><small><?php echo esc_html( get_field( 'price_note' ) ); ?></small><?php endif; ?></p>
-        <a href="<?php the_permalink(); ?>" class="btn-view">View Project</a>
+        <a href="<?php the_permalink(); ?>" class="btn-view"><?php y_lbl( 'view_project' ); ?></a>
       </div>
     </div>
   </article>

@@ -3,70 +3,8 @@
  * Template Name: Construction
  */
 ?>
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Residential, commercial and turnkey building construction in Nepal. Fixed-scope contracts, earthquake-resistant RCC structures, on-site engineers and transparent billing.">
-  <meta name="author" content="Yadukul Real Estate &amp; Construction Pvt. Ltd.">
-  <meta name="theme-color" content="#1F2937">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Construction Services in Nepal | Residential, Commercial &amp; Turnkey | Yadukul">
-  <meta property="og:description" content="Residential, commercial and turnkey building construction in Nepal. Fixed-scope contracts, earthquake-resistant RCC structures, on-site engineers and transparent billing.">
-  <meta property="og:site_name" content="Yadukul Real Estate &amp; Construction">
+<?php get_header(); ?>
 
-  <link rel="icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/favicon.svg" type="image/svg+xml">
-
-  <?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
-  <a href="#main" class="visually-hidden-focusable position-absolute top-0 start-0 m-2 p-2 bg-white">Skip to main content</a>
-
-  <header>
-    <nav class="navbar navbar-expand-xl navbar-main fixed-top" id="mainNav" aria-label="Main navigation">
-      <div class="container">
-
-        <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo.svg" alt="Yadukul Real Estate and Construction logo" width="44" height="44">
-          <span class="brand-text">
-            <strong>YADUKUL</strong>
-            <small>Real Estate &amp; Construction</small>
-          </span>
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu"
-                aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation menu">
-          <i class="bi bi-list" aria-hidden="true"></i>
-        </button>
-
-        <div class="collapse navbar-collapse" id="mainMenu">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" data-np="गृहपृष्ठ">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/properties/' ) ); ?>" data-np="सम्पत्ति">Properties</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/land-plotting/' ) ); ?>" data-np="जग्गा प्लटिङ">Land Plotting</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/buildings/' ) ); ?>" data-np="भवन">Buildings</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/rent/' ) ); ?>" data-np="भाडा">Rent</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/construction/' ) ); ?>" data-np="निर्माण">Construction</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/engineering/' ) ); ?>" data-np="इन्जिनियरिङ">Engineering</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/about/' ) ); ?>" data-np="हाम्रो बारेमा">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" data-np="सम्पर्क">Contact</a></li>
-          </ul>
-
-          <div class="nav-actions">
-            <div class="lang-switch" role="group" aria-label="Select language">
-              <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
-              <span aria-hidden="true">|</span>
-              <button type="button" class="lang-btn" data-lang="np" aria-pressed="false">नेपाली</button>
-            </div>
-            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent" data-np="सुरु गर्नुहोस्">Get Started</a>
-          </div>
-        </div>
-
-      </div>
-    </nav>
-  </header>
-  <main id="main">
 
     <section class="page-hero">
       <div class="page-hero-media">
@@ -75,15 +13,15 @@
       <div class="container">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Construction</li>
+            <li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php y_lbl( 'home' ); ?></a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?php echo esc_html( get_the_title() ); ?></li>
           </ol>
         </nav>
         <h1><?php echo esc_html( y_page_hero_heading() ); ?></h1>
         <?php if ( y_page_hero_sub() ) : ?><p><?php echo esc_html( y_page_hero_sub() ); ?></p><?php endif; ?>
         <div class="hero-actions mt-4">
-          <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent">Start Your Project</a>
-          <a href="#process" class="btn btn-outline-light-2">See Our Process</a>
+          <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent"><?php echo esc_html( y_btn( 'btn_start', 'Start Your Project' ) ); ?></a>
+          <a href="#process" class="btn btn-outline-light-2"><?php echo esc_html( y_btn( 'btn_process', 'See Our Process' ) ); ?></a>
         </div>
       </div>
     </section>
@@ -92,9 +30,9 @@
     <section class="section" aria-labelledby="consServicesHeading">
       <div class="container">
       <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">What We Build</span>
-        <h2 class="section-title">Construction Services</h2>
-        <p class="section-sub">Four contract types, each with a clear scope, timeline and payment schedule.</p>
+        <span class="eyebrow eyebrow-center"><?php echo esc_html( get_field( 'serv_eyebrow' ) ); ?></span>
+        <h2 class="section-title"><?php echo esc_html( get_field( 'serv_title' ) ); ?></h2>
+        <p class="section-sub"><?php echo esc_html( get_field( 'serv_sub' ) ); ?></p>
       </div>
         <div class="row g-4">
           <?php $rows = get_field( 'service_cards' ); if ( $rows ) : foreach ( $rows as $i => $c ) : ?>
@@ -115,26 +53,22 @@
         <div class="row g-5 align-items-center">
           <div class="col-lg-6 reveal">
             <div class="split-media">
-              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Site engineer supervising work on a residential construction project" loading="lazy" width="1200" height="1000">
-              <div class="split-badge"><strong>50+</strong><span>Projects Completed</span></div>
+              <?php $im = get_field( 'whyb_image_url' ); if ( $im ) : ?><img src="<?php echo esc_url( $im ); ?>" alt="Site engineer supervising work on a residential construction project" loading="lazy" width="1200" height="1000"><?php endif; ?>
+              <?php if ( get_field( 'whyb_badge_number' ) ) : ?><div class="split-badge"><strong><?php echo esc_html( get_field( 'whyb_badge_number' ) ); ?></strong><span><?php echo esc_html( get_field( 'whyb_badge_label' ) ); ?></span></div><?php endif; ?>
             </div>
           </div>
           <div class="col-lg-6 reveal" style="--d:.1s">
-            <span class="eyebrow">Why Build With Us</span>
-            <h2 class="section-title" id="whyBuildHeading">No Surprises Between Estimate and Handover</h2>
-            <p class="section-sub">
-              Most construction disputes in Nepal start with an unclear scope. We begin with a
-              detailed BOQ, agree a payment schedule tied to milestones, and give you a weekly
-              progress report with photos &mdash; so what you approved is what gets built.
-            </p>
+            <span class="eyebrow"><?php echo esc_html( get_field( 'why_eyebrow' ) ); ?></span>
+            <h2 class="section-title" id="whyBuildHeading"><?php echo esc_html( get_field( 'why_title' ) ); ?></h2>
+            <p class="section-sub"><?php echo esc_html( get_field( 'whyb_sub' ) ); ?></p>
+            <?php $cl = get_field( 'whyb_list' ); if ( $cl ) : ?>
             <ul class="check-list">
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Itemised BOQ before work starts</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Nepal Building Code compliant RCC design</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Milestone-linked payment schedule</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>Weekly site report with photographs</li>
-              <li><i class="bi bi-check2-circle" aria-hidden="true"></i>One year defect liability after handover</li>
+              <?php foreach ( $cl as $li ) : ?>
+              <li><i class="bi bi-check2-circle" aria-hidden="true"></i><?php echo esc_html( $li['text'] ); ?></li>
+              <?php endforeach; ?>
             </ul>
-            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-dark-solid">Request an Estimate</a>
+            <?php endif; ?>
+            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-dark-solid"><?php echo esc_html( y_btn( 'btn_est', 'Request an Estimate' ) ); ?></a>
           </div>
         </div>
       </div>
@@ -144,29 +78,16 @@
     <section class="section" id="process" aria-labelledby="processHeading">
       <div class="container">
       <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">How We Work</span>
-        <h2 class="section-title">Our Construction Process</h2>
-        <p class="section-sub">Six stages, each signed off before the next begins.</p>
+        <span class="eyebrow eyebrow-center"><?php echo esc_html( get_field( 'proc_eyebrow' ) ); ?></span>
+        <h2 class="section-title"><?php echo esc_html( get_field( 'proc_title' ) ); ?></h2>
+        <p class="section-sub"><?php echo esc_html( get_field( 'proc_sub' ) ); ?></p>
       </div>
         <div class="row g-4">
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="process-step"><span class="step-no">01</span><i class="bi bi-chat-square-text" aria-hidden="true"></i><h3>Consultation</h3><p>We visit the site, understand your requirement and check what the bylaws allow.</p></div>
+          <?php $rows = get_field( 'proc_cards' ); if ( $rows ) : foreach ( $rows as $i => $c ) : ?>
+          <div class="col-lg-3 col-md-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
+            <div class="process-step"><?php if ( ! empty( $c['number_label'] ) ) : ?><span class="step-no"><?php echo esc_html( $c['number_label'] ); ?></span><?php endif; ?><?php if ( ! empty( $c['icon'] ) ) : ?><i class="bi <?php echo esc_attr( $c['icon'] ); ?>" aria-hidden="true"></i><?php endif; ?><h3><?php echo esc_html( $c['title'] ); ?></h3><p><?php echo esc_html( $c['text'] ); ?></p></div>
           </div>
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.06s">
-            <div class="process-step"><span class="step-no">02</span><i class="bi bi-pencil-square" aria-hidden="true"></i><h3>Design</h3><p>Architectural drawings and 3D views, revised until the layout works for you.</p></div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.12s">
-            <div class="process-step"><span class="step-no">03</span><i class="bi bi-calculator" aria-hidden="true"></i><h3>Estimation</h3><p>Detailed BOQ and cost estimate with material specifications, item by item.</p></div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.18s">
-            <div class="process-step"><span class="step-no">04</span><i class="bi bi-file-earmark-check" aria-hidden="true"></i><h3>Approval</h3><p>We prepare and follow up the municipal building permit on your behalf.</p></div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.24s">
-            <div class="process-step"><span class="step-no">05</span><i class="bi bi-bricks" aria-hidden="true"></i><h3>Construction</h3><p>Structure, masonry, services and finishing, supervised by our site engineer.</p></div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.3s">
-            <div class="process-step"><span class="step-no">06</span><i class="bi bi-key" aria-hidden="true"></i><h3>Handover</h3><p>Final inspection, snag list clearance, documents and keys &mdash; then a year of defect cover.</p></div>
-          </div>
+          <?php endforeach; endif; ?>
         </div>
       </div>
     </section>
@@ -175,31 +96,18 @@
     <section class="section bg-light-2" aria-labelledby="galleryHeading">
       <div class="container">
       <div class="section-head section-head-center text-center reveal">
-        <span class="eyebrow eyebrow-center">Our Work</span>
-        <h2 class="section-title">Project Showcase</h2>
-        <p class="section-sub">A selection of recently completed and ongoing sites.</p>
+        <span class="eyebrow eyebrow-center"><?php echo esc_html( get_field( 'gal_eyebrow' ) ); ?></span>
+        <h2 class="section-title"><?php echo esc_html( get_field( 'gal_title' ) ); ?></h2>
+        <p class="section-sub"><?php echo esc_html( get_field( 'gal_sub' ) ); ?></p>
       </div>
         <div class="row g-4">
-          <div class="col-lg-6 reveal">
-            <div class="gallery-item" style="aspect-ratio:16/10"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80" alt="Completed modern residence at Bhaisepati, Lalitpur" loading="lazy" width="900" height="560">
-              <div class="gallery-caption"><strong>Private Residence, Bhaisepati</strong><span>Turnkey &middot; 2,850 sq.ft &middot; completed 2025</span></div></div>
+          <?php $rows = get_field( 'gal_cards' ); if ( $rows ) : foreach ( $rows as $i => $c ) :
+              $big = ( $i < 2 ); ?>
+          <div class="<?php echo $big ? 'col-lg-6' : 'col-lg-4 col-md-6'; ?> reveal"<?php echo $i ? ' style="--d:' . ( $i * .08 ) . 's"' : ''; ?>>
+            <div class="gallery-item"<?php echo $big ? ' style="aspect-ratio:16/10"' : ''; ?>><img src="<?php echo esc_url( $c['image_url'] ); ?>" alt="<?php echo esc_attr( $c['title'] ); ?>" loading="lazy" width="<?php echo $big ? 900 : 600; ?>" height="<?php echo $big ? 560 : 450; ?>">
+              <div class="gallery-caption"><strong><?php echo esc_html( $c['title'] ); ?></strong><span><?php echo esc_html( $c['text'] ); ?></span></div></div>
           </div>
-          <div class="col-lg-6 reveal" style="--d:.08s">
-            <div class="gallery-item" style="aspect-ratio:16/10"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80" alt="Completed commercial office block at Naxal, Kathmandu" loading="lazy" width="900" height="560">
-              <div class="gallery-caption"><strong>Office Block, Naxal</strong><span>Commercial &middot; 5 floors &middot; completed 2024</span></div></div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" alt="Reinforced concrete frame under construction" loading="lazy" width="600" height="450">
-              <div class="gallery-caption"><strong>Tokha Residency</strong><span>RCC frame &middot; ongoing</span></div></div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.08s">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" alt="Completed duplex house at Imadol" loading="lazy" width="600" height="450">
-              <div class="gallery-caption"><strong>Duplex, Imadol</strong><span>Residential &middot; completed 2025</span></div></div>
-          </div>
-          <div class="col-lg-4 col-md-6 reveal" style="--d:.16s">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80" alt="Finishing work in progress on a residential project" loading="lazy" width="600" height="450">
-              <div class="gallery-caption"><strong>Balkot Twin Houses</strong><span>Finishing &middot; ongoing</span></div></div>
-          </div>
+          <?php endforeach; endif; ?>
         </div>
       </div>
     </section>
@@ -208,10 +116,9 @@
     <section class="section-tight section-dark">
       <div class="container">
         <div class="row g-4 text-center">
-          <div class="col-md-3 col-6 reveal"><strong class="d-block fw-display" style="font-size:2.4rem;color:#fff"><span data-count="50">50</span>+</strong><span class="text-uppercase small" style="letter-spacing:.12em">Projects Completed</span></div>
-          <div class="col-md-3 col-6 reveal" style="--d:.06s"><strong class="d-block fw-display" style="font-size:2.4rem;color:#fff"><span data-count="180">180</span>k</strong><span class="text-uppercase small" style="letter-spacing:.12em">Sq. Ft. Built</span></div>
-          <div class="col-md-3 col-6 reveal" style="--d:.12s"><strong class="d-block fw-display" style="font-size:2.4rem;color:#fff"><span data-count="12">12</span></strong><span class="text-uppercase small" style="letter-spacing:.12em">Engineers &amp; Supervisors</span></div>
-          <div class="col-md-3 col-6 reveal" style="--d:.18s"><strong class="d-block fw-display" style="font-size:2.4rem;color:#fff"><span data-count="98">98</span>%</strong><span class="text-uppercase small" style="letter-spacing:.12em">On-Time Handover</span></div>
+          <?php $sb = get_field( 'stats_band' ); if ( $sb ) : foreach ( $sb as $i => $st ) : ?>
+          <div class="col-md-3 col-6 reveal"<?php echo $i ? ' style="--d:' . ( $i * .06 ) . 's"' : ''; ?>><strong class="d-block fw-display" style="font-size:2.4rem;color:#fff"><span data-count="<?php echo esc_attr( $st['number'] ); ?>"><?php echo esc_html( $st['number'] ); ?></span><?php echo esc_html( $st['suffix'] ); ?></strong><span class="text-uppercase small" style="letter-spacing:.12em"><?php echo esc_html( $st['label'] ); ?></span></div>
+          <?php endforeach; endif; ?>
         </div>
       </div>
     </section>
@@ -222,125 +129,16 @@
         <div class="cta-band reveal">
           <div class="row align-items-center g-4">
             <div class="col-lg-8">
-              <h2>Start Your Construction Project</h2>
-              <p>Send us your plot details and we will come back with an indicative cost and timeline.</p>
+              <h2><?php echo esc_html( get_field( 'cta_title' ) ); ?></h2>
+              <p><?php echo esc_html( get_field( 'cta_text' ) ); ?></p>
             </div>
             <div class="col-lg-4">
               <div class="d-flex flex-wrap gap-3 justify-content-lg-end cta-actions">
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent">Get a Free Estimate</a>
+                <a href="<?php echo esc_url( home_url( get_field( 'cta_btn_url' ) ? get_field( 'cta_btn_url' ) : '/contact/' ) ); ?>" class="btn btn-accent"><?php echo esc_html( get_field( 'cta_btn_text' ) ); ?></a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-  </main>
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row g-4 g-lg-5">
-
-        <div class="col-lg-4 col-md-6">
-          <div class="footer-brand">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo.svg" alt="Yadukul Real Estate and Construction logo" width="44" height="44">
-            <span>
-              <strong>YADUKUL</strong>
-              <small>Real Estate &amp; Construction</small>
-            </span>
-          </div>
-          <p>
-            A Nepal-based property and construction company delivering land, houses,
-            commercial spaces, engineering design and turnkey construction under one roof —
-            with transparent advice at every step.
-          </p>
-          <div class="footer-social">
-            <a href="#" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
-            <a href="#" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
-            <a href="#" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-6 col-6">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>" data-np="गृहपृष्ठ">Home</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/properties/' ) ); ?>" data-np="सम्पत्ति">Properties</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/land-plotting/' ) ); ?>" data-np="जग्गा प्लटिङ">Land Plotting</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/buildings/' ) ); ?>" data-np="भवन">Buildings</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/rent/' ) ); ?>" data-np="भाडा">Rent</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-6 col-6">
-          <h3>Services</h3>
-          <ul class="footer-links">
-            <li><a href="<?php echo esc_url( home_url( '/construction/' ) ); ?>">Construction</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/engineering/' ) ); ?>">Engineering</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">Property Consultancy</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/engineering/' ) ); ?>">Land Valuation</a></li>
-            <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Investment Advice</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <h3>Contact</h3>
-          <ul class="footer-contact">
-            <li>
-              <i class="bi bi-geo-alt" aria-hidden="true"></i>
-              <span>Chabahil Chowk, Ring Road<br>Kathmandu 44600, Nepal</span>
-            </li>
-            <li>
-              <i class="bi bi-telephone" aria-hidden="true"></i>
-              <a href="tel:<?php echo esc_attr( preg_replace( '/\\s+/', '', y_site( 'landline' ) ) ); ?>"><?php echo esc_html( y_site( 'landline' ) ); ?></a>
-            </li>
-            <li>
-              <i class="bi bi-whatsapp" aria-hidden="true"></i>
-              <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" target="_blank" rel="noopener"><?php echo esc_html( y_site( 'phone' ) ); ?></a>
-            </li>
-            <li>
-              <i class="bi bi-envelope" aria-hidden="true"></i>
-              <a href="mailto:<?php echo esc_attr( y_site( 'email' ) ); ?>"><?php echo esc_html( y_site( 'email' ) ); ?></a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        <div class="row align-items-center g-3">
-          <div class="col-lg-6">
-            <p class="mb-0">&copy; 2026 Yadukul Real Estate &amp; Construction Pvt. Ltd. All Rights Reserved.</p>
-          </div>
-          <div class="col-lg-6">
-            <div class="footer-legal justify-content-lg-end">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms &amp; Conditions</a>
-              <span class="d-flex align-items-center gap-2">
-                <button type="button" class="lang-btn active" data-lang="en">English</button>
-                <span aria-hidden="true">|</span>
-                <button type="button" class="lang-btn" data-lang="np">नेपाली</button>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- Floating quick actions -->
-  <div class="floating-actions">
-    <a href="https://wa.me/<?php echo esc_attr( y_site( 'whatsapp' ) ); ?>" class="float-btn float-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-      <i class="bi bi-whatsapp" aria-hidden="true"></i>
-    </a>
-    <a href="tel:<?php echo esc_attr( y_site( 'phone_raw' ) ); ?>" class="float-btn float-call" aria-label="Call us now">
-      <i class="bi bi-telephone-fill" aria-hidden="true"></i>
-    </a>
-    <a href="#" class="float-btn float-top" id="backToTop" aria-label="Back to top">
-      <i class="bi bi-arrow-up" aria-hidden="true"></i>
-    </a>
-  </div>
-  <?php wp_footer(); ?>
-</body>
-</html>
+<?php get_footer(); ?>

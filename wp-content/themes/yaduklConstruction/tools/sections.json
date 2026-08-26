@@ -1,0 +1,459 @@
+{
+ "page-rent.php": {
+  "cat_eyebrow": "Rental Categories",
+  "cat_title": "What Would You Like to Rent?",
+  "cat_sub": "Five rental categories, each managed by a dedicated advisor.",
+  "cat_cards": [
+   {
+    "number_label": "",
+    "icon": "bi-house-heart",
+    "title": "House Rent",
+    "text": "Family homes, duplexes and bungalows with parking, from 1 BHK flats to full buildings.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-map",
+    "title": "Land Rent",
+    "text": "Open land for parking yards, nurseries, storage, events and agricultural use.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-building",
+    "title": "Office Rent",
+    "text": "Furnished and bare-shell office floors with lift, backup power and parking.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-shop",
+    "title": "Shop Rent",
+    "text": "Ground floor retail units on main roads with strong footfall and display frontage.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-boxes",
+    "title": "Commercial Space",
+    "text": "Warehouses, showrooms, restaurants and full commercial buildings.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-file-earmark-text",
+    "title": "Rental Agreements",
+    "text": "We draft the agreement, verify the landlord and handle handover documentation.",
+    "image_url": "",
+    "url": ""
+   }
+  ],
+  "list_eyebrow": "Available Now",
+  "list_title": "Rental Properties",
+  "list_sub": "Current rental listings with monthly rent shown.",
+  "how_eyebrow": "How It Works",
+  "how_title": "Renting With Yadukul",
+  "how_sub": "Four steps from shortlist to keys in hand.",
+  "how_cards": [
+   {
+    "number_label": "01",
+    "icon": "bi-chat-dots",
+    "title": "Tell Us Your Need",
+    "text": "Share your budget, preferred area and move-in date.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "02",
+    "icon": "bi-list-check",
+    "title": "Get a Shortlist",
+    "text": "We send verified options that match — no time wasted on unavailable listings.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "03",
+    "icon": "bi-door-open",
+    "title": "Visit & Decide",
+    "text": "We arrange the visits and negotiate the rent on your behalf.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "04",
+    "icon": "bi-key",
+    "title": "Agreement & Handover",
+    "text": "We prepare the rental agreement and complete the handover.",
+    "image_url": "",
+    "url": ""
+   }
+  ],
+  "cta_title": "Have a Property to Rent Out?",
+  "cta_text": "List it with us free of charge. We screen tenants, handle the paperwork and manage the handover.",
+  "cta_btn_text": "List Your Property",
+  "cta_btn_url": "/contact/"
+ },
+ "page-construction.php": {
+  "serv_eyebrow": "What We Build",
+  "serv_title": "Construction Services",
+  "serv_sub": "Four contract types, each with a clear scope, timeline and payment schedule.",
+  "why_eyebrow": "Why Build With Us",
+  "why_title": "No Surprises Between Estimate and Handover",
+  "why_sub": "Most construction disputes in Nepal start with an unclear scope. We begin with a detailed BOQ, agree a payment schedule tied to milestones, and give you a weekly progress report with photos — so what you approved is what gets built.",
+  "proc_eyebrow": "How We Work",
+  "proc_title": "Our Construction Process",
+  "proc_sub": "Six stages, each signed off before the next begins.",
+  "proc_cards": [
+   {
+    "number_label": "01",
+    "icon": "bi-chat-square-text",
+    "title": "Consultation",
+    "text": "We visit the site, understand your requirement and check what the bylaws allow.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "02",
+    "icon": "bi-pencil-square",
+    "title": "Design",
+    "text": "Architectural drawings and 3D views, revised until the layout works for you.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "03",
+    "icon": "bi-calculator",
+    "title": "Estimation",
+    "text": "Detailed BOQ and cost estimate with material specifications, item by item.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "04",
+    "icon": "bi-file-earmark-check",
+    "title": "Approval",
+    "text": "We prepare and follow up the municipal building permit on your behalf.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "05",
+    "icon": "bi-bricks",
+    "title": "Construction",
+    "text": "Structure, masonry, services and finishing, supervised by our site engineer.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "06",
+    "icon": "bi-key",
+    "title": "Handover",
+    "text": "Final inspection, snag list clearance, documents and keys — then a year of defect cover.",
+    "image_url": "",
+    "url": ""
+   }
+  ],
+  "gal_eyebrow": "Our Work",
+  "gal_title": "Project Showcase",
+  "gal_sub": "A selection of recently completed and ongoing sites.",
+  "gal_cards": [
+   {
+    "number_label": "",
+    "icon": "",
+    "title": "Private Residence, Bhaisepati",
+    "text": "Turnkey · 2,850 sq.ft · completed 2025",
+    "image_url": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "",
+    "title": "Office Block, Naxal",
+    "text": "Commercial · 5 floors · completed 2024",
+    "image_url": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "",
+    "title": "Tokha Residency",
+    "text": "RCC frame · ongoing",
+    "image_url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "",
+    "title": "Duplex, Imadol",
+    "text": "Residential · completed 2025",
+    "image_url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "",
+    "title": "Balkot Twin Houses",
+    "text": "Finishing · ongoing",
+    "image_url": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80",
+    "url": ""
+   }
+  ],
+  "cta_title": "Start Your Construction Project",
+  "cta_text": "Send us your plot details and we will come back with an indicative cost and timeline.",
+  "cta_btn_text": "Get a Free Estimate",
+  "cta_btn_url": "/contact/",
+  "whyb_eyebrow": "Why Build With Us",
+  "whyb_title": "No Surprises Between Estimate and Handover",
+  "whyb_sub": "Most construction disputes in Nepal start with an unclear scope. We begin with a detailed BOQ, agree a payment schedule tied to milestones, and give you a weekly progress report with photos — so what you approved is what gets built.",
+  "whyb_image_url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+  "whyb_badge_number": "50+",
+  "whyb_badge_label": "Projects Completed",
+  "whyb_list": [
+   {
+    "text": "Itemised BOQ before work starts"
+   },
+   {
+    "text": "Nepal Building Code compliant RCC design"
+   },
+   {
+    "text": "Milestone-linked payment schedule"
+   },
+   {
+    "text": "Weekly site report with photographs"
+   },
+   {
+    "text": "One year defect liability after handover"
+   }
+  ],
+  "whyb_btn_text": "Request an Estimate",
+  "whyb_btn_url": "/contact/",
+  "stats_band": [
+   {
+    "number": "50",
+    "suffix": "+",
+    "label": "Projects Completed"
+   },
+   {
+    "number": "180",
+    "suffix": "k",
+    "label": "Sq. Ft. Built"
+   },
+   {
+    "number": "12",
+    "suffix": "",
+    "label": "Engineers & Supervisors"
+   },
+   {
+    "number": "98",
+    "suffix": "%",
+    "label": "On-Time Handover"
+   }
+  ]
+ },
+ "page-engineering.php": {
+  "serv_eyebrow": "Our Expertise",
+  "serv_title": "Engineering Services",
+  "serv_sub": "Everything you need between owning a plot and starting construction.",
+  "proc_eyebrow": "Design Process",
+  "proc_title": "Drawings You Can Actually Build From",
+  "proc_sub": "Because our engineers also supervise construction, the drawings we hand over are detailed enough for the site — not just enough for the permit file. That single difference removes most of the rework and cost escalation owners run into halfway through a build.",
+  "deliv_eyebrow": "Deliverables",
+  "deliv_title": "What You Receive",
+  "deliv_sub": "A complete, buildable document set — yours to keep, whoever builds it.",
+  "deliv_cards": [
+   {
+    "number_label": "",
+    "icon": "bi-file-earmark-richtext",
+    "title": "Architectural Set",
+    "text": "Plans, elevations, sections, door-window schedule and detail drawings.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-bezier2",
+    "title": "Structural Set",
+    "text": "Foundation, column, beam and slab drawings with a signed analysis report.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-table",
+    "title": "BOQ & Estimate",
+    "text": "Item-wise quantities, rate analysis and a total project cost estimate.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-stamp",
+    "title": "Permit File",
+    "text": "All municipal submission documents, prepared, submitted and followed up.",
+    "image_url": "",
+    "url": ""
+   }
+  ],
+  "cta_title": "Need Engineering Support?",
+  "cta_text": "Share your plot size, location and what you want to build — we will tell you what is possible and what it costs.",
+  "cta_btn_text": "Talk to an Engineer",
+  "cta_btn_url": "/contact/",
+  "proc2_eyebrow": "Design Process",
+  "proc2_title": "Drawings You Can Actually Build From",
+  "proc2_sub": "Because our engineers also supervise construction, the drawings we hand over are detailed enough for the site — not just enough for the permit file. That single difference removes most of the rework and cost escalation owners run into halfway through a build.",
+  "proc2_image_url": "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1200&q=80",
+  "proc2_badge_number": "12",
+  "proc2_badge_label": "Licensed Engineers",
+  "proc2_list": [
+   {
+    "text": "Site visit and bylaw check before the first sketch"
+   },
+   {
+    "text": "Two rounds of layout revisions included"
+   },
+   {
+    "text": "3D views before the design is frozen"
+   },
+   {
+    "text": "Structural drawings with full reinforcement detail"
+   },
+   {
+    "text": "Soft and printed copies for the municipality and site"
+   }
+  ],
+  "proc2_btn_text": "Discuss Your Drawing",
+  "proc2_btn_url": "/contact/"
+ },
+ "page-contact.php": {
+  "info_eyebrow": "Contact Information",
+  "map_eyebrow": "Visit Us",
+  "map_title": "Find Our Office",
+  "map_sub": "Chabahil Chowk, Ring Road, Kathmandu — parking available on site.",
+  "cta_title": "",
+  "cta_text": "A Nepal-based property and construction company delivering land, houses, commercial spaces, engineering design and turnkey construction under one roof — with transparent advice at every step.",
+  "cta_btn_text": "",
+  "cta_btn_url": "/contact/",
+  "info_sub": "Visit the office, call us, or send a message — whichever is easiest.",
+  "form_sub": "Fill in the form and the right advisor or engineer will get back to you.",
+  "addr_title": "Office Address",
+  "hours_title": "Office Hours",
+  "service_options": [
+   {
+    "label": "Buy Land"
+   },
+   {
+    "label": "Buy a House or Apartment"
+   },
+   {
+    "label": "Sell My Property"
+   },
+   {
+    "label": "Rent a Property"
+   },
+   {
+    "label": "Land Plotting Project"
+   },
+   {
+    "label": "Construction Services"
+   },
+   {
+    "label": "Engineering & Design"
+   },
+   {
+    "label": "Property Consultancy / Valuation"
+   }
+  ],
+  "form_success": "Thank you for reaching out — your message has been received. Our team will contact you within one working day.",
+  "form_submit": "Send Message",
+  "map_caption": "Chabahil Chowk, Ring Road, Kathmandu — parking available on site.",
+  "whatsapp_note": "Quick replies, 9 AM – 8 PM",
+  "lb_name": "Full Name",
+  "er_name": "Please enter your name.",
+  "lb_phone": "Phone Number",
+  "er_phone": "Please enter a valid phone number.",
+  "lb_email": "Email Address",
+  "er_email": "Please enter a valid email address.",
+  "lb_service": "Service",
+  "ph_service": "Select a service",
+  "er_service": "Please choose a service.",
+  "lb_message": "Message",
+  "er_message": "Please write a short message.",
+  "ci_phone": "Phone",
+  "ci_whatsapp": "WhatsApp",
+  "ci_email": "Email",
+  "q_call": "Call Us",
+  "q_whatsapp": "Chat on WhatsApp",
+  "q_email": "Email Us"
+ },
+ "page-about.php": {
+  "val_eyebrow": "What We Stand For",
+  "val_title": "Our Values",
+  "val_sub": "Four commitments that shape how we work with every client.",
+  "why_eyebrow": "Our Strength",
+  "why_title": "Why Choose Us?",
+  "why_sub": "The reasons clients give when they refer us to someone else.",
+  "why_cards": [
+   {
+    "number_label": "",
+    "icon": "bi-patch-check",
+    "title": "01 — Trusted Experience",
+    "text": "Professional property and construction support since 2015.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-file-earmark-check",
+    "title": "02 — Verified Properties",
+    "text": "Documents checked and boundaries confirmed before listing.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-diagram-2",
+    "title": "03 — Complete Solutions",
+    "text": "Property, engineering and construction handled by one team.",
+    "image_url": "",
+    "url": ""
+   },
+   {
+    "number_label": "",
+    "icon": "bi-headset",
+    "title": "04 — Customer Focused",
+    "text": "Transparent communication and a named contact throughout.",
+    "image_url": "",
+    "url": ""
+   }
+  ],
+  "team_eyebrow": "Our People",
+  "team_title": "Meet Our Team",
+  "team_sub": "Property advisors and licensed engineers who work on your project directly.",
+  "cta_title": "Let's Talk About Your Property",
+  "cta_text": "Whether you are buying, selling, renting or building — start with a free conversation.",
+  "cta_btn_text": "Contact Our Team",
+  "cta_btn_url": "/contact/"
+ },
+ "page-land-plotting.php": {
+  "map_eyebrow": "Find Us On The Map",
+  "map_title": "Project Location Map",
+  "map_sub": "Yadukul Green Valley, Budhanilkantha–11, Kathmandu."
+ },
+ "page-properties.php": {
+  "empty_title": "No properties match your filters",
+  "empty_text": "Try widening the price range or clearing a filter to see more listings.",
+  "flt_title": "Filter Properties",
+  "flt_purpose": "Purpose",
+  "flt_type": "Property Type",
+  "flt_location": "Location",
+  "flt_price": "Price Range",
+  "flt_area": "Area",
+  "flt_sort": "Sort",
+  "flt_note": "Rental listings show a monthly price."
+ }
+}

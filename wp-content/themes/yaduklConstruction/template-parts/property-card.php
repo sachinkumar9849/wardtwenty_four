@@ -42,12 +42,12 @@ if ( ! $badge ) {
         <p class="property-location"><i class="bi bi-geo-alt" aria-hidden="true"></i><?php echo esc_html( $loc ); ?></p>
       <?php endif; ?>
       <div class="property-meta">
-        <?php if ( $area ) : ?><div><i class="bi bi-bounding-box" aria-hidden="true"></i>Area<strong><?php echo esc_html( $area ); ?></strong></div><?php endif; ?>
-        <?php if ( $road ) : ?><div><i class="bi bi-signpost-2" aria-hidden="true"></i>Road<strong><?php echo esc_html( $road ); ?></strong></div><?php endif; ?>
+        <?php if ( $area ) : ?><div><i class="bi bi-bounding-box" aria-hidden="true"></i><?php y_uix( 'sp_area', 'Area' ); ?><strong><?php echo esc_html( $area ); ?></strong></div><?php endif; ?>
+        <?php if ( $road ) : ?><div><i class="bi bi-signpost-2" aria-hidden="true"></i><?php y_uix( 'sp_road', 'Road' ); ?><strong><?php echo esc_html( $road ); ?></strong></div><?php endif; ?>
       </div>
       <div class="property-foot">
         <p class="property-price mb-0"><?php echo esc_html( $price ); ?><?php if ( $note ) : ?><small><?php echo esc_html( $note ); ?></small><?php endif; ?></p>
-        <a href="<?php the_permalink(); ?>" class="btn-view">View Details</a>
+        <a href="<?php the_permalink(); ?>" class="btn-view"><?php y_lbl( 'view_details' ); ?></a>
       </div>
     </div>
   </article>

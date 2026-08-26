@@ -72,6 +72,34 @@ if ( $p && $about ) {
 	echo "  about: " . count( $about ) . " intro/mission fields\n";
 }
 
+/* --- Branding, navigation and footer (Site Settings) --- */
+$brand = $load( 'branding.json' );
+if ( $brand ) {
+	foreach ( $brand as $k => $v ) { update_field( $k, $v, 'option' ); }
+	echo "  site settings: " . count( $brand ) . " branding/nav/footer fields\n";
+}
+
+/* --- Search-engine descriptions --- */
+$seo = $load( 'seo.json' );
+foreach ( $seo as $slug => $meta ) {
+	if ( $slug === '' ) {
+		update_field( 'home_meta_description', $meta['description'], 'option' );
+		continue;
+	}
+	$sp = get_page_by_path( $slug );
+	if ( $sp ) { update_field( 'meta_description', $meta['description'], $sp->ID ); }
+}
+if ( $seo ) { echo "  seo descriptions: " . count( $seo ) . "\n"; }
+
+/* --- Generic page sections (rent, construction, engineering, contact, about...) --- */
+foreach ( $load( 'sections.json' ) as $tpl => $fields ) {
+	$slug = str_replace( array( 'page-', '.php' ), '', $tpl );
+	$sp   = get_page_by_path( $slug );
+	if ( ! $sp || ! $fields ) { continue; }
+	foreach ( $fields as $k => $v ) { update_field( $k, $v, $sp->ID ); }
+	echo "  $slug: " . count( $fields ) . " section fields\n";
+}
+
 /* --- Buildings page sections --- */
 $b_page = get_page_by_path( 'buildings' );
 $b_data = $load( 'buildings.json' );

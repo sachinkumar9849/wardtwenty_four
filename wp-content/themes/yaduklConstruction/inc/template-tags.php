@@ -167,3 +167,174 @@ function y_page_hero_image() {
 	}
 	return (string) $v;
 }
+
+/* -------------------------------------------------------------
+ * Branding / navigation helpers
+ * ---------------------------------------------------------- */
+
+/** Logo URL: the image field, then the URL field, then the bundled SVG. */
+function y_logo() {
+	$v = y_site( 'logo' );
+	if ( ! $v ) {
+		$v = y_site( 'logo_url' );
+	}
+	return $v ? $v : get_template_directory_uri() . '/assets/images/logo.svg';
+}
+
+/** Brand name shown next to the logo. */
+function y_brand() {
+	return y_site( 'brand_name', 'YADUKUL' );
+}
+
+/** Small line under the brand name. */
+function y_brand_tagline() {
+	return y_site( 'brand_tagline', 'Real Estate & Construction' );
+}
+
+/** Resolve a stored link: absolute, anchor and mailto/tel pass through. */
+function y_link( $url, $fallback = '/' ) {
+	$u = $url ? $url : $fallback;
+	if ( preg_match( '#^(https?:|//|#|mailto:|tel:)#', $u ) ) {
+		return $u;
+	}
+	return home_url( $u );
+}
+
+/** True when $url points at the page currently being viewed. */
+function y_is_current( $url ) {
+	if ( ! $url || strpos( $url, '#' ) === 0 ) {
+		return false;
+	}
+	$target  = untrailingslashit( wp_parse_url( y_link( $url ), PHP_URL_PATH ) );
+	$current = untrailingslashit( wp_parse_url( home_url( add_query_arg( array() ) ), PHP_URL_PATH ) );
+	if ( $target === '' ) {
+		return is_front_page();
+	}
+	return $target === $current;
+}
+
+/** Main menu rows, falling back to the site's own pages. */
+function y_nav_items() {
+	$rows = function_exists( 'get_field' ) ? get_field( 'nav_items', 'option' ) : null;
+	if ( is_array( $rows ) && $rows ) {
+		return $rows;
+	}
+	return array(
+		array( 'label' => 'Home',          'label_np' => 'गृहपृष्ठ',      'url' => '/' ),
+		array( 'label' => 'Properties',    'label_np' => 'सम्पत्ति',       'url' => '/properties/' ),
+		array( 'label' => 'Land Plotting', 'label_np' => 'जग्गा प्लटिङ',   'url' => '/land-plotting/' ),
+		array( 'label' => 'Buildings',     'label_np' => 'भवन',           'url' => '/buildings/' ),
+		array( 'label' => 'Rent',          'label_np' => 'भाडा',          'url' => '/rent/' ),
+		array( 'label' => 'Construction',  'label_np' => 'निर्माण',        'url' => '/construction/' ),
+		array( 'label' => 'Engineering',   'label_np' => 'इन्जिनियरिङ',    'url' => '/engineering/' ),
+		array( 'label' => 'About Us',      'label_np' => 'हाम्रो बारेमा',   'url' => '/about/' ),
+		array( 'label' => 'Contact',       'label_np' => 'सम्पर्क',        'url' => '/contact/' ),
+	);
+}
+
+/** Repeater rows from Site Settings (options), always an array. */
+function y_get_rows( $name ) {
+	if ( function_exists( 'get_field' ) ) {
+		$rows = get_field( $name, 'option' );
+		if ( is_array( $rows ) ) {
+			return $rows;
+		}
+	}
+	return array();
+}
+
+/** Meta description for the current view, or '' when there is none. */
+function y_meta_description() {
+	$d = '';
+	if ( is_front_page() ) {
+		$d = function_exists( 'get_field' ) ? (string) get_field( 'home_meta_description', 'option' ) : '';
+	} elseif ( is_singular() ) {
+		$d = function_exists( 'get_field' ) ? (string) get_field( 'meta_description', get_the_ID() ) : '';
+		if ( ! $d ) {
+			$d = get_the_excerpt();
+		}
+	}
+	if ( ! $d ) {
+		$d = get_bloginfo( 'description' );
+	}
+	return trim( wp_strip_all_tags( $d ) );
+}
+
+/* -------------------------------------------------------------
+ * Reusable UI labels
+ * ---------------------------------------------------------- */
+
+/** A shared button/UI label from Site Settings, with a built-in default. */
+function y_label( $name, $default = '' ) {
+	$v = function_exists( 'get_field' ) ? get_field( 'lbl_' . $name, 'option' ) : '';
+	if ( $v ) {
+		return $v;
+	}
+	$defaults = array(
+		'call' => 'Call Now', 'whatsapp' => 'WhatsApp', 'enquiry' => 'Send Enquiry',
+		'visit' => 'Book a Site Visit', 'view_details' => 'View Details', 'view_project' => 'View Project',
+		'explore' => 'Explore', 'home' => 'Home', 'apply' => 'Apply Filters', 'reset' => 'Reset',
+		'search' => 'Search Property', 'found' => 'properties found', 'prev' => 'Previous',
+		'next' => 'Next', 'zoom' => 'Click to enlarge',
+	);
+	if ( isset( $defaults[ $name ] ) ) {
+		return $defaults[ $name ];
+	}
+	return $default;
+}
+
+/** Echo a shared label, escaped. */
+function y_lbl( $name, $default = '' ) {
+	echo esc_html( y_label( $name, $default ) );
+}
+
+/** Budget / area / sort options from Site Settings, with sensible defaults. */
+function y_ranges( $which ) {
+	$rows = function_exists( 'get_field' ) ? get_field( $which, 'option' ) : null;
+	if ( is_array( $rows ) && $rows ) {
+		return $rows;
+	}
+	$d = array(
+		'price_ranges' => array(
+			array( 'label' => 'Under 50 Lakhs',      'value' => '0-5000000' ),
+			array( 'label' => '50 Lakhs – 1 Crore',  'value' => '5000000-10000000' ),
+			array( 'label' => '1 – 2 Crore',         'value' => '10000000-20000000' ),
+			array( 'label' => '2 Crore+',            'value' => '20000000-999999999' ),
+		),
+		'area_ranges' => array(
+			array( 'label' => 'Under 1,000 sq.ft',     'value' => '0-1000' ),
+			array( 'label' => '1,000 – 2,500 sq.ft',   'value' => '1000-2500' ),
+			array( 'label' => '2,500 – 5,000 sq.ft',   'value' => '2500-5000' ),
+			array( 'label' => '5,000 sq.ft+',          'value' => '5000-999999' ),
+		),
+		'sort_options' => array(
+			array( 'label' => 'Newest First' ),
+			array( 'label' => 'Price: Low to High' ),
+			array( 'label' => 'Price: High to Low' ),
+		),
+	);
+	return isset( $d[ $which ] ) ? $d[ $which ] : array();
+}
+
+/** A shared heading/table label from Site Settings, with a default. */
+function y_ui( $name, $default ) {
+	$v = function_exists( 'get_field' ) ? get_field( $name, 'option' ) : '';
+	return $v ? $v : $default;
+}
+
+/** Echo a shared heading/table label. */
+function y_uix( $name, $default ) {
+	echo esc_html( y_ui( $name, $default ) );
+}
+
+/** A per-page button label with a default. */
+function y_btn( $name, $default ) {
+	$v = function_exists( 'get_field' ) ? get_field( $name . '_text' ) : '';
+	return $v ? $v : $default;
+}
+
+/** A per-page button link with a default. */
+function y_btn_url( $name, $default = '/contact/' ) {
+	$v = function_exists( 'get_field' ) ? get_field( $name . '_url' ) : '';
+	return y_link( $v ? $v : $default );
+}

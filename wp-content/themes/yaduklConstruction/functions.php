@@ -10,6 +10,8 @@ require_once get_template_directory() . '/inc/options-page.php';
 require_once get_template_directory() . '/inc/acf-fields.php';
 require_once get_template_directory() . '/inc/acf-site.php';
 require_once get_template_directory() . '/inc/acf-pages.php';
+require_once get_template_directory() . '/inc/acf-sections.php';
+require_once get_template_directory() . '/inc/acf-labels.php';
 
 function yadukul_setup() {
 	add_theme_support( 'title-tag' );
