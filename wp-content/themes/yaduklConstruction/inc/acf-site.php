@@ -101,6 +101,7 @@ acf_add_local_field_group( array(
 		array( 'key' => 'd_road_f',  'label' => 'Road (spec)',      'name' => 'road_full',       'type' => 'text' ),
 		array( 'key' => 'd_facing',  'label' => 'Facing',           'name' => 'facing',          'type' => 'text' ),
 		array( 'key' => 'd_pid',     'label' => 'Property ID',      'name' => 'property_id',     'type' => 'text', 'instructions' => 'e.g. YK-LND-0142' ),
+		array( 'key' => 'd_map',     'label' => 'Map Embed URL',    'name' => 'map_url',         'type' => 'text', 'instructions' => 'Optional. Google Maps &rarr; Share &rarr; Embed a map, and paste the src="..." link. Leave blank to place the map from the address above.' ),
 		array( 'key' => 'd_gallery', 'label' => 'Photo Gallery',    'name' => 'gallery',         'type' => 'gallery', 'return_format' => 'url' ),
 		array( 'key' => 'd_gal_urls','label' => 'Gallery Image URLs','name' => 'gallery_urls',   'type' => 'repeater', 'layout' => 'table', 'button_label' => 'Add image',
 			'instructions' => 'Used when no images are chosen above.',

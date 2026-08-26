@@ -141,6 +141,29 @@ function y_property_gallery( $post_id ) {
 	return $out;
 }
 
+/** Map embed URL for a property: its own field, else derived from its address. */
+function y_property_map_url( $post_id ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return '';
+	}
+	$url = get_field( 'map_url', $post_id );
+	if ( $url ) {
+		return $url;
+	}
+	$place = get_field( 'full_address', $post_id );
+	if ( ! $place ) {
+		$place = get_field( 'location_text', $post_id );
+	}
+	if ( ! $place ) {
+		return '';
+	}
+	// Qualify with the country so place names resolve inside Nepal.
+	if ( stripos( $place, 'nepal' ) === false ) {
+		$place .= ', Nepal';
+	}
+	return 'https://www.google.com/maps?q=' . rawurlencode( $place ) . '&output=embed';
+}
+
 /* -------------------------------------------------------------
  * Page banner helpers (Page Banner field group)
  * ---------------------------------------------------------- */

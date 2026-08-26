@@ -8,6 +8,7 @@ while ( have_posts() ) : the_post();
 	$badge    = get_field( 'badge' ) ? get_field( 'badge' ) : ( $purpose ? 'For ' . $purpose : '' );
 	$amen     = get_field( 'amenities' );
 	$phone_r  = y_site( 'phone_raw' );
+	$map      = y_property_map_url( $pid );
 	$wa       = y_site( 'whatsapp' );
 ?>
     <section class="page-hero" style="padding-bottom:3.5rem">
@@ -78,12 +79,12 @@ while ( have_posts() ) : the_post();
               </div>
             <?php endif; ?>
 
-            <?php if ( y_site( 'map_url' ) ) : ?>
+            <?php if ( $map ) : ?>
             <div class="mt-5">
               <h2 class="section-title h3"><?php y_uix( 'sh_location', 'Location' ); ?></h2>
               <div class="divider-gold mb-4"></div>
               <div class="map-embed">
-                <iframe src="<?php echo esc_url( y_site( 'map_url' ) ); ?>" width="100%" height="380" style="border:0" allowfullscreen loading="lazy" title="Property location"></iframe>
+                <iframe src="<?php echo esc_url( $map ); ?>" width="100%" height="380" style="border:0" allowfullscreen loading="lazy" title="Property location"></iframe>
               </div>
             </div>
             <?php endif; ?>
