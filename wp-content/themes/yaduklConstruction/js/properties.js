@@ -20,6 +20,14 @@
     var countEl   = document.getElementById('resultCount');
     var emptyEl   = document.getElementById('noResults');
     var resetBtn  = document.getElementById('resetFilters');
+    var pagerNav  = document.getElementById('propertyPager');
+    var pagerList = document.getElementById('propertyPagination');
+    var perPage   = parseInt(grid.dataset.perPage, 10) || 9;
+    var prevLabel = (pagerNav && pagerNav.dataset.prev) || 'Previous';
+    var nextLabel = (pagerNav && pagerNav.dataset.next) || 'Next';
+    var matched   = [];
+    var page      = 1;
+    var firstRender = true;
 
     function checkedValues(name) {
       return Array.prototype.slice
@@ -41,23 +49,110 @@
       var location  = form.elements.location ? form.elements.location.value : '';
       var price     = form.elements.price ? form.elements.price.value : '';
       var area      = form.elements.area ? form.elements.area.value : '';
-      var visible   = 0;
 
-      cards.forEach(function (card) {
-        var wrapper = card.closest('.property-col') || card;
-        var ok =
-          (!purposes.length || purposes.indexOf(card.dataset.purpose) > -1) &&
-          (!types.length    || types.indexOf(card.dataset.type) > -1) &&
-          (!location        || card.dataset.location === location) &&
-          inRange(parseInt(card.dataset.price, 10), price) &&
-          inRange(parseInt(card.dataset.area, 10), area);
-
-        wrapper.hidden = !ok;
-        if (ok) visible++;
+      matched = cards.filter(function (card) {
+        return (!purposes.length || purposes.indexOf(card.dataset.purpose) > -1) &&
+               (!types.length    || types.indexOf(card.dataset.type) > -1) &&
+               (!location        || card.dataset.location === location) &&
+               inRange(parseInt(card.dataset.price, 10), price) &&
+               inRange(parseInt(card.dataset.area, 10), area);
       });
 
-      if (countEl) countEl.textContent = visible;
-      if (emptyEl) emptyEl.hidden = visible !== 0;
+      if (countEl) countEl.textContent = matched.length;
+      if (emptyEl) emptyEl.hidden = matched.length !== 0;
+
+      page = 1;
+      showPage();
+    }
+
+    /* ---- Pagination -------------------------------------------------------
+       Every listing is in the HTML already (good for SEO, and the filters need
+       the whole set), so paging happens here: show one slice, hide the rest. */
+
+    function showPage() {
+      var pages = Math.max(1, Math.ceil(matched.length / perPage));
+      if (page > pages) { page = pages; }
+
+      cards.forEach(function (card) { card.hidden = true; });
+      matched.slice((page - 1) * perPage, page * perPage).forEach(function (card) {
+        card.hidden = false;
+        // Cards start at opacity 0 and are revealed by the scroll observer in
+        // main.js. One that was hidden never intersected, so reveal it here or
+        // it would page in blank. The first render keeps the entrance animation.
+        if (!firstRender) { card.classList.add('is-visible'); }
+      });
+
+      firstRender = false;
+      buildPager(pages);
+    }
+
+    function goToPage(n) {
+      page = n;
+      showPage();
+      var top = grid.getBoundingClientRect().top + window.pageYOffset - 110;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+
+    function pagerItem(label, target, disabled, active) {
+      var li = document.createElement('li');
+      li.className = 'page-item' + (disabled ? ' disabled' : '') + (active ? ' active' : '');
+      if (active) { li.setAttribute('aria-current', 'page'); }
+
+      var a = document.createElement('a');
+      a.className = 'page-link';
+      a.href = '#';
+      a.textContent = label;
+      if (disabled) { a.setAttribute('tabindex', '-1'); a.setAttribute('aria-disabled', 'true'); }
+
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (!disabled && !active) { goToPage(target); }
+      });
+
+      li.appendChild(a);
+      return li;
+    }
+
+    function pagerGap() {
+      var li = document.createElement('li');
+      li.className = 'page-item disabled';
+      li.innerHTML = '<span class="page-link">&hellip;</span>';
+      return li;
+    }
+
+    /* Page numbers: all of them while they fit, otherwise first/last plus a
+       window around the current page. */
+    function pageNumbers(pages) {
+      if (pages <= 7) {
+        var all = [];
+        for (var i = 1; i <= pages; i++) { all.push(i); }
+        return all;
+      }
+      var out = [1];
+      var from = Math.max(2, page - 1);
+      var to   = Math.min(pages - 1, page + 1);
+      if (from > 2) { out.push('gap'); }
+      for (var n = from; n <= to; n++) { out.push(n); }
+      if (to < pages - 1) { out.push('gap'); }
+      out.push(pages);
+      return out;
+    }
+
+    function buildPager(pages) {
+      if (!pagerList) { return; }
+      pagerList.innerHTML = '';
+
+      if (pages < 2) {
+        if (pagerNav) { pagerNav.hidden = true; }
+        return;
+      }
+      if (pagerNav) { pagerNav.hidden = false; }
+
+      pagerList.appendChild(pagerItem(prevLabel, page - 1, page === 1, false));
+      pageNumbers(pages).forEach(function (n) {
+        pagerList.appendChild(n === 'gap' ? pagerGap() : pagerItem(String(n), n, false, n === page));
+      });
+      pagerList.appendChild(pagerItem(nextLabel, page + 1, page === pages, false));
     }
 
     /* Read the query string handed over by the homepage search box */
@@ -93,6 +188,8 @@
         }
 
         sorted.forEach(function (card) { grid.appendChild(card); });
+        cards = sorted;          // keep the array in the order now on screen
+        applyFilters();          // re-slice page 1 from the new order
       });
     }
 

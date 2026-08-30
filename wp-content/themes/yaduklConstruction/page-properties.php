@@ -107,7 +107,7 @@
               </div>
             </div>
 
-            <div class="row g-4" id="propertyGrid">
+            <div class="row g-4" id="propertyGrid" data-per-page="9">
         <?php
         set_query_var( 'y_col_class', 'col-xl-4 col-md-6' );
         $args = array( 'post_type' => 'property', 'posts_per_page' => -1 );
@@ -135,14 +135,11 @@
               <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="btn btn-accent"><?php echo esc_html( y_btn( 'btn_req', 'Request a Property Search' ) ); ?></a>
             </div>
 
-            <nav class="mt-5" aria-label="Property pages">
-              <ul class="pagination justify-content-center">
-                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"><?php y_lbl( 'prev' ); ?></a></li>
-                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#"><?php y_lbl( 'next' ); ?></a></li>
-              </ul>
+            <?php /* Built by properties.js from whatever survives the filters. */ ?>
+            <nav class="mt-5" id="propertyPager" aria-label="Property pages" hidden
+                 data-prev="<?php echo esc_attr( y_label( 'prev' ) ); ?>"
+                 data-next="<?php echo esc_attr( y_label( 'next' ) ); ?>">
+              <ul class="pagination justify-content-center" id="propertyPagination"></ul>
             </nav>
           </div>
 
