@@ -170,5 +170,22 @@ while ( have_posts() ) : the_post();
     </section>
     <?php endif; ?>
 
+<?php if ( $main_img ) : ?>
+    <?php /* Enlarged photo. #galleryMainWrap above targets this modal. */ ?>
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0" style="border-radius:16px;overflow:hidden">
+          <div class="modal-header border-0">
+            <h2 class="modal-title h6" id="galleryModalLabel"><?php the_title(); ?></h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-0">
+            <img src="<?php echo esc_url( $main_img ); ?>" id="galleryModalImage" alt="<?php echo esc_attr( get_the_title() ); ?>" class="w-100">
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php endif; ?>
+
 <?php endwhile; ?>
 <?php get_footer(); ?>

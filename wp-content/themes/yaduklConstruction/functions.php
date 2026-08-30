@@ -38,8 +38,8 @@ function yadukul_assets() {
 	wp_enqueue_script( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), '5.3.3', true );
 	wp_enqueue_script( 'yadukul-main', $uri . '/js/main.js', array( 'bootstrap' ), $ver, true );
 
-	// properties.js only where the listing grid is used.
-	if ( is_page( array( 'properties', 'property-details' ) ) ) {
+	// properties.js: the listing grid, plus the gallery on a single property.
+	if ( is_page( array( 'properties', 'property-details' ) ) || is_singular( 'property' ) ) {
 		wp_enqueue_script( 'yadukul-properties', $uri . '/js/properties.js', array( 'bootstrap' ), $ver, true );
 	}
 }
