@@ -314,8 +314,15 @@ function y_lbl( $name, $default = '' ) {
 /** Budget / area / sort options from Site Settings, with sensible defaults. */
 function y_ranges( $which ) {
 	$rows = function_exists( 'get_field' ) ? get_field( $which, 'option' ) : null;
-	if ( is_array( $rows ) && $rows ) {
-		return $rows;
+	if ( is_array( $rows ) ) {
+		// Saving Site Settings can leave a blank repeater row behind. Those would
+		// render as empty <option>s and suppress the defaults below, so drop them.
+		$rows = array_filter( $rows, function ( $r ) {
+			return is_array( $r ) && ! empty( $r['label'] );
+		} );
+		if ( $rows ) {
+			return array_values( $rows );
+		}
 	}
 	$d = array(
 		'price_ranges' => array(
