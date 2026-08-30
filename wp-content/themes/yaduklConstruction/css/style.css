@@ -431,6 +431,16 @@ img { max-width: 100%; height: auto; background-color: var(--light); }
 .property-title { font-size: 1.16rem; margin-bottom: .5rem; }
 .property-title a { color: var(--primary); }
 .property-card:hover .property-title a { color: var(--accent); }
+
+/* Whole card is one click target: the title link is stretched over the card.
+   Anything sitting above it (the View Details button) is raised past it. */
+.property-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.property-foot .btn-view { position: relative; z-index: 2; }
 .property-location {
   display: flex; align-items: center; gap: .4rem;
   font-size: .88rem; color: var(--muted); margin-bottom: 1.1rem;
