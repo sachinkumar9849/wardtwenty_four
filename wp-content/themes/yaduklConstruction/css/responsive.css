@@ -174,6 +174,15 @@
   .brand-text small { font-size: .5rem; letter-spacing: .17em; }
   .section-title { font-size: clamp(1.55rem, 6.4vw, 1.95rem); }
   .btn { padding: .78rem 1.5rem; font-size: .88rem; }
+
+  /* A long property title would wrap the breadcrumb pill onto several lines. */
+  .page-hero .breadcrumb { font-size: .85rem; padding: .42rem .95rem; max-width: 100%; }
+  .page-hero .breadcrumb-item.active {
+    max-width: 14ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 /* ---------- Print --------------------------------------------------------- */

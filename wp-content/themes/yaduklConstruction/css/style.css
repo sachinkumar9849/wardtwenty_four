@@ -752,11 +752,38 @@ img { max-width: 100%; height: auto; background-color: var(--light); }
 .page-hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: .8rem; }
 .page-hero p { color: rgba(255,255,255,.78); max-width: 62ch; margin: 0; }
 
-.breadcrumb { margin-bottom: 1.1rem; font-size: .82rem; }
-.breadcrumb-item, .breadcrumb-item a { color: rgba(255,255,255,.68); }
+/* Breadcrumb: a frosted pill on the hero image so it reads over any photo.
+   Every inner page puts its breadcrumb inside .page-hero, so this covers all. */
+.page-hero .breadcrumb {
+  --bs-breadcrumb-divider: '\203A';          /* single chevron, not a slash */
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .1rem;
+  margin-bottom: 1.5rem;
+  padding: .5rem 1.15rem;
+  font-size: .95rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 14px rgba(0,0,0,.18);
+}
+.breadcrumb-item, .breadcrumb-item a {
+  color: rgba(255,255,255,.82);
+  transition: color var(--t);
+}
 .breadcrumb-item a:hover { color: var(--accent); }
-.breadcrumb-item.active { color: var(--accent); }
-.breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,.4); }
+.breadcrumb-item.active { color: var(--accent); font-weight: 600; }
+.breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255,255,255,.45);
+  font-size: 1.15em;
+  line-height: 1;
+  padding-right: .5rem;
+}
 
 /* 18. FILTER SIDEBAR ====================================================== */
 .filter-card {

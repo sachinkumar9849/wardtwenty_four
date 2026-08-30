@@ -39,7 +39,7 @@
           <h2 id="searchHeading"><?php y_text( 'search_title', 'Find Your Property' ); ?></h2>
           <p class="search-sub"><?php y_text( 'search_sub', 'Search from our latest properties' ); ?></p>
 
-          <form id="propertySearch" novalidate>
+          <form id="propertySearch" action="<?php echo esc_url( home_url( '/properties/' ) ); ?>" method="get" novalidate>
             <div class="row g-3 align-items-end">
 
               <div class="col-lg col-md-6">

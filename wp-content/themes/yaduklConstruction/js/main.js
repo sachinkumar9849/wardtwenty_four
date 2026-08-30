@@ -7,7 +7,7 @@
    4. Language toggle (UI only)
    5. Back-to-top button
    6. Form validation
-   7. Homepage property search -> properties.html
+   7. Homepage property search -> the Properties page
    8. Auto-close mobile menu
    ========================================================================== */
 (function () {
@@ -151,11 +151,15 @@
   });
 
   /* ---- 7. Homepage search ------------------------------------------------- */
-  /* Collects the search selections and hands them to properties.html,
-     where properties.js applies them as filters. */
+  /* Collects the search selections and hands them to the Properties page,
+     where properties.js applies them as filters. The destination comes from
+     the form's own action, so the page slug lives in one place (the template).
+     Without JS the form still submits normally to that same action. */
   var searchForm = document.getElementById('propertySearch');
   if (searchForm) {
     searchForm.addEventListener('submit', function (e) {
+      var target = searchForm.getAttribute('action');
+      if (!target) return;                 // let the browser handle it
       e.preventDefault();
       var params = new URLSearchParams();
       ['purpose', 'type', 'location', 'price'].forEach(function (key) {
@@ -163,7 +167,7 @@
         if (field && field.value) params.set(key, field.value);
       });
       var query = params.toString();
-      window.location.href = 'properties.html' + (query ? '?' + query : '');
+      window.location.href = target + (query ? '?' + query : '');
     });
   }
 
