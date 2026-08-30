@@ -7,7 +7,14 @@
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <?php // Favicon: Site Settings field, then a WordPress Site Icon, then the bundled default. ?>
+  <?php $y_fav = y_site( 'favicon' ); ?>
+  <?php if ( $y_fav ) : ?>
+  <link rel="icon" href="<?php echo esc_url( $y_fav ); ?>">
+  <link rel="apple-touch-icon" href="<?php echo esc_url( $y_fav ); ?>">
+  <?php elseif ( ! has_site_icon() ) : ?>
   <link rel="icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/favicon.svg" type="image/svg+xml">
+  <?php endif; ?>
   <?php $y_desc = y_meta_description(); if ( $y_desc ) : ?>
   <meta name="description" content="<?php echo esc_attr( $y_desc ); ?>">
   <meta property="og:title" content="<?php echo esc_attr( wp_get_document_title() ); ?>">

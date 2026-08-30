@@ -30,6 +30,7 @@ acf_add_local_field_group( array(
 		array( 'key' => 's_tabA', 'label' => 'Branding', 'type' => 'tab' ),
 		array( 'key' => 's_logo',     'label' => 'Logo',          'name' => 'logo',       'type' => 'image', 'return_format' => 'url', 'instructions' => 'Shown in the header and footer. SVG or PNG.' ),
 		array( 'key' => 's_logo_url', 'label' => 'Logo URL',      'name' => 'logo_url',   'type' => 'text', 'instructions' => 'Used when no logo is chosen above.' ),
+		array( 'key' => 's_favicon',  'label' => 'Favicon',       'name' => 'favicon',    'type' => 'image', 'return_format' => 'url', 'instructions' => 'The small icon in the browser tab. Square PNG, at least 512&times;512. Keep it simple &mdash; it is displayed very small.' ),
 		array( 'key' => 's_brand',    'label' => 'Brand Name',    'name' => 'brand_name', 'type' => 'text', 'instructions' => 'e.g. YADUKUL' ),
 		array( 'key' => 's_brand_t',  'label' => 'Brand Tagline', 'name' => 'brand_tagline', 'type' => 'text', 'instructions' => 'e.g. Real Estate & Construction' ),
 		array( 'key' => 's_cta_txt',  'label' => 'Header Button Text', 'name' => 'header_btn_text', 'type' => 'text' ),
