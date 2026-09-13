@@ -44,3 +44,8 @@ function yadukul_assets() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'yadukul_assets' );
+
+function remove_album_gallery_menu() {
+    remove_menu_page( 'edit.php?post_type=aigpl_gallery' );
+}
+add_action( 'admin_menu', 'remove_album_gallery_menu', 999 );
